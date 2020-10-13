@@ -16,7 +16,7 @@ Además conforme avance el desarrollo del mismo se pueden añadir más funcional
 
 ## Puesta a punto del ambiente de trabajo
 
-El ambiente de trabajo necesario para la asignatura y en el cual se va a implementar dicho proyecto se puede consultar en este [link](https://github.com/Carlossamu7/CC1-Proyecto/blob/main/docs/set-up.md).
+El ambiente de trabajo necesario para la asignatura y en el cual se va a implementar dicho proyecto se puede consultar en este [link](https://github.com/Carlossamu7/CC1-Proyecto/blob/master/docs/set-up.md).
 
 ## Licencia
 
