@@ -1,0 +1,4 @@
+---
+entidad:
+ - src/Alumno.py
+ - src/Asignatura.py
