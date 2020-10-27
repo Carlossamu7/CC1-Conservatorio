@@ -77,6 +77,21 @@ La herramienta de integración continua del proyecto va a ser [Travis CI](https:
 
 La gestión de logs se realizará usando la libreria `logging` de `Python`.
 
+## Historias de usuario
+
+Para cada microservicio se ha definido un *milestone*. El primer *milestone* es para el [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/issues?q=is%3Aopen+is%3Aissue+milestone%3AAdministrador) (de las asignaturas).
+- [[HU] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
+- [[HU] Como administrador quiero modificar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13)
+- [[HU] Como administrador quiero borrar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14)
+
+
+El segundo *milestone* es para los [Alumnos](https://github.com/Carlossamu7/CC1-Conservatorio/issues?q=is%3Aopen+is%3Aissue+milestone%3AAlumno).
+- [[HU] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
+- [[HU] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
+- [[HU] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
+- [[HU] Como alumno quiero consultar el horario de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18)
+- [[HU] Como alumno quiero consultar el aula de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19)
+
 ## Licencia
 
 Este proyecto está desarrollado bajo licencia [GNU General Public License v3.0](https://es.wikipedia.org/wiki/GNU_General_Public_License).
