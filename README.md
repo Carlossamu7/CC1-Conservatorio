@@ -27,6 +27,56 @@ En este proyecto hay dos grandes microservicios:
 
 ![](./docs/images/sem_02_03/CC-Arch.png)
 
+## Aspectos del proyecto
+
+##### Lenguaje
+
+Los servicios de la aplicación van a estar implementados en `Python3`. En concreto se va a dar mantenibilidad de las versiones `3.6`, `3.7` y `3.8` ([documentación de las versiones](https://www.python.org/doc/versions/)). El framework de comunicación que se va a usar para desarrollar las `API REST` es `Flask`.
+
+##### Entorno vitual
+
+El entorno virtual que se va a usar para las versiones mencionadas es el conocido `virtualenv` para `Python`.
+
+##### Base de datos
+
+Se usará la base de datos relacional PostgreSQL. Su uso en Python se hará a través de `peewee`.
+
+##### Herramienta de construcción
+
+Se ha valorado la opción de usar `Invoke` pero la opción final ha sido la herramienta clásica `Makefile`.
+
+```
+buildtool: Makefile
+```
+
+Con la siguiente orden se instalan las versiones de los paquetes que el proyecto necesita
+
+```
+make install
+```
+
+Básicamente lanzará la orden `pip3 install -r requirements.txt`, en donde las dependencias están en `requirements.txt`.
+
+Para ejecutar los test se usará `unittest` disponible en las distribuciones de `Python`. En el directorio `tests` de este repositorio se irán situando los diferentes programas de test y los podremos lanzar con
+
+```
+make test
+```
+
+Más adelante, cuando sea necesaria la limpieza de archivos generados podremos automatizarla llevándola acabo con:
+
+```
+make clean
+```
+
+##### Integración continua
+
+La herramienta de integración continua del proyecto va a ser [Travis CI](https://travis-ci.org/getting_started). Travis comprueba que los tests se ejecuten correctamente para las versiones especificadas en `.travis.yml`.
+
+##### Sistema de logging
+
+La gestión de logs se realizará usando la libreria `logging` de `Python`.
+
 ## Licencia
 
 Este proyecto está desarrollado bajo licencia [GNU General Public License v3.0](https://es.wikipedia.org/wiki/GNU_General_Public_License).
