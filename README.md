@@ -25,6 +25,7 @@ En este proyecto hay dos grandes microservicios:
 
 - **Gestión de alumnos**. Darse de alta en el conservatorio mediante la matricula en las asignaturas deseadas.
 
+![](./docs/images/sem_02_03/CC-Arch.png)
 
 ## Licencia
 
