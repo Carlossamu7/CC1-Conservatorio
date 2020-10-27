@@ -77,20 +77,49 @@ La herramienta de integración continua del proyecto va a ser [Travis CI](https:
 
 La gestión de logs se realizará usando la libreria `logging` de `Python`.
 
-## Historias de usuario
+## *Milestones* (*Roadmap*)
 
-Para cada microservicio se ha definido un *milestone*. El primer *milestone* es para el [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/issues?q=is%3Aopen+is%3Aissue+milestone%3AAdministrador) (de las asignaturas).
-- [[HU] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
-- [[HU] Como administrador quiero modificar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13)
-- [[HU] Como administrador quiero borrar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14)
+En este apartado se va a exponer un *Roadmap* del proyecto a través del cual seguir la traza del mismo.
+
+*Milestone* 1 - [Descripción del proyecto usando correctamente git y GitHub](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/1)
+
+- [Crear `README`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/1)
+- [Añadir licencia](https://github.com/Carlossamu7/CC1-Conservatorio/issues/2)
+- [Crear `.gitignore`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/3)
+- [Crear `docs` y establecer el set-up del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/issues/4)
+- [Descripción del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/issues/5)
 
 
-El segundo *milestone* es para los [Alumnos](https://github.com/Carlossamu7/CC1-Conservatorio/issues?q=is%3Aopen+is%3Aissue+milestone%3AAlumno).
-- [[HU] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
-- [[HU] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
-- [[HU] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
-- [[HU] Como alumno quiero consultar el horario de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18)
-- [[HU] Como alumno quiero consultar el aula de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19)
+*Milestone* 2 - [Concretando y planificando el proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/2)
+
+- [Elegir arquitectura adecuada](https://github.com/Carlossamu7/CC1-Conservatorio/issues/7)
+- [Elegir lenguaje, gestor de tareas, versiones y otros](https://github.com/Carlossamu7/CC1-Conservatorio/issues/8)
+- [Crear `.travis.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/9)
+- [Crear `Makefile`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/10)
+- [Definir y explicar las HU](https://github.com/Carlossamu7/CC1-Conservatorio/issues/11)
+- [Crear `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/20)
+- [Introducir Roadmap y Milestones](https://github.com/Carlossamu7/CC1-Conservatorio/issues/21)
+
+#### Historias de usuario
+
+Para cada microservicio se ha definido un *milestone*. El primer *milestone* es para el [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) (de las asignaturas).
+- [[HU1] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
+
+> Se ha implementado la clase `Asignatura.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py).
+
+- [[HU2] Como administrador quiero modificar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13)
+- [[HU3] Como administrador quiero borrar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14)
+
+
+El segundo *milestone* es para los [Alumnos](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3).
+- [[HU4] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
+
+> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py).
+
+- [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
+- [[HU6] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
+- [[HU7] Como alumno quiero consultar el horario de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18)
+- [[HU8] Como alumno quiero consultar el aula de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19)
 
 ## Licencia
 
