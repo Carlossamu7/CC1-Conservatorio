@@ -77,9 +77,19 @@ La herramienta de integración continua del proyecto va a ser [Travis CI](https:
 
 La gestión de logs se realizará usando la libreria `logging` de `Python`.
 
-## *Milestones* (*Roadmap*)
+## Roadmap
 
-En este apartado se va a exponer un *Roadmap* del proyecto a través del cual seguir la traza del mismo.
+La organización del proyecto es la siguiente (actualmente el desarrollo va por el punto 3):
+
+1. Descripción del proyecto y establecer el ambiente de trabajo.
+2. Definir la arquitectura del proyecto así como el lenguaje y otros detalles como los gestores de tareas y versiones.
+3. Implementar las clases `Alumno.py` y `Asignatura.py` con sus interfaces. Aquí se dará una solución computacional a las historias de usuario de cada uno de estos MVP. Las historias de usuario se han intentado ordenar en el modo en el que se van a llevar a cabo cronológicamente.
+4. Desarrollo de `tests` para estas clases de manera que se tenga un producto mínimamente viable (MVP).
+5. Se seguirá avanzando según lo pedido con el objetivo de desplegar el proyecto en la nube.
+
+## *Milestones*
+
+En este apartado se van a exponer los diferentes *milestone* del proyecto y los issues que siguen su traza.
 
 *Milestone* 1 - [Descripción del proyecto usando correctamente git y GitHub](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/1)
 
@@ -102,7 +112,7 @@ En este apartado se va a exponer un *Roadmap* del proyecto a través del cual se
 
 #### Historias de usuario
 
-Para cada microservicio se ha definido un *milestone*. El primer *milestone* es para el [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) (de las asignaturas).
+Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *milestone* esté acabado obtendremos un MVP. El primer *milestone* es para el [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) (de las asignaturas).
 - [[HU1] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
 
 > Se ha implementado la clase `Asignatura.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py).
