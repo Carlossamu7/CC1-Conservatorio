@@ -23,11 +23,12 @@ class Alumno:
     def setEmail(self, email):
         self.email = email
 
-    def setDni(self, dni):
-        self.dni = dni
+    # El DNI no cambia, no existe setter.
 
     def setAsignaturas(self, asignaturas):
         self.asignaturas = asignaturas
+
+    # Añadir métodos para matricular y desmatricular asignaturas.
 
     def printAlumno(self):
         print("--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")")

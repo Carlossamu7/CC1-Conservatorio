@@ -17,8 +17,7 @@ class Asignatura:
     def getAula(self):
         return self.aula
 
-    def setAsignatura(self, asignatura):
-        self.asignatura = asignatura
+    # La asignatura no cambia, no existe setter.
 
     def setProfesor(self, profesor):
         self.profesor = profesor
