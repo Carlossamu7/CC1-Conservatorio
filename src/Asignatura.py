@@ -1,3 +1,10 @@
+"""
+Máster Universitario en Ingeniería Informática UGR
+Cloud Computing: Fundamentos e Infraestructuras (2020-2021)
+Carlos Santiago Sánchez Muñoz
+Implementación de la clase Asignatura
+"""
+
 class Asignatura:
     def __init__(self, asignatura, profesor, horario, aula):
         self.asignatura = asignatura
@@ -28,12 +35,9 @@ class Asignatura:
     def setAula(self, aula):
         self.aula = aula
 
-    def printAsignatura(self):
-        print("--> " + self.asignatura)
-        print("Profesor: " + self.profesor)
-        print("Horario: " + self.horario)
-        print("Aula: " + self.aula)
-
-if __name__ == "__main__":
-    asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-    asig.printAsignatura()
+    def toString(self):
+        str = "--> " + self.asignatura + "\n"
+        str += "Profesor: " + self.profesor + "\n"
+        str += "Horario: " + self.horario + "\n"
+        str += "Aula: " + self.aula
+        return str
