@@ -1,8 +1,38 @@
+"""
+Máster Universitario en Ingeniería Informática UGR
+Cloud Computing: Fundamentos e Infraestructuras (2020-2021)
+Carlos Santiago Sánchez Muñoz
+Implementación de la clase Alumno
+"""
+
+# Eso comprueba que:
+# - Tenga una longitud de 9 dígitos, todos numéricos menos el primero (extranjeros) y
+# el último (control) que pueden estar entre unas letras concretas.
+# - Si es extranjero se sustituye la primera letra por su número correspondiente.
+# - Se comprueba el dígito de control (última cifra).
+def validoDNI(dni):
+    tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
+    dig_ext = "XYZ"
+    reemp_dig_ext = {'X':'0', 'Y':'1', 'Z':'2'}
+    numeros = "1234567890"
+    dni = dni.upper()
+    if len(dni) == 9:
+        dig_control = dni[8]
+        dni = dni[:8]
+        if dni[0] in dig_ext:
+            dni = dni.replace(dni[0], reemp_dig_ext[dni[0]])
+        return len(dni) == len([n for n in dni if n in numeros]) \
+            and tabla[int(dni)%23] == dig_control
+    return False
+
 class Alumno:
     def __init__(self, nombre, email, dni, asignaturas):
         self.nombre = nombre
         self.email = email
-        self.dni = dni
+        if(validoDNI(dni)):
+            self.dni = dni
+        else: # Lanza excepción
+            raise ValueError("El DNI no es válido.")
         self.asignaturas = asignaturas
 
     def getNombre(self):
@@ -33,7 +63,3 @@ class Alumno:
     def printAlumno(self):
         print("--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")")
         print("Asignaturas: " + self.asignaturas)
-
-if __name__ == "__main__":
-    alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "00000000A", "LenguajeMusical")
-    alumno.printAlumno()
