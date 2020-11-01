@@ -5,3 +5,8 @@ install: requirements.txt
 
 # Ejecuta los tests
 test:
+	python3 tests/testAlumno.py
+	python3 tests/testAsignatura.py
+
+clean:
+	rm -r ./src/__pycache__
