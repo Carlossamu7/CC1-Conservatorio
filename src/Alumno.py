@@ -60,6 +60,7 @@ class Alumno:
 
     # Añadir métodos para matricular y desmatricular asignaturas.
 
-    def printAlumno(self):
-        print("--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")")
-        print("Asignaturas: " + self.asignaturas)
+    def toString(self):
+        str = "--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")" + "\n"
+        str += "Asignaturas: " + self.asignaturas
+        return str
