@@ -45,6 +45,11 @@ class ResultTest(unittest.TestCase):
         alumno.setAsignaturas("Coro")
         self.assertEqual(alumno.getAsignaturas(), "Coro")
 
+    def test_toString(self):
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
+        self.assertEqual(alumno.toString(),
+            "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\nAsignaturas: LenguajeMusical")
+
     # Funciones que testean validoDNI()
     def test_dni(self):
         dni = "75931715K"
