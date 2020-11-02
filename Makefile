@@ -5,8 +5,13 @@ install: requirements.txt
 
 # Ejecuta los tests
 test:
-	python3 tests/testAlumno.py
-	python3 tests/testAsignatura.py
+	# Tests unitarios
+	pipenv run coverage run tests/testAlumno.py
+	pipenv run coverage report -m
+	pipenv run coverage run tests/testAsignatura.py
+	pipenv run coverage report -m
 
 clean:
-	rm -r ./src/__pycache__
+	#rm -r ./src/__pycache__
+	rm .coverage
+	rm Pipfile*
