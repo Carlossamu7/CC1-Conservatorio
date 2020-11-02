@@ -70,6 +70,14 @@ class Alumno:
             else:
                 self.asignaturas += "," + asig
 
+    def desmatriculaAsignatura(self, asig):
+        list = self.listaAsignaturas()
+        if(asig in list):
+            list.remove(asig)
+            self.asignaturas = ",".join(list)
+        else:	# Lanza excepción
+            raise ValueError("No existe tal asignatura.")
+
     def toString(self):
         str = "--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")" + "\n"
         str += "Asignaturas: " + self.asignaturas
