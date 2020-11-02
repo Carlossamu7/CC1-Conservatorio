@@ -44,6 +44,11 @@ class ResultTest(unittest.TestCase):
         asig.setAula("Aula02")
         self.assertEqual(asig.getAula(), "Aula02")
 
+    def test_toString(self):
+        asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertEqual(asig.toString(),
+            "--> LenguajeMusical\nProfesor: JJ\nHorario: L:16-17, X:16-17\nAula: Aula01")
+
 
 if __name__ == '__main__':
     unittest.main()
