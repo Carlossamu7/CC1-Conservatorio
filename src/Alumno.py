@@ -58,7 +58,17 @@ class Alumno:
     def setAsignaturas(self, asignaturas):
         self.asignaturas = asignaturas
 
-    # Añadir métodos para matricular y desmatricular asignaturas.
+    def listaAsignaturas(self):
+        return self.asignaturas.split(",")
+
+    def matriculaAsignatura(self, asig):
+        if asig in self.listaAsignaturas():	# Lanza excepción
+            raise ValueError("Asignatura ya matriculada.")
+        else:
+            if self.asignaturas == "":
+                self.asignaturas = asig
+            else:
+                self.asignaturas += "," + asig
 
     def toString(self):
         str = "--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")" + "\n"
