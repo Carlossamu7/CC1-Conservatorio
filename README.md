@@ -82,7 +82,7 @@ La gestión de logs se realizará usando la libreria `logging` de `Python`.
 
 Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md). La planificación del desarrollo del proyecto es la siguiente:
 
-**Fase 1**. Desarrollar un producto mínimamente viable (MVP) de Asignatura y de Alumno.
+**Fase 1**. Desarrollar un producto mínimamente viable (MVP) de [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) y de [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3).
 
 - [[HU1] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
 
