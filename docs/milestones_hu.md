@@ -2,7 +2,7 @@
 
 En este apartado se van a exponer los diferentes *milestone* del proyecto y los issues (importantes) que siguen su traza.
 
-***Milestone*** 1 - [Descripción del proyecto usando correctamente git y GitHub](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/1)
+***Milestone*** 0 - [Descripción del proyecto usando correctamente git y GitHub](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/1)
 
 - [Crear `README`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/1)
 - [Añadir licencia](https://github.com/Carlossamu7/CC1-Conservatorio/issues/2)
@@ -11,7 +11,7 @@ En este apartado se van a exponer los diferentes *milestone* del proyecto y los 
 - [Descripción del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/issues/5)
 
 
-***Milestone*** 2 - [Concretando y planificando el proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/2)
+***Milestone*** 1 - [Concretando y planificando el proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/2)
 
 - [Elegir arquitectura adecuada](https://github.com/Carlossamu7/CC1-Conservatorio/issues/7)
 - [Elegir lenguaje, gestor de tareas, versiones y otros](https://github.com/Carlossamu7/CC1-Conservatorio/issues/8)
@@ -26,6 +26,7 @@ En este apartado se van a exponer los diferentes *milestone* del proyecto y los 
 Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *milestone* esté acabado obtendremos un MVP.
 
 ***Milestone*** - [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) (de las asignaturas)
+
 - [[HU1] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
 
 > Se ha implementado la clase `Asignatura.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py).
@@ -35,11 +36,16 @@ Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *m
 
 
 ***Milestone*** - [Alumnos](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3)
+
 - [[HU4] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
 
-> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Gestionado la comprobación de DNIs, no se dará de alta a ningún alumno con un DNI no válido en el sistema.
+> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Gestionada la comprobación de DNIs, no se dará de alta a ningún alumno con un DNI no válido en el sistema.
 
 - [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
 - [[HU6] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
 - [[HU7] Como alumno quiero consultar el horario de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18)
 - [[HU8] Como alumno quiero consultar el aula de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19)
+
+***Milestone*** 2 - [Tests](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/5)
+
+- En desarrollo...

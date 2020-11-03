@@ -90,7 +90,7 @@ Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](ht
 
 - [[HU4] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
 
-> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Gestionado la comprobación de DNIs, no se dará de alta a ningún alumno con un DNI no válido en el sistema.
+> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Gestionada la comprobación de DNIs, no se dará de alta a ningún alumno con un DNI no válido en el sistema.
 
 **Fase 2**. Avanzar esos MVP con nuevas historias de usuario que los hacen más funcionales.
 
@@ -100,6 +100,9 @@ Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](ht
 - [[HU6] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
 
 **Fase 3**. Introducir tests que comprueben y aseguren la calidad del código ya implementado ya que nuestro objetivos es desplegar la aplicación en la nube y estas pruebas confirmarán que el código hace lo que se espera que haga.
+
+- [Tests para Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/issues/24)
+- [Tests para Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/issues/25)
 
 **Fase 4**. Continuar con el desarrollo de la aplicación avanzando historias de usuario que necesitan de la comunicación de ambos microservicios.
 
