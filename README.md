@@ -148,7 +148,7 @@ Ejecutando las órdenes
 
 ```
 python3.8 src/Alumno.py
-python3.8 src/Alumno.py
+python3.8 src/Asignatura.py
 ```
 
 observamos que la sintaxis es correcta.

@@ -37,7 +37,7 @@ Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *m
 ***Milestone*** - [Alumnos](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3)
 - [[HU4] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
 
-> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py).
+> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Gestionado la comprobación de DNIs, no se dará de alta a ningún alumno con un DNI no válido en el sistema.
 
 - [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
 - [[HU6] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
