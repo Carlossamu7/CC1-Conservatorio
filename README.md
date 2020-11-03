@@ -95,10 +95,7 @@ Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](ht
 - [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
 - [[HU6] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
 
-**Fase 3**. Introducir tests que comprueben y aseguren la calidad del código ya implementado ya que nuestro objetivos es desplegar la aplicación en la nube y estas pruebas confirmarán que el código hace lo que se espera que haga.
-
-- [Tests para Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/issues/24)
-- [Tests para Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/issues/25)
+**Fase 3**. Introducir tests que comprueben y aseguren la calidad del código ya implementado ya que nuestro objetivos es desplegar la aplicación en la nube y estas pruebas confirmarán que el código hace lo que se espera que haga. Los tests comprobarán las HU de alumno y las de administrador.
 
 **Fase 4**. Continuar con el desarrollo de la aplicación avanzando historias de usuario que necesitan de la comunicación de ambos microservicios.
 
