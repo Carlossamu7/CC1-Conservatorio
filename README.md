@@ -16,13 +16,13 @@ Este proyecto esta dirigido a dar una solución *cloud* a este problema. La solu
 
 ## Arquitectura
 
-En primer lugar hay que analizar muy bien el proyecto que estamos tratando de resolver. En dicho proyecto reconocemos perfectamente dos entidades fundamentales, por un lado las **asignaturas** que son dadas de alta por un Administrador del Conservatorio por ejemplo y por otro lado tenemos a los **alumnos** que se matriculan de asignaturas y hacen diversas consultas o cambios en su matrícula.
+En primer lugar hay que analizar muy bien el proyecto que estamos tratando de resolver. En dicho proyecto reconocemos perfectamente dos entidades fundamentales, por un lado las **asignaturas** que son dadas de alta por un administrador del Conservatorio por ejemplo y por otro lado tenemos a los **alumnos** que se matriculan de asignaturas y hacen diversas consultas o cambios en su matrícula.
 
 Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyecto que se va a desarrollar la arquitectura que mejor se adecúa es una **arquitectura basada en microservicios**. La justificación de esta elección se debe a las numerosas ventajas que esta arquitectura ofrece a nuestro problema. La más importante es la independencia entre los microservicios en su desarrollo, en su manejo, en su mantenimiento o en su actualización. Por otro lado hay que tener en cuenta la robustez frente a fallos: la caída de un servicio no implica la del otro.
 
 Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos y la comunicación la van realizar mediante una API. Un problema de estas arquitecturas es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada pero en nuestro caso sólo vamos a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas:
 
-- **Gestión del conservatorio**. Llevada a cabo por un Administrador del Conservatorio. Se encarga de dar de alta, borrar y modificar asignaturas. Cada asignatura tiene un horario, un aula y profesor asociado.
+- **Gestión del conservatorio**. Llevada a cabo por un administrador del Conservatorio. Se encarga de dar de alta, borrar y modificar asignaturas. Cada asignatura tiene un horario, un aula y profesor asociado.
 
 - **Gestión de alumnos**. Cada alumno tiene la posibilidad de darse de alta en el conservatorio mediante la matricula en las asignaturas deseadas. También puede matricular y desmatricular asignaturas así como hacer consultas.
 
@@ -73,10 +73,6 @@ make clean
 ##### Integración continua
 
 La herramienta de integración continua del proyecto va a ser [Travis CI](https://travis-ci.org/getting_started). Travis comprueba que los tests se ejecuten correctamente para las versiones especificadas en `.travis.yml`.
-
-##### Sistema de logging
-
-La gestión de logs se realizará usando la libreria `logging` de `Python`.
 
 ## *Roadmap*
 
