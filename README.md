@@ -20,7 +20,7 @@ En primer lugar hay que analizar muy bien el proyecto que estamos tratando de re
 
 Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyecto que se va a desarrollar la arquitectura que mejor se adecúa es una **arquitectura basada en microservicios**. La justificación de esta elección se debe a las numerosas ventajas que esta arquitectura ofrece a nuestro problema. La más importante es la independencia entre los microservicios en su desarrollo, en su manejo, en su mantenimiento o en su actualización. Por otro lado hay que tener en cuenta la robustez frente a fallos: la caída de un servicio no implica la del otro.
 
-Otra razón para esta elección son la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos y la comunicación la van realizar mediante una API. Un problema de estas arquitecturas es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada pero en nuestro caso sólo vamos a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas:
+Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos y la comunicación la van realizar mediante una API. Un problema de estas arquitecturas es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada pero en nuestro caso sólo vamos a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas:
 
 - **Gestión del conservatorio**. Llevada a cabo por un Administrador del Conservatorio. Se encarga de dar de alta, borrar y modificar asignaturas. Cada asignatura tiene un horario, un aula y profesor asociado.
 
@@ -80,9 +80,7 @@ La gestión de logs se realizará usando la libreria `logging` de `Python`.
 
 ## *Roadmap*
 
-Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md).
-
-La planificación del desarrollo del proyecto es la siguiente:
+Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md). La planificación del desarrollo del proyecto es la siguiente:
 
 **Fase 1**. Desarrollar un producto mínimamente viable (MVP) de Asignatura y de Alumno.
 
