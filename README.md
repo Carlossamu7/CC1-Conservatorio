@@ -22,7 +22,7 @@ Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyec
 
 Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos y la comunicación la van realizar mediante una API. Un problema de estas arquitecturas es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada pero en nuestro caso sólo vamos a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas:
 
-- **Gestión del conservatorio**. Llevada a cabo por un administrador del Conservatorio. Se encarga de dar de alta, borrar y modificar asignaturas. Cada asignatura tiene un horario, un aula y profesor asociado.
+- **Gestión de asignaturas**. Llevada a cabo por un administrador del Conservatorio. Se encarga de dar de alta, borrar y modificar asignaturas. Cada asignatura tiene un horario, un aula y profesor asociado.
 
 - **Gestión de alumnos**. Cada alumno tiene la posibilidad de darse de alta en el conservatorio mediante la matricula en las asignaturas deseadas. También puede matricular y desmatricular asignaturas así como hacer consultas.
 
@@ -95,7 +95,7 @@ Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](ht
 - [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
 - [[HU6] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
 
-**Fase 3**. Introducir tests que comprueben y aseguren la calidad del código ya implementado ya que nuestro objetivos es desplegar la aplicación en la nube y estas pruebas confirmarán que el código hace lo que se espera que haga. Los tests comprobarán las HU de alumno y las de administrador.
+**Fase 3**. Introducir tests que comprueben y aseguren la calidad del código ya implementado ya que nuestro objetivo es desplegar la aplicación en la nube y estas pruebas confirmarán que el código hace lo que se espera que haga. Los tests comprobarán las HU de alumno y las de administrador.
 
 **Fase 4**. Continuar con el desarrollo de la aplicación avanzando historias de usuario que necesitan de la comunicación de ambos microservicios.
 
