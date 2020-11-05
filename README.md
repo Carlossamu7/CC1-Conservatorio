@@ -16,69 +16,43 @@ Este proyecto esta dirigido a dar una solución *cloud* a este problema. La solu
 
 ## Arquitectura
 
-En primer lugar hay que analizar muy bien el proyecto que estamos tratando de resolver. En dicho proyecto reconocemos perfectamente dos entidades fundamentales, por un lado las **asignaturas** que son dadas de alta por un administrador del Conservatorio por ejemplo y por otro lado tenemos a los **alumnos** que se matriculan de asignaturas y hacen diversas consultas o cambios en su matrícula.
+En primer lugar hay que analizar muy bien el problema que estamos tratando de resolver. En dicho problema reconocemos perfectamente dos entidades fundamentales, por un lado las **asignaturas** que son dadas de alta por un administrador del Conservatorio. Se tiene que poder de dar de alta una asignatura, borrarla o modificar aspectos como el horario, el aula o el profesor asociado.
 
-Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyecto que se va a desarrollar la arquitectura que mejor se adecúa es una **arquitectura basada en microservicios**. La justificación de esta elección se debe a las numerosas ventajas que esta arquitectura ofrece a nuestro problema. La más importante es la independencia entre los microservicios en su desarrollo, en su manejo, en su mantenimiento o en su actualización. Por otro lado hay que tener en cuenta la robustez frente a fallos: la caída de un servicio no implica la del otro.
+Por otro lado tenemos a los **alumnos** que se matriculan de asignaturas y hacen diversas consultas o cambios en su matrícula. Cada alumno tiene la posibilidad de darse de alta en el conservatorio mediante la matricula en las asignaturas deseadas. También puede matricular más asignaturas y desmatricular asignaturas ya matriculadas, así como hacer diversas consultas.
 
-Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos y la comunicación la van realizar mediante una API. Un problema de estas arquitecturas es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada pero en nuestro caso sólo vamos a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas:
+Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyecto que se va a desarrollar la arquitectura que mejor se adecúa es una **arquitectura basada en microservicios**. La justificación de esta elección se debe a las ventajas que esta arquitectura ofrece a nuestro problema. La más importante es la independencia entre los microservicios en su desarrollo, en su manejo, en su mantenimiento o en su actualización. Por otro lado hay que tener en cuenta la robustez frente a fallos: la caída de un servicio no implica la del otro. Es posible que conforme avance el proyecto surja la necesidad de integrar una nueva entidad y aumentar la funcionalidad del proyecto por lo que esta arquitectura resulta idónea para la integración de un nuevo microservicio.
 
-- **Gestión de asignaturas**. Llevada a cabo por un administrador del Conservatorio. Se encarga de dar de alta, borrar y modificar asignaturas. Cada asignatura tiene un horario, un aula y profesor asociado.
-
-- **Gestión de alumnos**. Cada alumno tiene la posibilidad de darse de alta en el conservatorio mediante la matricula en las asignaturas deseadas. También puede matricular y desmatricular asignaturas así como hacer consultas.
-
-Es posible que conforme avance el proyecto surja la necesidad de desarrollar un nuevo microservicio. Esta arquitectura resulta idónea para la integración del mismo.
+Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos. Además, se evita uno de los problemas de estas arquitecturas, que es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada, ya que en principio sólo se va a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas.
 
 ## Aspectos del proyecto
 
 ##### Lenguaje
 
-Los servicios de la aplicación van a estar implementados en `Python3`. En concreto se va a dar mantenibilidad de las versiones `3.6`, `3.7` y `3.8` ([documentación de las versiones](https://www.python.org/doc/versions/)). El framework de comunicación que se va a usar para desarrollar las `API REST` es `Flask`.
+Los servicios de la aplicación van a estar implementados en `Python3`. Se puede consultar la [documentación de las versiones](https://www.python.org/doc/versions/).
 
 ##### Entorno vitual
 
 El entorno virtual que se va a usar para las versiones mencionadas es el conocido `virtualenv` para `Python`.
 
-##### Base de datos
-
-Se usará la base de datos relacional PostgreSQL. Su uso en Python se hará a través de `peewee`.
-
 ##### Herramienta de construcción
 
-Se ha valorado la opción de usar `Invoke` pero la opción final ha sido la herramienta clásica `Makefile`.
+Se ha valorado la opción de usar `Invoke` pero la opción final ha sido la herramienta clásica `Makefile`. Las tareas que nuestro `Makefile` puede hacer por el momento son:
 
-```
-buildtool: Makefile
-```
+- `make install`: instala las versiones de los paquetes que el proyecto necesita. Básicamente lanzará la orden `pip3 install -r requirements.txt`, en donde las dependencias están en `requirements.txt`.
 
-Con la siguiente orden se instalan las versiones de los paquetes que el proyecto necesita
+- `make test`: ejecuta los tests. Se usará `unittest` disponible en las distribuciones de `Python`. En el directorio `tests` de este repositorio se irán situando los diferentes programas de test.
 
-```
-make install
-```
-
-Básicamente lanzará la orden `pip3 install -r requirements.txt`, en donde las dependencias están en `requirements.txt`.
-
-Para ejecutar los test se usará `unittest` disponible en las distribuciones de `Python`. En el directorio `tests` de este repositorio se irán situando los diferentes programas de test y los podremos lanzar con
-
-```
-make test
-```
-
-Más adelante, cuando sea necesaria la limpieza de archivos generados podremos automatizarla llevándola acabo con:
-
-```
-make clean
-```
+- `make clean`: limpieza de archivos generados
 
 ##### Integración continua
 
-La herramienta de integración continua del proyecto va a ser [Travis CI](https://travis-ci.org/getting_started). Travis comprueba que los tests se ejecuten correctamente para las versiones especificadas en `.travis.yml`.
+La herramienta de integración continua del proyecto va a ser [Travis CI](https://travis-ci.org/getting_started). Travis comprueba que los tests se ejecuten correctamente para las versiones especificadas en el fichero `.travis.yml`.
 
 ## *Roadmap*
 
 Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md). La planificación del desarrollo del proyecto es la siguiente:
 
-**Fase 1**. Desarrollar un producto mínimamente viable (MVP) de [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) y de [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3).
+**Fase 1**. Comenzar el desarrollo de los *milestones* de [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) y de [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3). Cuando dichos *milestone* se hayan alcanzado se dispondrá de un producto mínimamente viable (MVP).
 
 - [[HU1] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
 
