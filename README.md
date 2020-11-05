@@ -24,7 +24,7 @@ Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyec
 
 Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos. Además, se evita uno de los problemas de estas arquitecturas, que es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada, ya que en principio sólo se va a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas.
 
-## Aspectos del proyecto
+## Herramientas y tecnologías del proyecto
 
 ##### Lenguaje
 
