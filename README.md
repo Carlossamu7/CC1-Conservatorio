@@ -36,7 +36,7 @@ El entorno virtual que se va a usar para las versiones mencionadas es el conocid
 
 ##### Herramienta de construcción
 
-Se ha valorado la opción de usar `Invoke` pero la opción final ha sido la herramienta clásica `Makefile`. Las tareas que nuestro `Makefile` puede hacer por el momento son:
+Se va a usar la herramienta clásica `Makefile`. Las tareas que nuestro `Makefile` puede hacer por el momento son:
 
 - `make install`: instala las versiones de los paquetes que el proyecto necesita. Básicamente lanzará la orden `pip3 install -r requirements.txt`, en donde las dependencias están en `requirements.txt`.
 
