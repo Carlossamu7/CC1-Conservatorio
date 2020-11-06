@@ -5,6 +5,7 @@ Carlos Santiago Sánchez Muñoz
 Implementación de la clase Alumno
 """
 
+# Función sacada de https://perezmartin.es/codigo-python-para-comprobar-si-un-dni-nif-o-nie-es-valido/
 # Eso comprueba que:
 # - Tenga una longitud de 9 dígitos, todos numéricos menos el primero (extranjeros) y
 # el último (control) que pueden estar entre unas letras concretas.
