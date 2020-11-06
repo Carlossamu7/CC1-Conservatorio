@@ -26,10 +26,19 @@ class TestAlumno(unittest.TestCase):
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
         self.assertEqual(alumno.getDni(), "75931715K", "Comprobando getDni()")
 
+    def test_getAsignaturas(self):
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
+        self.assertEqual(alumno.getAsignaturas(), "LenguajeMusical", "Comprobando getAsignaturas()")
+
     def test_setNombre(self):
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
         alumno.setNombre("Pepe")
         self.assertEqual(alumno.getNombre(), "Pepe", "Comprobando setNombre()")
+
+    def test_setAsignaturas(self):
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
+        alumno.setAsignaturas("Coro")
+        self.assertEqual(alumno.getAsignaturas(), "Coro", "Comprobando setAsignaturas()")
 
     def test_setAsignaturas(self):
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
