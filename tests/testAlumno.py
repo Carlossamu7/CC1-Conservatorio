@@ -72,6 +72,15 @@ class TestAlumno(unittest.TestCase):
         alumno3 = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical,Coro")
         with self.assertRaises(ValueError): alumno3.matriculaAsignatura("Coro")
 
+    def test_desmatriculaAsignatura(self):
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical,Coro")
+        alumno.desmatriculaAsignatura("Coro")
+        self.assertEqual(alumno.getAsignaturas(), "LenguajeMusical", "Comproband desmatriculaAsignatura()")
+
+        # Excepción asignatura no matriculada
+        alumno2 = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
+        with self.assertRaises(ValueError): alumno2.desmatriculaAsignatura("Coro")
+
     def test_validoDni(self):
         self.assertTrue(validoDNI("75931715K"), "Comprobando validoDNI() con DNI correcto")
         self.assertTrue(not validoDNI("759317156"), "Comprobando validoDNI() con DNI incorrecto sin letra")
