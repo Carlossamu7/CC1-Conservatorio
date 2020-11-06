@@ -29,6 +29,21 @@ class ResultTest(unittest.TestCase):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
         self.assertEqual(asig.getAula(), "Aula01", "Comprobando getAula()")
 
+    def test_setProfesor(self):
+        asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
+        asig.setProfesor("Pepe")
+        self.assertEqual(asig.getProfesor(), "Pepe", "Comprobando setProfesor()")
+
+    def test_setHorario(self):
+        asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
+        asig.setHorario("V:10-11")
+        self.assertEqual(asig.getHorario(), "V:10-11", "Comprobando setHorario()")
+
+    def test_setAula(self):
+        asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
+        asig.setAula("Aula02")
+        self.assertEqual(asig.getAula(), "Aula02", "Comprobando setAula()")
+
     def test_toString(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
         self.assertEqual(asig.toString(),
