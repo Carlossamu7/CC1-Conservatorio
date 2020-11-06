@@ -35,6 +35,11 @@ class TestAlumno(unittest.TestCase):
         alumno.setNombre("Pepe")
         self.assertEqual(alumno.getNombre(), "Pepe", "Comprobando setNombre()")
 
+    def test_setEmail(self):
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
+        alumno.setEmail("otro_correo@correo.ugr.es")
+        self.assertEqual(alumno.getEmail(), "otro_correo@correo.ugr.es", "Comprobando setEmail()")
+
     def test_setAsignaturas(self):
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
         alumno.setAsignaturas("Coro")
