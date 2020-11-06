@@ -83,10 +83,10 @@ class TestAlumno(unittest.TestCase):
 
     def test_validoDni(self):
         self.assertTrue(validoDNI("75931715K"), "Comprobando validoDNI() con DNI correcto")
-        self.assertTrue(not validoDNI("759317156"), "Comprobando validoDNI() con DNI incorrecto sin letra")
-        self.assertTrue(not validoDNI("75A31715K"), "Comprobando validoDNI() con DNI incorrecto")
-        self.assertTrue(not validoDNI("232A"), "Comprobando validoDNI() con DNI de longitud incorrecta")
-        self.assertTrue(not validoDNI("X1234567Z"), "Comprobando validoDNI() con DNI extranjero incorrecto")
+        self.assertFalse(validoDNI("759317156"), "Comprobando validoDNI() con DNI incorrecto sin letra")
+        self.assertFalse(validoDNI("75A31715K"), "Comprobando validoDNI() con DNI incorrecto")
+        self.assertFalse(validoDNI("232A"), "Comprobando validoDNI() con DNI de longitud incorrecta")
+        self.assertFalse(validoDNI("X1234567Z"), "Comprobando validoDNI() con DNI extranjero incorrecto")
 
     def test_creaAlumnoDniNoValido(self):
         with self.assertRaises(ValueError): Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715A", "LenguajeMusical")
