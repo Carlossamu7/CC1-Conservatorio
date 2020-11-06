@@ -51,6 +51,27 @@ class TestAlumno(unittest.TestCase):
             "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\nAsignaturas: LenguajeMusical",
             "Comprobando toString()")
 
+    def test_listaAsignaturas(self):
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical,Coro")
+        self.assertEqual(alumno.listaAsignaturas(), ["LenguajeMusical", "Coro"],
+                         "Comprobando listaAsignaturas()")
+
+    def test_matriculaAsignatura(self):
+        # Alumno con asignaturas
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
+        alumno.matriculaAsignatura("Coro")
+        self.assertEqual(alumno.getAsignaturas(), "LenguajeMusical,Coro",
+                         "Comprobando matriculaAsignatura() con alumno que ya tiene asignaturas matriculadas")
+
+        # Alumno sin asignaturas
+        alumno2 = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "")
+        alumno2.matriculaAsignatura("Coro")
+        self.assertEqual(alumno2.getAsignaturas(), "Coro", "Comprobando matriculaAsignatura() con alumno sin asignaturas")
+
+        # Excepción asignatura ya matriculada
+        alumno3 = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical,Coro")
+        with self.assertRaises(ValueError): alumno3.matriculaAsignatura("Coro")
+
     def test_validoDni(self):
         self.assertTrue(validoDNI("75931715K"), "Comprobando validoDNI() con DNI correcto")
         self.assertTrue(not validoDNI("759317156"), "Comprobando validoDNI() con DNI incorrecto sin letra")
