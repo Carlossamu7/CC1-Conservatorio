@@ -1,13 +1,16 @@
+#Lenguaje de programación
 language: python
+
+# Versiones (de momento)
 python:
   - "3.6"
   - "3.7"
   - "3.8"
 
-# command to install dependencies
+# Instala dependencias
 install:
-  - pip install -r requirements.txt
+  - make install
 
-# command to run tests
+# Ejecuta los tests
 script:
-  - echo "not yet"
+  - make test
