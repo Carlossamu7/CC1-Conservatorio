@@ -11,7 +11,7 @@ sys.path.append('src')
 
 from Asignatura import Asignatura
 
-class ResultTest(unittest.TestCase):
+class TestAsignatura(unittest.TestCase):
 
     def test_getAsignatura(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
