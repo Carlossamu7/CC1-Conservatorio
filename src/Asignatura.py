@@ -37,7 +37,7 @@ class Asignatura:
 
     def toString(self):
         str = "--> " + self.asignatura + "\n"
-        str += "Profesor: " + self.profesor + "\n"
-        str += "Horario: " + self.horario + "\n"
-        str += "Aula: " + self.aula
+        str += "    Profesor: " + self.profesor + "\n"
+        str += "    Horario: " + self.horario + "\n"
+        str += "    Aula: " + self.aula
         return str

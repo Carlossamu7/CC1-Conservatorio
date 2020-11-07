@@ -47,7 +47,7 @@ class TestAsignatura(unittest.TestCase):
     def test_toString(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
         self.assertEqual(asig.toString(),
-            "--> LenguajeMusical\nProfesor: JJ\nHorario: L:16-17, X:16-17\nAula: Aula01",
+            "--> LenguajeMusical\n    Profesor: JJ\n    Horario: L:16-17, X:16-17\n    Aula: Aula01",
             "Comprobando toString()")
 
 
