@@ -81,5 +81,5 @@ class Alumno:
 
     def toString(self):
         str = "--> " + self.nombre + " (DNI: " + self.dni + ", @: " + self.email + ")" + "\n"
-        str += "Asignaturas: " + self.asignaturas
+        str += "    Asignaturas: " + self.asignaturas
         return str

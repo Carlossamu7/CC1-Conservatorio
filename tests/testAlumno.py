@@ -48,7 +48,7 @@ class TestAlumno(unittest.TestCase):
     def test_toString(self):
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "LenguajeMusical")
         self.assertEqual(alumno.toString(),
-            "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\nAsignaturas: LenguajeMusical",
+            "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\n    Asignaturas: LenguajeMusical",
             "Comprobando toString()")
 
     def test_listaAsignaturas(self):
