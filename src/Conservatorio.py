@@ -152,3 +152,10 @@ class Conservatorio:
             if(asig.getProfesor()==profesor):
                 list.append(asig)
         return list
+
+    def getNombreAsignaturasProfesor(self, profesor):
+        list = []
+        asigProf = self.getListaAsignaturasProfesor(profesor)
+        for asig in asigProf:
+            list.append(asig.getAsignatura())
+        return list
