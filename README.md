@@ -36,7 +36,7 @@ Otras opciones como `pytest` están ampliamente aceptadas y usandas por programa
 
 ### Test ###
 
-He implementado tres clases `TestAlumno`, `TestAsignatura` y `TestConservatorio` que son subclases de `unittest.TestCase`. He procurado seguir lo que considero que son buenos hábitos a la hora de programar tests. Dejo aquí anotados los más importantes:
+He implementado tres clases `TestAlumno` ([ver](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/tests/testAlumno.py)), `TestAsignatura` ([ver](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/tests/testAsignatura.py)) y `TestConservatorio` ([ver](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/tests/testConservatorio.py)) que son subclases de `unittest.TestCase`. He procurado seguir lo que considero que son buenos hábitos a la hora de programar tests. Dejo aquí anotados los más importantes:
 
 - Cada test prueba una pequeña funcionalidad y demuestra que es correcta.
 - Cada función test es independiente y se puede ejecutar por separado.
@@ -89,7 +89,7 @@ El gestor de tareas que se había elegido para el proyecto es `Makefile`. En él
 - Avance notable de prácticamente todas las HU.
 - Implementación de `listaAsignaturas()`, `matriculaAsignatura()` y `desmatriculaAsignatura()`. Nuevo formateado para las asignaturas como string.
 - Conforme avanza el proyecto se demandan nuevas necesidades para el conservatorio mediante historias de usuario. Creación de las [[HU6]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39), [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43), [[HU11]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44), [[HU12]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45), [[HU13]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46) y [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47).
-- Implementación de una clase controladora `Conservatorio` disponible [aquí](). Esta clase maneja coleccionables (listas) de `Asignatura` y `Alumno` del Conservatorio ayudando a su gestión. De esta manera se consiguen avanzar algunas de las HU.
+- Implementación de una clase controladora `Conservatorio` disponible [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Esta clase maneja coleccionables (listas) de `Asignatura` y `Alumno` del Conservatorio ayudando a su gestión. De esta manera se consiguen avanzar algunas de las HU.
 - Tratamiento de nuevas excepciones de la clase `Conservatorio`.
 
 *Nota*: las funciones implementadas de rastreo de aulas que ha pisado un alumno/profesor correspondientes a la [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47) son de gran utilidad para periodos como el actual debido a la COVID-19, en donde rastrear el virus es muy importante.
