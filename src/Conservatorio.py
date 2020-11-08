@@ -93,6 +93,19 @@ class Conservatorio:
         else:
             return "No existe ningún alumno con ese DNI."
 
+    def getAulasAlumno(self, dni):
+        list = []
+        if(self.existAlumno(dni)):
+            alum = self.getAlumno(dni)
+            for asig in alum.listaAsignaturas():
+                for asi in self.listaAsig:
+                    if(asi.getAsignatura()==asig):
+                        if(not asi.getAula() in list):
+                            list.append(asi.getAula())
+            return ", ".join(list)
+        else:
+            return "No existe ningún alumno con ese DNI."
+
     ###################
     ### Asignaturas ###
     ###################
