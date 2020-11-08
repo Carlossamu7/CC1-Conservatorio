@@ -76,6 +76,14 @@ Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](ht
 
 - [[HU8] Como alumno quiero consultar el horario de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18)
 - [[HU9] Como alumno quiero consultar el aula de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19)
+- [[HU10] Como alumno quiero saber mi horario completo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43)
+
+> Se ha implementado la clase `Conservatorio.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py).
+
+- [[HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44)
+- [[HU12] Como administrador quiero saber las asignaturas que imparte un profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45)
+- [[HU13] Como administrador quiero saber el horario completo de un  profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46)
+- [[HU14] Como administrador quiero saber las aulas que usa un profesor/alumno.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47)
 
 **Fase 5**. Crear contenedores en donde almacenar la aplicación para permitir el despliegue de la misma en la nube.
 
@@ -96,20 +104,18 @@ src
     - horario (`getter` y `setter`)
     - aula (`getter` y `setter`)
 
-  Y los siguientes métodos:
-    - `toString()`
-
 - Clase [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Tiene los siguientes atributos:
     - nombre (`getter` y `setter`)
     - email (`getter` y `setter`)
     - dni (`getter`)
     - asignaturas (`getter` y `setter`)
 
-  Y lo siguientes métodos:
-    - `listaAsignaturas()`
-    - `matriculaAsignatura()`
-    - `desmatriculaAsignatura()`
-    - `toString()`
+- Clase [Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Tiene los siguientes atributos:
+    - `nombreConservatorio` (que es `MiConservatorio`, tiene `getter`)
+    - `listaAlum` (`getter`)
+    - `listaAsig` (`getter`)
+
+[Consultar con más detalle los métodos de estas clases.](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clases.md)
 
 #### Comprobación de la sintaxis:
 
@@ -118,6 +124,7 @@ Ejecutando las órdenes
 ```
 python3.8 src/Alumno.py
 python3.8 src/Asignatura.py
+python3.8 src/Conservatorio.py
 ```
 
 observamos que la sintaxis es correcta.
@@ -126,13 +133,17 @@ observamos que la sintaxis es correcta.
 
 #### Tratamiento de errores
 
-Los errores tratados por el sistema son los siguientes (todos de la clase Alumno):
+Los errores tratados por el sistema son los siguientes:
 
-- Crear un alumno con un DNI no válido. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``El DNI no es válido.``
+- En la clase `Alumno`:
 
-- Matricular una asignatura ya matriculada. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Asignatura ya matriculada.``
+    - Crear un alumno con un DNI no válido. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``El DNI no es válido.``
+    - Matricular una asignatura ya matriculada. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Asignatura ya matriculada.``
+    - Desmatricular una asignatura no matriculada. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``No existe tal asignatura.``
 
-- Desmatricular una asignatura no matriculada. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``No existe tal asignatura.``
+- En la clase `Conservatorio`:
+    - Dar de alta un alumno que ya está dado de alta. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Ya existe un alumno con este DNI.``
+    - Dar de alta una asignatura que ya está dada de alta. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Ya existe esta asignatura.``
 
 ## Licencia
 
