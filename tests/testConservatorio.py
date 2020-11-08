@@ -171,6 +171,29 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
         self.assertEqual(conser.getAulasProfesor("JJ"), "Aula01", "Comprobando getAulasProfesor()")
 
+    def test_toString(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
+        str = "¡Bienvenido a MiConservatorio!\n\n"
+        str += "--------------    ALUMNOS    --------------\n\n"
+        str += "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\n"
+        str += "    Asignaturas: Lenguaje Musical\n"
+        str += "--> Carlos (DNI: 74606489D, @: otro@correo.ugr.es)\n"
+        str += "    Asignaturas: Coro\n\n\n"
+        str += "--------------  ASIGNATURAS  --------------\n\n"
+        str += "--> Lenguaje Musical\n"
+        str += "    Profesor: JJ\n"
+        str += "    Horario: L:16-17, X:16-17\n"
+        str += "    Aula: Aula01\n"
+        str += "--> Coro\n"
+        str += "    Profesor: JJ\n"
+        str += "    Horario: M:20-21\n"
+        str += "    Aula: Aula01\n"
+        self.assertEqual(conser.toString(), str, "Comprobando toString()")
+
 
 if __name__ == '__main__':
     unittest.main()
