@@ -39,6 +39,22 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAsignatura("Armonia", "JJ", "M:20-21", "Aula01")
         self.assertEqual(conser.getNumeroAsignaturas(), 2, "Comprobando getNumeroAsignaturas()")
 
+    ###############
+    ### Alumnos ###
+    ###############
+
+    def test_existAlumno(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertTrue(conser.existAlumno("75931715K"), "Comprobando existAlumno()")
+
+    def test_darAltaAlumno(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.getListaAlumnos()[0].toString(), alumno.toString(), "Comprobando darAltaAlumno()")
+        with self.assertRaises(ValueError): conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+
     def test_getAlumno(self):
         conser = Conservatorio()
         conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
@@ -70,22 +86,6 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
         conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
         self.assertEqual(conser.getAlumnos("Carlos"), ["75931715K", "74606489D"], "Comprobando getAlumnos()")
-
-    ###############
-    ### Alumnos ###
-    ###############
-
-    def test_existAlumno(self):
-        conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertTrue(conser.existAlumno("75931715K"), "Comprobando existAlumno()")
-
-    def test_darAltaAlumno(self):
-        conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getListaAlumnos()[0].toString(), alumno.toString(), "Comprobando darAltaAlumno()")
-        with self.assertRaises(ValueError): conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
 
     ###################
     ### Asignaturas ###
