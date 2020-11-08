@@ -1,14 +1,26 @@
 # Instala las dependencias
 install: requirements.txt
+	pip3 install pipenv
 	pipenv install --three
-	pipenv run pip3 install -r requirements.txt
+	pipenv install -r requirements.txt
+
+# Comprueba sintaxis
+sintaxis:
+	pipenv run python3.8 src/Alumno.py
+	pipenv run python3.8 src/Asignatura.py
+	pipenv run python3.8 src/Conservatorio.py
 
 # Ejecuta los tests
 test:
 	# Tests unitarios e informe a través de report -m
-	pipenv run coverage run tests/testAlumno.py
+	##########################  Test de Alumno  ##########################
+	pipenv run coverage run tests/testAlumno.py -v
 	pipenv run coverage report -m
-	pipenv run coverage run tests/testAsignatura.py
+	########################  Test de Asignatura  ########################
+	pipenv run coverage run tests/testAsignatura.py -v
+	pipenv run coverage report -m
+	#######################  Test de Conservatorio  ######################
+	pipenv run coverage run tests/testConservatorio.py -v
 	pipenv run coverage report -m
 
 # Borra ficheros creados
