@@ -39,6 +39,38 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAsignatura("Armonia", "JJ", "M:20-21", "Aula01")
         self.assertEqual(conser.getNumeroAsignaturas(), 2, "Comprobando getNumeroAsignaturas()")
 
+    def test_getAlumno(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.getAlumno("75931715K").toString(), alumno.toString(), "Comprobando getAlumno()")
+        self.assertEqual(conser.getAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAlumno() con alumno no existente")
+
+    def test_getNombreAlumno(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.getNombreAlumno("75931715K"), "Carlos", "Comprobando getNombreAlumno()")
+        self.assertEqual(conser.getNombreAlumno("00000000A"), "No existe ningún alumno con ese DNI.",
+                         "Comprobando getNombreAlumno() con alumno no existente")
+
+    def test_getEmail(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.getEmail("75931715K"), "carlossamu7@correo.ugr.es", "Comprobando getEmail()")
+        self.assertEqual(conser.getEmail("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getEmail() con alumno no existente")
+
+    def test_getAsignaturas(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.getAsignaturas("75931715K"), "Lenguaje Musical", "Comprobando getAsignaturas()")
+        self.assertEqual(conser.getAsignaturas("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAsignaturas() con alumno no existente")
+
+    def test_getAlumnos(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.assertEqual(conser.getAlumnos("Carlos"), ["75931715K", "74606489D"], "Comprobando getAlumnos()")
+
     ###############
     ### Alumnos ###
     ###############

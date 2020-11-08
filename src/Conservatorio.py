@@ -50,6 +50,37 @@ class Conservatorio:
             alumno = Alumno(nombre, email, dni, asignaturas)
             self.listaAlum.append(alumno)
 
+    def getAlumno(self, dni):
+        for alum in self.listaAlum:
+            if(alum.getDni()==dni):
+                return alum
+        return "No existe ningún alumno con ese DNI."
+
+    def getNombreAlumno(self, dni):
+        if(self.existAlumno(dni)):
+            return self.getAlumno(dni).getNombre()
+        else:
+            return "No existe ningún alumno con ese DNI."
+
+    def getEmail(self, dni):
+        if(self.existAlumno(dni)):
+            return self.getAlumno(dni).getEmail()
+        else:
+            return "No existe ningún alumno con ese DNI."
+
+    def getAsignaturas(self, dni):
+        if(self.existAlumno(dni)):
+            return self.getAlumno(dni).getAsignaturas()
+        else:
+            return "No existe ningún alumno con ese DNI."
+
+    def getAlumnos(self, nombreAlum):
+        list = []
+        for alum in self.listaAlum:
+            if(alum.getNombre()==nombreAlum):
+                list.append(alum.getDni())
+        return list
+
     ###################
     ### Asignaturas ###
     ###################
