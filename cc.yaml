@@ -7,10 +7,10 @@ entidad:
   - src/Asignatura.py
   - src/Conservatorio.py
 
+fichero_tareas:
+  - Makefile
+
 test:
   - tests/testAlumno.py
   - tests/testAsignatura.py
   - tests/testConservatorio.py
-
-fichero_tareas:
-  - Makefile
