@@ -57,4 +57,9 @@ Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *m
 
 ***Milestone*** 2 - [Tests](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/5)
 
-- En desarrollo...
+- [Actualizar `Makefile` (`test` y `clean`)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/26)
+- [Actualizar ``.travis.yml` para tests](https://github.com/Carlossamu7/CC1-Conservatorio/issues/30)
+- [Incluir clase `Conservatorio` en `Makefile`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/48)
+- [Actualizar `requirements.txt`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/34)
+- [Actualizar `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/33)
+- [Documentación para *milestone* 2](https://github.com/Carlossamu7/CC1-Conservatorio/issues/31)
