@@ -166,3 +166,11 @@ class Conservatorio:
         for asig in asigProf:
             list.append(asig.getHorario())
         return list
+
+    def getAulasProfesor(self, profesor):
+        list = []
+        asigProf = self.getListaAsignaturasProfesor(profesor)
+        for asig in asigProf:
+            if(not asig.getAula() in list):
+                list.append(asig.getAula())
+        return ", ".join(list)
