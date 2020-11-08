@@ -1,4 +1,4 @@
-Pipfile
+Pipfile*
 .coverage
 ./src/__pycache__
 ./tests/__pycache__
