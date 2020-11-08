@@ -24,7 +24,7 @@ Las pruebas que se van a realizar por el momento son **unitarias** ya que las co
 
 En mi caso, que estoy implementando el proyecto en `Python3` y el **marco de pruebas** que he elegido es `unittest`. Un motivo para esta elección es que está integrado en Python y es todo un estándar por lo que hay bastante información al respecto. Se puede consultar información relevante de `unittest` en esta [documentación oficial](https://docs.python.org/3/library/unittest.html). Resulta cómodo hacer TDD mediante esta biblioteca.
 
-En `Python` encontramos diferenes **aserciones explícitas** con `assert`. Se pueden consultar [todas las aserciones](https://docs.python.org/3/library/unittest.html#assert-methods) pero resumo a continuación las más comunes:
+En `Python` encontramos diferenes **aserciones explícitas** con `assert`. Se pueden consultar [todas las aserciones](https://docs.python.org/3/library/unittest.html#assert-methods) pero resumo a continuación las que más he usado:
 - `assertTrue`: fallará sólo si no devuelve `True`.
 - `assertFalse`: fallará sólo si no devuelve `False`.
 - `assertEqual`: fallará sólo si los dos argumentos no son iguales.
