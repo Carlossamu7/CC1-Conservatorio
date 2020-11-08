@@ -1,4 +1,16 @@
 ---
+lenguaje:
+  - python
+
 entidad:
- - src/Alumno.py
- - src/Asignatura.py
+  - src/Alumno.py
+  - src/Asignatura.py
+  - src/Conservatorio.py
+
+test:
+  - tests/testAlumno.py
+  - tests/testAsignatura.py
+  - tests/testConservatorio.py
+
+fichero_tareas:
+  - Makefile
