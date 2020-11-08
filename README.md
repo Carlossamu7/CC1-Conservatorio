@@ -1,18 +1,15 @@
-# Proyecto de Cloud Computing
+# Proyecto "MiConservatorio" de Cloud Computing
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
 
-Repositorio para el proyecto (con propósito educativo) de Cloud Computing: Fundamentos e Infraestructuras (2020-21) del Máster en Ingeniería Informática UGR.
+Repositorio para el proyecto (con propósito educativo) de **Cloud Computing**: Fundamentos e Infraestructuras (2020-21) del Máster en Ingeniería Informática UGR.
 
-El ambiente de trabajo necesario para la asignatura y en el cual se va a implementar dicho proyecto se puede consultar en este [link](https://github.com/Carlossamu7/CC1-Proyecto/blob/master/docs/set-up.md).
+## Información ##
 
-## Descripción del problema
+Este proyecto es para la aplicación de gestión de un Conservatorio privado.
 
-Una escuela de música o conservatorio privado tiene todo su registro de alumnos, profesores, horarios y otros en papel. Dicho conservatorio quiere actualizarse de modo puedan hacer eso computacionalmente lo cual les ahorraría mucho trabajo y evitaría que la pérdida de un papel suponga un fallo grave para la empresa.
-
-##### Descripción de la solución
-
-Este proyecto esta dirigido a dar una solución *cloud* a este problema. La solución consistiría en mantener el registro de alumnos y su matriculación a asignaturas del centro. Para ello se usaría una plataforma donde los administradores puedan dar de alta una asignatura y los alumnos que lo deseen matricularse en ella y poder informarse de aspectos como el horario o el aula.
+- [Descripción del problema](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/decripcion.md)
+- [Herramientas y tecnologías del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/herramientas.md)
 
 ## Arquitectura
 
@@ -23,30 +20,6 @@ Por otro lado tenemos a los **alumnos** que se matriculan de asignaturas y hacen
 Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyecto que se va a desarrollar la arquitectura que mejor se adecúa es una **arquitectura basada en microservicios**. La justificación de esta elección se debe a las ventajas que esta arquitectura ofrece a nuestro problema. La más importante es la independencia entre los microservicios en su desarrollo, en su manejo, en su mantenimiento o en su actualización. Por otro lado hay que tener en cuenta la robustez frente a fallos: la caída de un servicio no implica la del otro. Es posible que conforme avance el proyecto surja la necesidad de integrar una nueva entidad y aumentar la funcionalidad del proyecto por lo que esta arquitectura resulta idónea para la integración de un nuevo microservicio.
 
 Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos. Además, se evita uno de los problemas de estas arquitecturas, que es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada, ya que en principio sólo se va a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas.
-
-## Herramientas y tecnologías del proyecto
-
-##### Lenguaje
-
-Los servicios de la aplicación van a estar implementados en `Python3`. Se puede consultar la [documentación de las versiones](https://www.python.org/doc/versions/).
-
-##### Entorno vitual
-
-El entorno virtual que se va a usar para las versiones mencionadas es el conocido `virtualenv` para `Python`.
-
-##### Herramienta de construcción
-
-Se va a usar la herramienta clásica `Makefile`. Las tareas que nuestro `Makefile` puede hacer por el momento son:
-
-- `make install`: instala las versiones de los paquetes que el proyecto necesita. Básicamente lanzará la orden `pip3 install -r requirements.txt`, en donde las dependencias están en `requirements.txt`.
-
-- `make test`: ejecuta los tests. Se usará `unittest` disponible en las distribuciones de `Python`. En el directorio `tests` de este repositorio se irán situando los diferentes programas de test.
-
-- `make clean`: limpieza de archivos generados
-
-##### Integración continua
-
-La herramienta de integración continua del proyecto va a ser [Travis CI](https://travis-ci.org/getting_started). Travis comprueba que los tests se ejecuten correctamente para las versiones especificadas en el fichero `.travis.yml`.
 
 ## *Roadmap*
 
@@ -95,7 +68,6 @@ En primer lugar la **estructura del proyecto** es sencilla con dos clases:
 src
 ├── Alumno.py
 └── Asignatura.py
-
 ```
 
 - Clase [Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py). Tiene los siguientes atributos:
