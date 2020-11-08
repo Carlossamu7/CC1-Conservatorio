@@ -27,6 +27,22 @@ class TestConservatorio(unittest.TestCase):
         conser = Conservatorio()
         self.assertEqual(conser.getListaAsignaturas(), [], "Comprobando getListaAsignaturas()")
 
+    ###############
+    ### Alumnos ###
+    ###############
+
+    def test_existAlumno(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertTrue(conser.existAlumno("75931715K"), "Comprobando existAlumno()")
+
+    def test_darAltaAlumno(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.getListaAlumnos()[0].toString(), alumno.toString(), "Comprobando darAltaAlumno()")
+        with self.assertRaises(ValueError): conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+
 
 if __name__ == '__main__':
     unittest.main()

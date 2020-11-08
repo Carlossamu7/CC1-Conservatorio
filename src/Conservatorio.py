@@ -25,3 +25,21 @@ class Conservatorio:
 
     def getListaAsignaturas(self):
         return self.listaAsig
+
+    ###############
+    ### Alumnos ###
+    ###############
+
+    def existAlumno(self, dni):
+        for alum in self.listaAlum:
+            if(alum.getDni()==dni):
+                return True
+        return False
+
+    def darAltaAlumno(self, nombre, email, dni, asignaturas):
+        if(self.existAlumno(dni)):
+            raise ValueError("Ya existe un alumno con este DNI.")
+        else:
+            # En caso de DNI inválido se levanta una expeción
+            alumno = Alumno(nombre, email, dni, asignaturas)
+            self.listaAlum.append(alumno)
