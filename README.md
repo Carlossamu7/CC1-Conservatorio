@@ -10,9 +10,9 @@ Este proyecto es para la aplicación de gestión de un Conservatorio privado.
 
 - [Descripción del problema](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/descripcion.md)
 - [Herramientas y tecnologías del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/herramientas.md)
-- [Arquitectura elegida](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/arquitectura.md)
-- [Roadmap](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/roadmap.md)
-- [Clases y estructura del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clasessindetalle.md)
+- [Arquitectura elegida](https://github.com/Carlossamu7/CC1-Conservatorio/blob/milestone2/docs/arquitectura.md)
+- [Roadmap](https://github.com/Carlossamu7/CC1-Conservatorio/blob/milestone2/docs/roadmap.md)
+- [Clases y estructura del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/milestone2/docs/clasessindetalle.md)
 
 ## Test ##
 
