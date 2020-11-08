@@ -8,7 +8,7 @@ Repositorio para el proyecto (con propósito educativo) de **Cloud Computing**: 
 
 Este proyecto es para la aplicación de gestión de un Conservatorio privado.
 
-- [Descripción del problema](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/decripcion.md)
+- [Descripción del problema](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/descripcion.md)
 - [Herramientas y tecnologías del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/herramientas.md)
 
 ## Arquitectura
