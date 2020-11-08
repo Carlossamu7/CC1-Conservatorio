@@ -1,6 +1,5 @@
 # Instala las dependencias
 install: requirements.txt
-	pip3 install pipenv
 	pipenv install --three
 	pipenv install -r requirements.txt
 
