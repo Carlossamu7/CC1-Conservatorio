@@ -145,3 +145,10 @@ class Conservatorio:
             return self.getAsignatura(nombreAsig).getAula()
         else:
             return "No existe la asignatura " + nombreAsig + "."
+
+    def getListaAsignaturasProfesor(self, profesor):
+        list = []
+        for asig in self.listaAsig:
+            if(asig.getProfesor()==profesor):
+                list.append(asig)
+        return list

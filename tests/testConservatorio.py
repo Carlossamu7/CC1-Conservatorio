@@ -102,7 +102,7 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
         self.assertEqual(conser.getAulasAlumno("75931715K"), "Aula01", "Comprobando getAulasAlumno()")
         self.assertEqual(conser.getAulasAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAulasAlumno() con alumno no existente")
-        
+
     ###################
     ### Asignaturas ###
     ###################
@@ -143,6 +143,15 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         self.assertEqual(conser.getAula("Lenguaje Musical"), "Aula01", "Comprobando getAula()")
         self.assertEqual(conser.getAula("Piano"), "No existe la asignatura Piano.", "Comprobando getAula() con asignatura no existente")
+
+    def test_getListaAsignaturasProfesor(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
+        listaAsig = conser.getListaAsignaturasProfesor("JJ")
+        listaAsig2 = [Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01"), Asignatura("Armonía", "JJ", "M:20-21", "Aula01")]
+        for i in range(len(listaAsig)):
+            self.assertEqual(listaAsig[i].toString(), listaAsig2[i].toString(), "Comprobando getListaAsignaturasProfesor()")
 
 
 if __name__ == '__main__':
