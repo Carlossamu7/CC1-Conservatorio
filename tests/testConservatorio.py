@@ -103,6 +103,31 @@ class TestConservatorio(unittest.TestCase):
         self.assertEqual(conser.getListaAsignaturas()[0].toString(), asig.toString(), "Comprobando darAltaAsignatura()")
         with self.assertRaises(ValueError): conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
 
+    def test_getAsignatura(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        asig = Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertEqual(conser.getAsignatura("Lenguaje Musical").toString(), asig.toString(), "Comprobando getAsignatura()")
+        self.assertEqual(conser.getAsignatura("Piano"), "No existe la asignatura Piano.", "Comprobando getAsignatura() con asignatura no existente")
+
+    def test_getProfesor(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertEqual(conser.getProfesor("Lenguaje Musical"), "JJ", "Comprobando getProfesor()")
+        self.assertEqual(conser.getProfesor("Piano"), "No existe la asignatura Piano.", "Comprobando getProfesor() con asignatura no existente")
+
+    def test_getHorario(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertEqual(conser.getHorario("Lenguaje Musical"), "L:16-17, X:16-17", "Comprobando getHorario()")
+        self.assertEqual(conser.getHorario("Piano"), "No existe la asignatura Piano.", "Comprobando getHorario() con asignatura no existente")
+
+    def test_getAula(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertEqual(conser.getAula("Lenguaje Musical"), "Aula01", "Comprobando getAula()")
+        self.assertEqual(conser.getAula("Piano"), "No existe la asignatura Piano.", "Comprobando getAula() con asignatura no existente")
+
 
 if __name__ == '__main__':
     unittest.main()

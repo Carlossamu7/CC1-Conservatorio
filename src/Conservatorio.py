@@ -96,3 +96,27 @@ class Conservatorio:
             raise ValueError("Ya existe esta asignatura.")
         else:
             self.listaAsig.append(Asignatura(asignatura, profesor, horario, aula))
+
+    def getAsignatura(self, nombreAsig):
+        for asig in self.listaAsig:
+            if(asig.getAsignatura()==nombreAsig):
+                return asig
+        return "No existe la asignatura " + nombreAsig + "."
+
+    def getProfesor(self, nombreAsig):
+        if(self.existAsignatura(nombreAsig)):
+            return self.getAsignatura(nombreAsig).getProfesor()
+        else:
+            return "No existe la asignatura " + nombreAsig + "."
+
+    def getHorario(self, nombreAsig):
+        if(self.existAsignatura(nombreAsig)):
+            return self.getAsignatura(nombreAsig).getHorario()
+        else:
+            return "No existe la asignatura " + nombreAsig + "."
+
+    def getAula(self, nombreAsig):
+        if(self.existAsignatura(nombreAsig)):
+            return self.getAsignatura(nombreAsig).getAula()
+        else:
+            return "No existe la asignatura " + nombreAsig + "."
