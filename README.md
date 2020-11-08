@@ -10,112 +10,50 @@ Este proyecto es para la aplicación de gestión de un Conservatorio privado.
 
 - [Descripción del problema](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/descripcion.md)
 - [Herramientas y tecnologías del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/herramientas.md)
+- [Arquitectura elegida](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/arquitectura.md)
+- [Roadmap](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/roadmap.md)
+- [Clases y estructura del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clasessindetalle.md)
 
-## Arquitectura
+## Test ##
 
-En primer lugar hay que analizar muy bien el problema que estamos tratando de resolver. En dicho problema reconocemos perfectamente dos entidades fundamentales, por un lado las **asignaturas** que son dadas de alta por un administrador del Conservatorio. Se tiene que poder de dar de alta una asignatura, borrarla o modificar aspectos como el horario, el aula o el profesor asociado.
+Los test del código resultan fundamentales en el desarrollo de proyectos actual por diferentes motivos. Por un lado, se ha de tener en cuenta el coste que supondría desplegar una aplicación con errores y por otro para asegurar la calidad del código mediante la comprobación de los requisitos planteados, como son las historias de usuario. Además, los test van a convertirse en un elemento esencial para la automatización de los ciclos de vida del software.
 
-Por otro lado tenemos a los **alumnos** que se matriculan de asignaturas y hacen diversas consultas o cambios en su matrícula. Cada alumno tiene la posibilidad de darse de alta en el conservatorio mediante la matricula en las asignaturas deseadas. También puede matricular más asignaturas y desmatricular asignaturas ya matriculadas, así como hacer diversas consultas.
+Las pruebas que se van a realizar por el momento son **unitarias** ya que las comprobaciones que se van a hacer son llamadas a una función con diferentes parámetros y asegurando que los resultados son los deseados. El diseño de software de este proyecto es usando **desarrollo basado en tests**, donde es preferible programar los test sabiendo qué se desea obtener y posteriormente el código.
 
-Después de estudiar las diferentes arquitecturas y teniendo en cuenta el proyecto que se va a desarrollar la arquitectura que mejor se adecúa es una **arquitectura basada en microservicios**. La justificación de esta elección se debe a las ventajas que esta arquitectura ofrece a nuestro problema. La más importante es la independencia entre los microservicios en su desarrollo, en su manejo, en su mantenimiento o en su actualización. Por otro lado hay que tener en cuenta la robustez frente a fallos: la caída de un servicio no implica la del otro. Es posible que conforme avance el proyecto surja la necesidad de integrar una nueva entidad y aumentar la funcionalidad del proyecto por lo que esta arquitectura resulta idónea para la integración de un nuevo microservicio.
+#### Librería de aserciones & Marco de pruebas ####
 
-Otra razón para esta elección es la posibilidad de una gestión descentralizada de datos, cada microservicio tiene su base de datos. Además, se evita uno de los problemas de estas arquitecturas, que es cuando el número de microservicios es grande y por consiguiente la tarea de gestión se hace más pesada, ya que en principio sólo se va a tener dos grandes microservicios que dirigen cada una de las funcionalidades ya introducidas.
+En mi caso, que estoy implementando el proyecto en `Python3` y el **marco de pruebas** que he elegido es `unittest`. Un motivo para esta elección es que está integrado en Python y es todo un estándar por lo que hay bastante información al respecto. Se puede consultar información relevante de `unittest` en esta [documentación oficial](https://docs.python.org/3/library/unittest.html). Resulta cómodo hacer TDD mediante esta biblioteca.
 
-## *Roadmap*
+En `Python` encontramos diferenes **aserciones explícitas** con `assert`. Se pueden consultar [todas las aserciones](https://docs.python.org/3/library/unittest.html#assert-methods) pero resumo a continuación las más comunes:
+- `assertTrue`: fallará sólo si no devuelve `True`.
+- `assertFalse`: fallará sólo si no devuelve `False`.
+- `assertEqual`: fallará sólo si los dos argumentos no son iguales.
+- `assertRaises`: fallará si no se lanza una excepción del tipo indicado. En este [link](https://ongspxm.gitlab.io/blog/2016/11/assertraises-testing-for-errors-in-unittest/) se muestras diferentes formas de usarlo y una de ellas muy elegante.
 
-Para consultar exclusivamente los *milestone* con sus *issues* entrar [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md). La planificación del desarrollo del proyecto es la siguiente:
+Personalmente la filosofía de  otras librerías como `doctest` no me gustan tanto porque llevan las ejecuciones y resultados comentados encima de cada método/función alargando mucho el código. Para mí es preferible que si ahí hay que poner algún comentario sea del método o función y por otro lado independientes los test. Por esto descarté `doctest`.
 
-**Fase 1**. Comenzar el desarrollo de los *milestones* de [Administrador](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/4) y de [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3). Cuando dichos *milestone* se hayan alcanzado se dispondrá de un producto mínimamente viable (MVP).
+Otras opciones como `pytest` están ampliamente aceptadas y usandas por programadores `Python`. Una desventaja es que no viene integrado y es necesaria su instalación y [documentándome](https://stackoverflow.com/questions/27954702/unittest-vs-pytest) me pareció más intuitivo `unittest`.
 
-- [[HU1] Como administrador quiero dar de alta una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12)
+#### Test ####
 
-> Se ha implementado la clase `Asignatura.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py).
+He implementado tres clases `TestAlumno`, `TestAsignatura` y `TestConservatorio` que son subclases de `unittest.TestCase`. He procurado seguir lo que considero que son buenos hábitos a la hora de programar tests. Dejo aquí anotados los más importantes:
 
-- [[HU4] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
+- Cada test prueba una pequeña funcionalidad y demuestra que es correcta.
+- Cada función test es independiente y se puede ejecutar por separado.
+- Los tests se ejecutan rápidamente.
+- Cada test unitario tiene un propósito claro y el nombre de la función es largo y descriptivo.
 
-> Se ha implementado la clase `Alumno.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Gestionada la comprobación de DNIs, no se dará de alta a ningún alumno con un DNI no válido en el sistema.
-
-**Fase 2**. Avanzar esos MVP con nuevas historias de usuario que los hacen más funcionales.
-
-- [[HU2] Como administrador quiero modificar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13)
-- [[HU3] Como administrador quiero borrar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14)
-- [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
-- [[HU6] Como alumno quiero consultar mis asignaturas matriculadas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39)
-- [[HU7] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
-
-**Fase 3**. Introducir tests que comprueben y aseguren la calidad del código ya implementado ya que nuestro objetivo es desplegar la aplicación en la nube y estas pruebas confirmarán que el código hace lo que se espera que haga. Los tests comprobarán las HU de alumno y las de administrador.
-
-**Fase 4**. Continuar con el desarrollo de la aplicación avanzando historias de usuario que necesitan de la comunicación de ambos microservicios.
-
-- [[HU8] Como alumno quiero consultar el horario de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18)
-- [[HU9] Como alumno quiero consultar el aula de una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19)
-- [[HU10] Como alumno quiero saber mi horario completo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43)
-
-> Se ha implementado la clase `Conservatorio.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py).
-
-- [[HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44)
-- [[HU12] Como administrador quiero saber las asignaturas que imparte un profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45)
-- [[HU13] Como administrador quiero saber el horario completo de un  profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46)
-- [[HU14] Como administrador quiero saber las aulas que usa un profesor/alumno.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47)
-
-**Fase 5**. Crear contenedores en donde almacenar la aplicación para permitir el despliegue de la misma en la nube.
-
-## Clases
-
-En primer lugar la **estructura del proyecto** es sencilla con dos clases:
-
-```bash
-src
-├── Alumno.py
-└── Asignatura.py
-```
-
-- Clase [Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py). Tiene los siguientes atributos:
-    - asignatura (`getter`)
-    - profesor (`getter` y `setter`)
-    - horario (`getter` y `setter`)
-    - aula (`getter` y `setter`)
-
-- Clase [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Tiene los siguientes atributos:
-    - nombre (`getter` y `setter`)
-    - email (`getter` y `setter`)
-    - dni (`getter`)
-    - asignaturas (`getter` y `setter`)
-
-- Clase [Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Tiene los siguientes atributos:
-    - `nombreConservatorio` (que es `MiConservatorio`, tiene `getter`)
-    - `listaAlum` (`getter`)
-    - `listaAsig` (`getter`)
-
-[Consultar con más detalle los métodos de estas clases.](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clases.md)
-
-#### Comprobación de la sintaxis:
-
-Ejecutando las órdenes
+La ejecución de un test es como un programa en `Python`:
 
 ```
-python3.8 src/Alumno.py
-python3.8 src/Asignatura.py
-python3.8 src/Conservatorio.py
+python3.8 tests/testAlumno.py
+python3.8 tests/testAsignatura.py
+python3.8 tests/testConservatorio.py
 ```
 
-observamos que la sintaxis es correcta.
+Para ejecutarlo en el entorno virtual sería a través de `pipenv`, documentación [aquí](https://pipenv-es.readthedocs.io/es/latest/). También he usado la herramienta `coverage` para medir qué zonas del código se han ejecutado y cuáles no. Esto me permite mantener un control más detallado ([fuente](https://coverage.readthedocs.io/en/coverage-5.3/)).
 
-![](./docs/images/sem_02_03/sintaxis.png)
 
-#### Tratamiento de errores
-
-Los errores tratados por el sistema son los siguientes:
-
-- En la clase `Alumno`:
-
-    - Crear un alumno con un DNI no válido. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``El DNI no es válido.``
-    - Matricular una asignatura ya matriculada. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Asignatura ya matriculada.``
-    - Desmatricular una asignatura no matriculada. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``No existe tal asignatura.``
-
-- En la clase `Conservatorio`:
-    - Dar de alta un alumno que ya está dado de alta. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Ya existe un alumno con este DNI.``
-    - Dar de alta una asignatura que ya está dada de alta. Se lanza una excepción de tipo `ValueError` que informa diciendo: ``Ya existe esta asignatura.``
 
 ## Licencia
 
