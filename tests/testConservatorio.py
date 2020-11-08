@@ -23,9 +23,21 @@ class TestConservatorio(unittest.TestCase):
         conser = Conservatorio()
         self.assertEqual(conser.getListaAlumnos(), [], "Comprobando getListaAlumnos()")
 
+    def test_getNumeroAlumnos(self):
+        conser = Conservatorio()
+        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.assertEqual(conser.getNumeroAlumnos(), 2, "Comprobando getNumeroAlumnos()")
+
     def test_getListaAsignaturas(self):
         conser = Conservatorio()
         self.assertEqual(conser.getListaAsignaturas(), [], "Comprobando getListaAsignaturas()")
+
+    def test_getNumeroAsignaturas(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.darAltaAsignatura("Armonia", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.getNumeroAsignaturas(), 2, "Comprobando getNumeroAsignaturas()")
 
     ###############
     ### Alumnos ###

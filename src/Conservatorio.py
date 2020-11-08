@@ -23,8 +23,14 @@ class Conservatorio:
     def getListaAlumnos(self):
         return self.listaAlum
 
+    def getNumeroAlumnos(self):
+        return len(self.listaAlum)
+
     def getListaAsignaturas(self):
         return self.listaAsig
+
+    def getNumeroAsignaturas(self):
+        return len(self.listaAsig)
 
     ###############
     ### Alumnos ###
