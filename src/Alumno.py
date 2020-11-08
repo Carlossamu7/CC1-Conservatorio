@@ -60,7 +60,7 @@ class Alumno:
         self.asignaturas = asignaturas
 
     def listaAsignaturas(self):
-        return self.asignaturas.split(",")
+        return self.asignaturas.split(", ")
 
     def matriculaAsignatura(self, asig):
         if asig in self.listaAsignaturas():	# Lanza excepción
@@ -69,13 +69,13 @@ class Alumno:
             if self.asignaturas == "":
                 self.asignaturas = asig
             else:
-                self.asignaturas += "," + asig
+                self.asignaturas += ", " + asig
 
     def desmatriculaAsignatura(self, asig):
         list = self.listaAsignaturas()
         if(asig in list):
             list.remove(asig)
-            self.asignaturas = ",".join(list)
+            self.asignaturas = ", ".join(list)
         else:	# Lanza excepción
             raise ValueError("No existe tal asignatura.")
 
