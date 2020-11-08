@@ -159,6 +159,12 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
         self.assertEqual(conser.getNombreAsignaturasProfesor("JJ"), ["Lenguaje Musical", "Armonía"], "Comprobando getNombreAsignaturasProfesor()")
 
+    def test_getHorarioProfesor(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.getHorarioProfesor("JJ"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando getHorarioProfesor()")
+
 
 if __name__ == '__main__':
     unittest.main()
