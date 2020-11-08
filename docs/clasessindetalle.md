@@ -5,7 +5,8 @@ En primer lugar la **estructura del proyecto** es sencilla con dos clases:
 ```bash
 src
 ├── Alumno.py
-└── Asignatura.py
+├── Asignatura.py
+└── Conservatorio.py
 ```
 
 - Clase [Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py). Tiene los siguientes atributos:
@@ -39,7 +40,7 @@ python3.8 src/Conservatorio.py
 
 observamos que la sintaxis es correcta.
 
-![](./docs/images/sem_02_03/sintaxis.png)
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_02_03/sintaxis.png)
 
 #### Tratamiento de errores
 
