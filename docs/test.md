@@ -52,15 +52,15 @@ pipenv run coverage report -m
 
 Veremos más adelante que esto se puede automatizar. Los resultados de las ejecuciones son los que vemos a continuación. Para la clase `Alumno`:
 
-![](./docs/images/sem_04_05/testAlumno.png)
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testAlumno.png)
 
 Para la clase `Asignatura`:
 
-![](./docs/images/sem_04_05/testAsignatura.png)
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testAsignatura.png)
 
 Para la clase `Conservatorio`:
 
-![](./docs/images/sem_04_05/testConservatorio.png)
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testConservatorio.png)
 
 Observamos que los test barren el 100% del código de `Alumno.py`, de `Asignatura.py` y de `Conservatorio.py`. Asimismo se ha usado el parámetro `-v` u opción `verbose` para que informe qué test está ejecutando y posteriormente con `pipenv run coverage report -m` nos emite el informe de las zonas de código ejecutadas.
 
