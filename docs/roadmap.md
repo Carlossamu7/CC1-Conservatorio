@@ -11,6 +11,8 @@ Para consultar exclusivamente los *milestone* con sus *historias de usuario* ent
 - [[HU2] Como administrador quiero modificar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13)
 - [[HU3] Como administrador quiero borrar una asignatura.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14)
 
+> Se ha incluido una lista de asignaturas en la clase controladora de la lógica de negocio `Conservatorio.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py).
+
 **Fase 2**. En esta segunda fase, tras haber gestionado la administración de asignaturas podemos empezar a gestionar los alumnos del Centro y permitir su matriculación o desmatriculación de las mismas. Esta fase se enmarca en el *milestones* [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3).
 
 - [[HU4] Como alumno quiero matricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15)
@@ -20,6 +22,8 @@ Para consultar exclusivamente los *milestone* con sus *historias de usuario* ent
 - [[HU5] Como alumno quiero desmatricularme de ciertas asignaturas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16)
 - [[HU6] Como alumno quiero consultar mis asignaturas matriculadas.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39)
 - [[HU7] Como alumno quiero modificar la dirección de correo con la que el centro se pone en contacto conmigo.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17)
+
+> Se ha incluido una lista de alumnos en la clase controladora de la lógica de negocio `Conservatorio.py` [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py).
 
 **Fase 3**. Se añaden las funcionalidades relativas a las acciones que pueden realizar los alumnos en el sistema y cómo se relacionan con sus horarios o aulas de las asignaturas en las que están matriculados. Para realizar esto previamente se necesita haber desarrollado una administración correcta de las asignaturas, ya que no se podría acceder a esta información si no se gestiona correctamente la matriculación de asignaturas.
 
