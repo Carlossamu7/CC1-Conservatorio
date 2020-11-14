@@ -1,3 +1,5 @@
+## Tests ##
+
 Los test del código resultan fundamentales en el desarrollo de proyectos actual por diferentes motivos. Por un lado, se ha de tener en cuenta el coste que supondría desplegar una aplicación con errores y por otro para asegurar la calidad del código mediante la comprobación de los requisitos planteados, como son las historias de usuario. Además, los test van a convertirse en un elemento esencial para la automatización de los ciclos de vida del software.
 
 Las pruebas que se van a realizar por el momento son **unitarias** ya que las comprobaciones que se van a hacer son llamadas a una función con diferentes parámetros y asegurando que los resultados son los deseados. El diseño de software de este proyecto es usando **desarrollo basado en tests**, donde es preferible programar los test sabiendo qué se desea obtener y posteriormente el código.
