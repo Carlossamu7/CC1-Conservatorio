@@ -6,7 +6,7 @@ Las pruebas que se van a realizar por el momento son **unitarias** ya que las co
 
 ### Librería de aserciones & Marco de pruebas ###
 
-En mi caso, que estoy implementando el proyecto en `Python3` y el **marco de pruebas** que he elegido es `unittest`. Un motivo para esta elección es que está integrado en Python y es todo un estándar por lo que hay bastante información al respecto. Se puede consultar información relevante de `unittest` en esta [documentación oficial](https://docs.python.org/3/library/unittest.html). Resulta cómodo hacer TDD mediante esta biblioteca.
+En mi caso, que estoy implementando el proyecto en `Python3` y el marco de pruebas que he elegido es `unittest` tal y como se explica en la [documentación oficial](https://docs.python.org/3/library/unittest.html) aunque puede llevar a confusión con que sea una biblioteca de aserciones ya que posee ambas cosas. Un motivo para esta elección es que está integrado en `Python` y es todo un estándar por lo que hay bastante información al respecto. Resulta cómodo hacer TDD mediante esta biblioteca.
 
 En `Python` encontramos diferenes **aserciones explícitas** con `assert`. Se pueden consultar [todas las aserciones](https://docs.python.org/3/library/unittest.html#assert-methods) pero resumo a continuación las que más he usado:
 - `assertTrue`: fallará sólo si no devuelve `True`.
