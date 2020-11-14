@@ -13,7 +13,7 @@ Este proyecto es para la aplicación de gestión de un Conservatorio privado. De
 ## Arquitectura y Roadmap ##
 
 - [Arquitectura elegida](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/arquitectura.md)
-- [Roadmap](https://github.com/Carlossamu7/CC1-Conservatorio/blob/milestone2/docs/roadmap.md)
+- [Roadmap](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/roadmap.md)
 - [Clases y estructura del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clasessindetalle.md)
 
 ## Test ##
