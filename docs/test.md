@@ -66,7 +66,39 @@ Observamos que los test barren el 100% del código de `Alumno.py`, de `Asignatur
 
 ### Gestor de tareas ###
 
-El gestor de tareas que se había elegido para el proyecto es `Makefile`. En él se pueden ejecutar los test unitarios rápidamente con la orden `make test`. Además con `make sintaxis` se puede comprobar la sintaxis de las clases implementadas.
+El gestor de tareas que elegido para el proyecto es `Makefile`. En él se pueden ejecutar los test unitarios rápidamente con la orden `make test`.
+
+```
+test:
+	# Tests unitarios e informe a través de report -m
+	##########################  Test de Alumno  ##########################
+	pipenv run coverage run tests/testAlumno.py -v
+	pipenv run coverage report -m
+	########################  Test de Asignatura  ########################
+	pipenv run coverage run tests/testAsignatura.py -v
+	pipenv run coverage report -m
+	#######################  Test de Conservatorio  ######################
+	pipenv run coverage run tests/testConservatorio.py -v
+	pipenv run coverage report -m
+```
+
+Además con `make sintaxis` se puede comprobar la sintaxis de las clases implementadas.
+
+```
+sintaxis:
+	pipenv run python3.8 src/Alumno.py
+	pipenv run python3.8 src/Asignatura.py
+	pipenv run python3.8 src/Conservatorio.py
+```
+
+Para borrar los ficheros generados y que no queremos se dispone de la tarea `clean`:
+
+```
+clean:
+	#rm -r ./src/__pycache__
+	rm .coverage
+	rm Pipfile*
+```
 
 ### Avances en el código ###
 
