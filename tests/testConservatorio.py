@@ -109,6 +109,13 @@ class TestConservatorio(unittest.TestCase):
         self.assertEqual(conser.getDiccionarioAsignaturas()["Lenguaje Musical"].toString(), asig.toString(), "Comprobando darAltaAsignatura()")
         with self.assertRaises(ValueError): conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
 
+    def test_borrarAsignatura(self):
+        conser = Conservatorio()
+        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.borrarAsignatura("Lenguaje Musical")
+        self.assertEqual(conser.getNumeroAsignaturas(), 0, "Comprobando borrarAsignatura()")
+        with self.assertRaises(ValueError): conser.borrarAsignatura("Lenguaje Musical")
+
     def test_getAsignatura(self):
         conser = Conservatorio()
         conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")

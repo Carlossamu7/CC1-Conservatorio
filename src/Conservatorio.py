@@ -117,6 +117,12 @@ class Conservatorio:
         else:
             self.__dicAsig[asignatura] = Asignatura(asignatura, profesor, horario, aula)
 
+    def borrarAsignatura(self, asignatura):
+        if(self.existAsignatura(asignatura)):
+            del self.__dicAsig[asignatura]
+        else:
+            raise ValueError("Ya existe esta asignatura.")
+
     def getAsignatura(self, nombreAsig):
         if self.existAsignatura(nombreAsig):
             return self.__dicAsig[nombreAsig]
@@ -160,7 +166,7 @@ class Conservatorio:
             str += self.__dicAlum[alum].toString()
             str += "\n"
         str += "\n\n"
-        
+
         str += "--------------  ASIGNATURAS  --------------\n\n"
         for asig in self.__dicAsig:
             str += self.__dicAsig[asig].toString()
