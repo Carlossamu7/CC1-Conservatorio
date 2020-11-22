@@ -7,37 +7,37 @@ Implementación de la clase Asignatura
 
 class Asignatura:
     def __init__(self, asignatura, profesor, horario, aula):
-        self.asignatura = asignatura
-        self.profesor = profesor
-        self.horario = horario
-        self.aula = aula
+        self.__asignatura = asignatura
+        self.__profesor = profesor
+        self.__horario = horario
+        self.__aula = aula
 
     def getAsignatura(self):
-        return self.asignatura
+        return self.__asignatura
 
     def getProfesor(self):
-        return self.profesor
+        return self.__profesor
 
     def getHorario(self):
-        return self.horario
+        return self.__horario
 
     def getAula(self):
-        return self.aula
+        return self.__aula
 
     # La asignatura no cambia, no existe setter.
 
     def setProfesor(self, profesor):
-        self.profesor = profesor
+        self.__profesor = profesor
 
     def setHorario(self, horario):
-        self.horario = horario
+        self.__horario = horario
 
     def setAula(self, aula):
-        self.aula = aula
+        self.__aula = aula
 
     def toString(self):
-        str = "--> " + self.asignatura + "\n"
-        str += "    Profesor: " + self.profesor + "\n"
-        str += "    Horario: " + self.horario + "\n"
-        str += "    Aula: " + self.aula
+        str = "--> " + self.__asignatura + "\n"
+        str += "    Profesor: " + self.__profesor + "\n"
+        str += "    Horario: " + self.__horario + "\n"
+        str += "    Aula: " + self.__aula
         return str
