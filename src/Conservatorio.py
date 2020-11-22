@@ -97,7 +97,7 @@ class Conservatorio:
                     if(asi.getAsignatura()==asig):
                         if(not asi.getAula() in list):
                             list.append(asi.getAula())
-            return ", ".join(list)
+            return list
         else:
             return "No existe ningún alumno con ese DNI."
 
