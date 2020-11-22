@@ -14,20 +14,20 @@ from Asignatura import Asignatura
 class Conservatorio:
     def __init__(self):
         self.nombreConservatorio = "MiConservatorio"
-        self.__listaAlum = []
-        self.__listaAsig = []
+        self.__dicAlum = {}     # Diccionario
+        self.__dicAsig = {}     # Diccionario
 
     def getNombreConservatorio(self):
         return self.nombreConservatorio
 
-    def getListaAlumnos(self):
-        return self.__listaAlum
+    def getDiccionarioAlumnos(self):
+        return self.__dicAlum
 
     def getNumeroAlumnos(self):
         return len(self.__listaAlum)
 
-    def getListaAsignaturas(self):
-        return self.__listaAsig
+    def getDiccionarioAsignaturas(self):
+        return self.__dicAsig
 
     def getNumeroAsignaturas(self):
         return len(self.__listaAsig)
@@ -58,9 +58,9 @@ class Conservatorio:
 
     def getAlumnos(self, nombreAlum):
         list = []
-        for alum in self.__listaAlum:
-            if(alum.getNombre()==nombreAlum):
-                list.append(alum.getDni())
+        for alum in self.__dicAlum:
+            if(self.__dicAlum[alum].getNombre()==nombreAlum):
+                list.append(self.__dicAlum[alum].getDni())
         return list
 
     def getHorarioAsignaturaAlumno(self, dni, asignatura):
@@ -155,12 +155,12 @@ class Conservatorio:
     def toString(self):
         str = "¡Bienvenido a " + self.getNombreConservatorio() + "!\n\n"
         str += "--------------    ALUMNOS    --------------\n\n"
-        for alum in self.__listaAlum:
-            str += alum.toString()
+        for alum in self.__dicAlum:
+            str += self.__dicAlum[alum].toString()
             str += "\n"
         str += "\n\n"
         str += "--------------  ASIGNATURAS  --------------\n\n"
-        for asig in self.__listaAsig:
-            str += asig.toString()
+        for asig in self.__dicAsig:
+            str += self.__dicAsig[asig].toString()
             str += "\n"
         return str

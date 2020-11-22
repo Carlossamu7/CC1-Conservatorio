@@ -19,9 +19,9 @@ class TestConservatorio(unittest.TestCase):
         conser = Conservatorio()
         self.assertEqual(conser.getNombreConservatorio(), "MiConservatorio", "Comprobando getConservatorio()")
 
-    def test_getListaAlumnos(self):
+    def test_getDiccionarioAlumnos(self):
         conser = Conservatorio()
-        self.assertEqual(conser.getListaAlumnos(), [], "Comprobando getListaAlumnos()")
+        self.assertEqual(conser.getDiccionarioAlumnos(), {}, "Comprobando getDiccionarioAlumnos()")
 
     def test_getNumeroAlumnos(self):
         conser = Conservatorio()
@@ -29,9 +29,9 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
         self.assertEqual(conser.getNumeroAlumnos(), 2, "Comprobando getNumeroAlumnos()")
 
-    def test_getListaAsignaturas(self):
+    def test_getDiccionarioAsignaturas(self):
         conser = Conservatorio()
-        self.assertEqual(conser.getListaAsignaturas(), [], "Comprobando getListaAsignaturas()")
+        self.assertEqual(conser.getDiccionarioAsignaturas(), {}, "Comprobando getDiccionarioAsignaturas()")
 
     def test_getNumeroAsignaturas(self):
         conser = Conservatorio()
