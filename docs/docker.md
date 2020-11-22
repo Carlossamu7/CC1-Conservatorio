@@ -112,12 +112,12 @@ La opción de *Alpine* es muy ligera pero después de leer este [artículo](http
 3. Desperdicia tiempo.
 4. En ocasiones introduce algunos errores en tiempo de ejecución.
 
-Finalmente la imagen base escogida es **Python 3.8-slim** por ser un 2MB más ligera que la otra y por la buena crítica y estudio que recibe en [este artículo de Abril de 2020](https://pythonspeed.com/articles/base-image-python-docker-images/). Está basado en *debian-buster*.
+Finalmente la imagen base escogida es **Python 3.8-slim** por ser un 2MB más ligera que la otra y por la buena crítica y estudio que recibe en [este artículo de Abril de 2020](https://pythonspeed.com/articles/base-image-python-docker-images/). Es importante saber que esta imagen base tiene por debajo *debian-buster*.
 
 
 ### `Dockerfile`
 
-Queremos que la creación del entorno de pruebas sea reproducible, por lo que se va a diseñar un `Dockerfile`. El `Dockerfile` final está dispobible [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/Dockerfile) pero lo observamos a continuación:
+Queremos que la creación del entorno de pruebas sea reproducible, por lo que se va a diseñar un `Dockerfile`. El `Dockerfile` final está disponible [aquí](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/Dockerfile) pero lo observamos a continuación:
 
 ```
 # Imagen base
@@ -154,17 +154,21 @@ Se ha diseñado siguiendo buenas prácticas como las disponibles en este [primer
 
 - Según [esta información oficial](https://docs.docker.com/engine/reference/builder/) el uso de `MAINTEINER` está deprecado y es conveniente indicarlo en `LABEL`
 
-- Seguridad: es importante que siempre que sea posible se ejecute la aplicación como un usuario no privilegiado. Creación de usuario [así](https://stackoverflow.com/questions/39855304/how-to-add-user-with-dockerfile)
+- Seguridad: es importante que siempre que sea posible se ejecute la aplicación como un usuario no privilegiado. Creación de usuario [así](https://stackoverflow.com/questions/39855304/how-to-add-user-with-dockerfile). Es preferible usar `useradd`, y le indicamos que cree una carpeta en el home (`-m`) y cuál va a ser el shell (`-s`)
 
-useradd es un comando que ejecuta un binario del sistema, mientras que adduser es un script en perl que utiliza el binario useradd.
+    > `useradd` es un comando que ejecuta un binario del sistema, mientras que `adduser` es un script en perl que utiliza el binario `useradd`.
 
-La mayor ventaja del comando adduser es que crea el directorio home (/home/usuario/) del usuario de manera automática, cosa que no hace useradd (hay que usar la opción -m).
+- En mi caso uso `Makefile` que no viene por defecto. Es necesario instalar el paquete `build-essential`.
 
-Con la orden `docker inspect ce61eb646e2c | jq` vemos que el contenedor de ese ID tiene 8 capas.
+- Del mismo modo copio el fichero `requirements.txt`, instalo las dependencias y lo elimino.
+
+- El docker va a ser testeado con `docker run -t -v pwd:/app/test nick-estudiante/nombre-del-repo` por lo que establezco como `WORKDIR` el directorio `/app/test`. Para ejecutar los tests en el docker, incluyo finalmente `CMD ["make", "test"]`.
+
+Con la orden `docker inspect ID | jq` vemos información acerca del contenedor indicado en ID. En este caso nuestro contenedor tiene 8 capas.
 
 ### Docker Hub y actualización automática
 
-[Docker Hub](https://hub.docker.com/)
+[Docker Hub](https://hub.docker.com/) es un repositorio público en la nube, similar a Github, para distribuir los contenidos. Es el sitio oficial y gratuito (de momento) en donde la comunidad informática puede subir o usar contenedores. En este apartado se va a explicar cómo subir el docker y como sincronizar dicho docker con GitHub para automatizar las actualizaciones.
 
 #### Subiendo el docker
 
@@ -194,7 +198,7 @@ La plataforma Docker Hub permite automatizar la construcción de nuestro docker 
 
 2. Elegimos la opción de GitHub en mi caso y conectamos la cuenta de Docker Hub con la de GitHub.
 
-3. Una vez conectada la cuenta volvemos al docker y le indicamos la cuenta y el repositorio con el que se va a automatizar. Dejo el resto de opciones a como vienen por defecto.
+3. Una vez conectada la cuenta volvemos al docker y le indicamos la cuenta y el repositorio con el que se va a automatizar. Dejo el resto de opciones a como vienen por defecto. Veamos:
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/connecting.png)
 
@@ -205,6 +209,8 @@ La plataforma Docker Hub permite automatizar la construcción de nuestro docker 
 ### Uso de registros alternativos
 
 ### Avance del proyecto
+
+Siguiendo las indicaciones dadas en entregas anteriores del proyecto el avance en esta fase se ha centrado en:
 
 - Atributos privados para las clases implementadas.
 
