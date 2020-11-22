@@ -118,10 +118,10 @@ class Conservatorio:
             self.__dicAsig[asignatura] = Asignatura(asignatura, profesor, horario, aula)
 
     def getAsignatura(self, nombreAsig):
-        for asig in self.__listaAsig:
-            if(asig.getAsignatura()==nombreAsig):
-                return asig
-        return "No existe la asignatura " + nombreAsig + "."
+        if self.existAsignatura(nombreAsig):
+            return self.__dicAsig[nombreAsig]
+        else:
+            return "No existe la asignatura " + nombreAsig + "."
 
     def getListaAsignaturasProfesor(self, profesor):
         list = []
