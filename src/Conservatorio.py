@@ -106,16 +106,16 @@ class Conservatorio:
     ###################
 
     def existAsignatura(self, asignatura):
-        for asig in self.__listaAsig:
-            if(asig.getAsignatura()==asignatura):
-                return True
-        return False
+        if asignatura in self.__dicAsig:
+            return True
+        else:
+            return False
 
     def darAltaAsignatura(self, asignatura, profesor, horario, aula):
         if(self.existAsignatura(asignatura)):
             raise ValueError("Ya existe esta asignatura.")
         else:
-            self.__listaAsig.append(Asignatura(asignatura, profesor, horario, aula))
+            self.__dicAsig[asignatura] = Asignatura(asignatura, profesor, horario, aula)
 
     def getAsignatura(self, nombreAsig):
         for asig in self.__listaAsig:

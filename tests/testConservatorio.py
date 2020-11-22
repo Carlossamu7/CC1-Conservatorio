@@ -106,7 +106,7 @@ class TestConservatorio(unittest.TestCase):
         conser = Conservatorio()
         conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         asig = Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(conser.getListaAsignaturas()[0].toString(), asig.toString(), "Comprobando darAltaAsignatura()")
+        self.assertEqual(conser.getDiccionarioAsignaturas()["Lenguaje Musical"].toString(), asig.toString(), "Comprobando darAltaAsignatura()")
         with self.assertRaises(ValueError): conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
 
     def test_getAsignatura(self):
