@@ -91,12 +91,12 @@ class Conservatorio:
     def getAulasAlumno(self, dni):
         list = []
         if(self.existAlumno(dni)):
-            alum = self.getAlumno(dni)
+            alum = self.__dicAlum[dni]
             for asig in alum.listaAsignaturas():
-                for asi in self.__listaAsig:
-                    if(asi.getAsignatura()==asig):
-                        if(not asi.getAula() in list):
-                            list.append(asi.getAula())
+                for asi in self.__dicAsig:
+                    if(asi==asig):
+                        if(not self.__dicAsig[asi].getAula() in list):
+                            list.append(self.__dicAsig[asi].getAula())
             return list
         else:
             return "No existe ningún alumno con ese DNI."
