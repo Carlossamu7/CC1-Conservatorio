@@ -24,13 +24,13 @@ class Conservatorio:
         return self.__dicAlum
 
     def getNumeroAlumnos(self):
-        return len(self.__listaAlum)
+        return len(self.__dicAlum)
 
     def getDiccionarioAsignaturas(self):
         return self.__dicAsig
 
     def getNumeroAsignaturas(self):
-        return len(self.__listaAsig)
+        return len(self.__dicAsig)
 
     ###############
     ### Alumnos ###
