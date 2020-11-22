@@ -141,7 +141,7 @@ class TestConservatorio(unittest.TestCase):
         conser = Conservatorio()
         conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getAulasProfesor("JJ"), "Aula01", "Comprobando getAulasProfesor()")
+        self.assertEqual(conser.getAulasProfesor("JJ"), ["Aula01"], "Comprobando getAulasProfesor()")
 
     def test_toString(self):
         conser = Conservatorio()

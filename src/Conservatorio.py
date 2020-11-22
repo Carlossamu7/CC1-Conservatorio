@@ -150,7 +150,7 @@ class Conservatorio:
         for asig in asigProf:
             if(not asig.getAula() in list):
                 list.append(asig.getAula())
-        return ", ".join(list)
+        return list
 
     def toString(self):
         str = "¡Bienvenido a " + self.getNombreConservatorio() + "!\n\n"
