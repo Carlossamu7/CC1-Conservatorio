@@ -51,10 +51,10 @@ class Conservatorio:
             self.__dicAlum[dni] = alumno
 
     def getAlumno(self, dni):
-        for alum in self.__listaAlum:
-            if(alum.getDni()==dni):
-                return alum
-        return "No existe ningún alumno con ese DNI."
+        if self.existAlumno(dni):
+            return self.__dicAlum[dni]
+        else:
+            return "No existe ningún alumno con ese DNI."
 
     def getAlumnos(self, nombreAlum):
         list = []
