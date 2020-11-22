@@ -48,7 +48,7 @@ class Conservatorio:
         else:
             # En caso de DNI inválido se levanta una expeción
             alumno = Alumno(nombre, email, dni, asignaturas)
-            self.__listaAlum.append(alumno)
+            self.__dicAlum[dni] = alumno
 
     def getAlumno(self, dni):
         for alum in self.__listaAlum:

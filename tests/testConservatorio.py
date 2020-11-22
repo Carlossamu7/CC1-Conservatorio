@@ -52,7 +52,7 @@ class TestConservatorio(unittest.TestCase):
         conser = Conservatorio()
         conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getListaAlumnos()[0].toString(), alumno.toString(), "Comprobando darAltaAlumno()")
+        self.assertEqual(conser.getDiccionarioAlumnos()["75931715K"].toString(), alumno.toString(), "Comprobando darAltaAlumno()")
         with self.assertRaises(ValueError): conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
 
     def test_getAlumno(self):
