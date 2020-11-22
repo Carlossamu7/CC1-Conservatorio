@@ -39,3 +39,4 @@ Para consultar exclusivamente los *milestone* con sus *historias de usuario* ent
 - [[HU12] Como administrador quiero saber las asignaturas que imparte un profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45)
 - [[HU13] Como administrador quiero saber el horario completo de un  profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46)
 - [[HU14] Como administrador quiero saber las aulas que usa un profesor/alumno.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47)
+- [[HU15] Como administrador quiero dar de alta un alumno](https://github.com/Carlossamu7/CC1-Conservatorio/issues/57)
