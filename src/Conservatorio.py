@@ -79,11 +79,11 @@ class Conservatorio:
     def getHorarioAlumno(self, dni):
         list = []
         if(self.existAlumno(dni)):
-            alum = self.getAlumno(dni)
+            alum = self.__dicAlum[dni]
             for asig in alum.listaAsignaturas():
-                for asi in self.__listaAsig:
-                    if(asi.getAsignatura()==asig):
-                        list.append(asi.getHorario())
+                for asi in self.__dicAsig:
+                    if(asi==asig):
+                        list.append(self.__dicAsig[asi].getHorario())
             return list
         else:
             return "No existe ningún alumno con ese DNI."
