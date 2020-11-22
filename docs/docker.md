@@ -112,8 +112,7 @@ La opción de *Alpine* es muy ligera pero después de leer este [artículo](http
 3. Desperdicia tiempo.
 4. En ocasiones introduce algunos errores en tiempo de ejecución.
 
-Finalmente la imagen base escogida es **Python 3.8-slim** por ser un 2MB más ligera que la otra y por la buena crítica y estudio que recibe en [este artículo de Abril de 2020](https://pythonspeed.com/articles/base-image-python-docker-images/). Es importante saber que esta imagen base tiene por debajo *debian-buster*.
-
+Finalmente la imagen base escogida es **Python 3.8-slim** por ser 2MB más ligera que la otra y por la buena crítica y estudio que recibe en [este artículo de Abril de 2020](https://pythonspeed.com/articles/base-image-python-docker-images/). Es importante saber que esta imagen base tiene por debajo *debian-buster*.
 
 ### `Dockerfile`
 
