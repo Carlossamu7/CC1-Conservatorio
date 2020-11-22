@@ -37,10 +37,10 @@ class Conservatorio:
     ###############
 
     def existAlumno(self, dni):
-        for alum in self.__listaAlum:
-            if(alum.getDni()==dni):
-                return True
-        return False
+        if dni in self.__dicAlum:
+            return True
+        else:
+            return False
 
     def darAltaAlumno(self, nombre, email, dni, asignaturas):
         if(self.existAlumno(dni)):
