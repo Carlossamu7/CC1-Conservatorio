@@ -152,7 +152,9 @@ CMD ["make", "test"]
 
 Se ha diseñado siguiendo buenas prácticas como las disponibles en este [primer enlace](https://www.atareao.es/tutorial/docker/buenas-practicas-con-docker/) y este [segundo enlace](https://medium.com/@serrodcal/buenas-pr%C3%A1cticas-construyendo-im%C3%A1genes-docker-8a4f14f7ad1d):
 
-- Según [esta información oficial](https://docs.docker.com/engine/reference/builder/) el uso de `MAINTEINER` está deprecado y es conveniente indicarlo en `LABEL`
+- Por supuesto, uso de mayúsculas en las instrucciones.
+
+- Según [esta información oficial](https://docs.docker.com/engine/reference/builder/) el uso de `MAINTEINER` está deprecado y es conveniente indicarlo en `LABEL`.
 
 - Seguridad: es importante que siempre que sea posible se ejecute la aplicación como un usuario no privilegiado. Creación de usuario [así](https://stackoverflow.com/questions/39855304/how-to-add-user-with-dockerfile). Es preferible usar `useradd`, y le indicamos que cree una carpeta en el home (`-m`) y cuál va a ser el shell (`-s`)
 
@@ -164,7 +166,7 @@ Se ha diseñado siguiendo buenas prácticas como las disponibles en este [primer
 
 - El docker va a ser testeado con `docker run -t -v pwd:/app/test nick-estudiante/nombre-del-repo` por lo que establezco como `WORKDIR` el directorio `/app/test`. Para ejecutar los tests en el docker, incluyo finalmente `CMD ["make", "test"]`.
 
-Con la orden `docker inspect ID | jq` vemos información acerca del contenedor indicado en ID. En este caso nuestro contenedor tiene 8 capas.
+Con la orden `docker inspect ID | jq` vemos información acerca del contenedor indicado en ID. En este caso el contenedor tiene 8 capas.
 
 ### Docker Hub y actualización automática
 
@@ -208,6 +210,35 @@ La plataforma Docker Hub permite automatizar la construcción de nuestro docker 
 
 ### Uso de registros alternativos
 
+Este es el [tutorial](https://docs.github.com/es/free-pro-team@latest/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages) que he seguido.
+
+1. [Crear un token](https://docs.github.com/es/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token). Ir a *Settings* - *Developer settings* - *Personal access tokens* y hacer click en *Generate new token*. Le damos un nombre y seleccionamos los accesos del token, es importante copiar el token generado porque después ya no tendremos oportunidad.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/personal_token.png)
+
+2. A continuación vamos a *Feature preview* y habilitamos haciendo click en `Enable` el soporte mejorado de contenedores. Esto permite compartir más fácilmente los contenedores, establecer permisos de acceso granularmente y acceso anónimo a imágenes de contenedores públicos.
+
+3. Para loguearnos hemos guardado el token en un fichero `TOKEN.txt` en el `home` y ejecutamos `cat ~/TOKEN.txt | docker login ghcr.io -u carlossamu7 --password-stdin`.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/github_login.png)
+
+4. Asignamos el `tag` indicando el nombre de la imagen y la versión y pusheamos.
+
+```
+docker tag <ID> ghcr.io/carlossamu7/my_docker:0.1.0
+docker push ghcr.io/carlossamu7/my_docker:0.1.0
+```
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/github_tag_push.png)
+
+Observamos el resultado en la sección *Packages* de GitHub.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/github_docker.png)
+
+5. Finalmente, dentro del paquete GitHub nos indica que podemos conectar el docker a un repositorio. Hacemos esta configuración eligiendo el repositorio del proyecto. Veamos:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/github_docker_conectado.png)
+
 ### Avance del proyecto
 
 Siguiendo las indicaciones dadas en entregas anteriores del proyecto el avance en esta fase se ha centrado en:
@@ -218,8 +249,8 @@ Siguiendo las indicaciones dadas en entregas anteriores del proyecto el avance e
     - Es mejor devolver el objeto Alumno y que éste se manipule. Eliminados por tanto métodos de la clase Conservatorio como `getNombreAlumno`, `getEmail` y `getAsignaturas`.
     - Ídem con las Asignaturas. Eliminados los métodos de la clase Conservatorio `getProfesor`, `getHorario` y `getAula`.
 
-- Devolver una estructuras de datos manejable en vez de concatenar strings.
+- Devolver una estructura de datos manejable en vez de concatenar strings.
     - [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43), método `getHorarioAlumno`.
     - [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47), método `getAulasProfesor` y `getAulasAlumno`.
 
-- Optimizar la búsqueda de alumnos mediante el uso de diccionarios.
+- [Optimizar la búsqueda de alumnos mediante el uso de diccionarios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/56) en [`Conservatorio`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Esto mejora la implementación de casi todas las HUs relacionadas con el Administrador del Conservatorio.
