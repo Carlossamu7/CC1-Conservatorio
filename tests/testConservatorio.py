@@ -82,7 +82,7 @@ class TestConservatorio(unittest.TestCase):
         conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
         conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getHorarioAlumno("75931715K"), "L:16-17, X:16-17, M:20-21", "Comprobando getHorarioAlumno()")
+        self.assertEqual(conser.getHorarioAlumno("75931715K"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando getHorarioAlumno()")
         self.assertEqual(conser.getHorarioAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getHorarioAlumno() con alumno no existente")
 
     def test_getAulasAlumno(self):

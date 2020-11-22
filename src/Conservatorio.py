@@ -84,7 +84,7 @@ class Conservatorio:
                 for asi in self.__listaAsig:
                     if(asi.getAsignatura()==asig):
                         list.append(asi.getHorario())
-            return ", ".join(list)
+            return list
         else:
             return "No existe ningún alumno con ese DNI."
 
