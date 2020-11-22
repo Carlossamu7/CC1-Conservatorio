@@ -17,7 +17,7 @@ docker build --no-cache -t nombre_imagen -f Dockerfile .
 docker run --rm nombre_imagen
 ```
 
-- **Fedora**. En *Fedora* es necesario instalar `python3` y `pip3`, lo cual aumentará el tamaño de la imagen base. El `Dockerfile` es el siguiente:
+- **Fedora**. En *Fedora* es necesario instalar `python3` y `pip3`, lo cual aumentará el tamaño de la imagen base. El [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/Dockerfiles/Fedora/Dockerfile) es el siguiente:
 
 ```
 FROM fedora:latest
@@ -30,7 +30,7 @@ CMD python3 hola.py
 Peso: 389 MB.
 Tiempo: Medio.
 
-- **Alpine-Python**. Trae instalado `Python3` pero no `pip3`, el cual podemos instalar con `apk add py3-pip`. El `Dockerfile` es:
+- **Alpine-Python**. Trae instalado `Python3` pero no `pip3`, el cual podemos instalar con `apk add py3-pip`. El [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/Dockerfiles/Alpine/Dockerfile) es:
 
 ```
 FROM python:alpine
@@ -43,7 +43,7 @@ CMD python hola.py
 Peso: 96.6 MB.
 Tiempo: Bajo.
 
-- **Ubuntu 18.04**. No tiene sentido valorar una imagen anterior a esta porque queremos que nuestro proyecto tenga LTS *Long Term Support*. Esta imagen tiene LTS hasta 2023. Es necesario instalar `pip` pues no viene por defecto. El `Dockerfile` es:
+- **Ubuntu 18.04**. No tiene sentido valorar una imagen anterior a esta porque queremos que nuestro proyecto tenga LTS *Long Term Support*. Esta imagen tiene LTS hasta 2023. Es necesario instalar `pip` pues no viene por defecto. El [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/Dockerfiles/Ubuntu18/Dockerfile) es:
 
 ```
 FROM ubuntu:18.04
@@ -59,7 +59,7 @@ CMD python3 hola.py
 Peso: 401 MB.
 Tiempo: Alto.
 
-- **Ubuntu 20.04**. Esta es la versión *Focal Fossa*, la última estable de *Ubuntu* y tiene LTS hasta abril de 2025. Al igual que antes es necesario instalar `pip`. El `Dockerfile` es:
+- **Ubuntu 20.04**. Esta es la versión *Focal Fossa*, la última estable de *Ubuntu* y tiene LTS hasta abril de 2025. Al igual que antes es necesario instalar `pip`. El [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/Dockerfiles/Ubuntu20/Dockerfile) es:
 
 ```
 FROM ubuntu:20.04
@@ -74,7 +74,7 @@ CMD python3 hola.py
 Peso: 500 MB.
 Tiempo: Alto.
 
-- **Python 3.8-slim**. Esta versión *slim* es una de las grandes candidatas pues está optimizada para ello. El `Dockerfile` es:
+- **Python 3.8-slim**. Esta versión *slim* es una de las grandes candidatas pues está optimizada para ello. El [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/Dockerfiles/Slim3.8/Dockerfile) es:
 
 ```
 FROM python:3.8-slim
@@ -86,7 +86,7 @@ CMD python3 hola.py
 Peso: 113 MB.
 Tiempo: Bajo.
 
-- **Python 3.9-slim**. Esta versión *slim* de `Python3.9` es una de las grandes candidatas pues está optimizada para ello. El `Dockerfile` es:
+- **Python 3.9-slim**. Esta versión *slim* de `Python3.9` es una de las grandes candidatas pues está optimizada para ello. El [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/Dockerfiles/Slim3.9/Dockerfile) es:
 
 ```
 FROM python:3.9-slim
@@ -186,7 +186,7 @@ docker push carlossamu7/my_docker
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/docker_tag_push.png)
 
-Ya se puede observar el docker subido correctamente en la plataforma.
+Se puede observar el docker subido correctamente en la plataforma.
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/my_docker_hub.png)
 
@@ -212,7 +212,7 @@ La plataforma Docker Hub permite automatizar la construcción de nuestro docker 
 
 Este es el [tutorial](https://docs.github.com/es/free-pro-team@latest/packages/using-github-packages-with-your-projects-ecosystem/configuring-docker-for-use-with-github-packages) que he seguido.
 
-1. [Crear un token](https://docs.github.com/es/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token). Ir a *Settings* - *Developer settings* - *Personal access tokens* y hacer click en *Generate new token*. Le damos un nombre y seleccionamos los accesos del token, es importante copiar el token generado porque después ya no tendremos oportunidad.
+1. El primer paso es [crear un token de acceso personal](https://docs.github.com/es/free-pro-team@latest/github/authenticating-to-github/creating-a-personal-access-token). Ir a *Settings* - *Developer settings* - *Personal access tokens* y hacer click en *Generate new token*. Le damos un nombre y seleccionamos los accesos del token, es importante copiar el token generado porque después ya no tendremos oportunidad.
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/personal_token.png)
 
@@ -253,4 +253,4 @@ Siguiendo las indicaciones dadas en entregas anteriores del proyecto el avance e
     - [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43), método `getHorarioAlumno`.
     - [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47), método `getAulasProfesor` y `getAulasAlumno`.
 
-- [Optimizar la búsqueda de alumnos mediante el uso de diccionarios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/56) en [`Conservatorio`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Esto mejora la implementación de casi todas las HUs relacionadas con el Administrador del Conservatorio.
+- [Optimizar la búsqueda de alumnos mediante el uso de diccionarios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/56) en [`Conservatorio.py`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Esto mejora la implementación de casi todas las HUs relacionadas con el Administrador del Conservatorio.
