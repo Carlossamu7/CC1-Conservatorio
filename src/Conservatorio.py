@@ -125,9 +125,9 @@ class Conservatorio:
 
     def getListaAsignaturasProfesor(self, profesor):
         list = []
-        for asig in self.__listaAsig:
-            if(asig.getProfesor()==profesor):
-                list.append(asig)
+        for asig in self.__dicAsig:
+            if(self.__dicAsig[asig].getProfesor()==profesor):
+                list.append(self.__dicAsig[asig])
         return list
 
     def getNombreAsignaturasProfesor(self, profesor):
