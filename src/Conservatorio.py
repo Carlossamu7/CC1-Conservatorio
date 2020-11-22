@@ -154,11 +154,13 @@ class Conservatorio:
 
     def toString(self):
         str = "¡Bienvenido a " + self.getNombreConservatorio() + "!\n\n"
+
         str += "--------------    ALUMNOS    --------------\n\n"
         for alum in self.__dicAlum:
             str += self.__dicAlum[alum].toString()
             str += "\n"
         str += "\n\n"
+        
         str += "--------------  ASIGNATURAS  --------------\n\n"
         for asig in self.__dicAsig:
             str += self.__dicAsig[asig].toString()
