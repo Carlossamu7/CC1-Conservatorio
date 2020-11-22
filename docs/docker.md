@@ -43,7 +43,7 @@ CMD python hola.py
 Peso: 96.6 MB.
 Tiempo: Bajo.
 
-- **Ubuntu 18.04**. No tiene sentido valorar una imagen anterior a esta porque queremos que nuestro proyecto tenga LTS *Long Term Support*. Esta imagen tiene LTS hasta 2023. El `Dockerfile` es:
+- **Ubuntu 18.04**. No tiene sentido valorar una imagen anterior a esta porque queremos que nuestro proyecto tenga LTS *Long Term Support*. Esta imagen tiene LTS hasta 2023. Es necesario instalar `pip` pues no viene por defecto. El `Dockerfile` es:
 
 ```
 FROM ubuntu:18.04
@@ -59,7 +59,7 @@ CMD python3 hola.py
 Peso: 401 MB.
 Tiempo: Alto.
 
-- **Ubuntu 20.04**. Esta es la versión *Focal Fossa*, la última estable de *Ubuntu* y tiene LTS hasta abril de 2025. El `Dockerfile` es:
+- **Ubuntu 20.04**. Esta es la versión *Focal Fossa*, la última estable de *Ubuntu* y tiene LTS hasta abril de 2025. Al igual que antes es necesario instalar `pip`. El `Dockerfile` es:
 
 ```
 FROM ubuntu:20.04
@@ -212,10 +212,14 @@ La plataforma Docker Hub permite automatizar la construcción de nuestro docker 
 
 Siguiendo las indicaciones dadas en entregas anteriores del proyecto el avance en esta fase se ha centrado en:
 
-- Atributos privados para las clases implementadas.
+- [Atributos privados para las clases implementadas](https://github.com/Carlossamu7/CC1-Conservatorio/issues/54).
 
-- Eliminar algunos métodos innecesarios.
+- [Eliminar algunos métodos innecesarios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/55).
+    - Es mejor devolver el objeto Alumno y que éste se manipule. Eliminados por tanto métodos de la clase Conservatorio como `getNombreAlumno`, `getEmail` y `getAsignaturas`.
+    - Ídem con las Asignaturas. Eliminados los métodos de la clase Conservatorio `getProfesor`, `getHorario` y `getAula`.
 
-- Devolver una lista en vez de concatenar strings.
+- Devolver una estructuras de datos manejable en vez de concatenar strings.
+    - [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43), método `getHorarioAlumno`.
+    - [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47), método `getAulasProfesor` y `getAulasAlumno`.
 
 - Optimizar la búsqueda de alumnos mediante el uso de diccionarios.

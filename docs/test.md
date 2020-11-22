@@ -102,6 +102,8 @@ clean:
 
 ### Avances en el código ###
 
+Los avances en el código en este entrega son los siguientes. No obstante en durante el desarrollo de contenerización de han mejorado algunas prácticas de `Python` según lo que se indicó. [Consultar avances contenerización](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker.md#avance-del-proyecto).
+
 - Avance notable de prácticamente todas las HU.
 - Implementación de `listaAsignaturas()`, `matriculaAsignatura()` y `desmatriculaAsignatura()`. Nuevo formateado para las asignaturas como string.
 - Conforme avanza el proyecto se demandan nuevas necesidades para el conservatorio mediante historias de usuario. Creación de las [[HU6]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39), [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43), [[HU11]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44), [[HU12]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45), [[HU13]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46) y [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47).
