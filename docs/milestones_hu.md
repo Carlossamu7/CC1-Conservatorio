@@ -63,3 +63,14 @@ Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *m
 - [Actualizar `requirements.txt`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/34)
 - [Actualizar `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/33)
 - [Documentación para *milestone* 2](https://github.com/Carlossamu7/CC1-Conservatorio/issues/31)
+
+***Milestone*** 3 - [Dockers](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/6)
+
+- [Documentación para *milestone* 3](https://github.com/Carlossamu7/CC1-Conservatorio/issues/52)
+- [`Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/53).
+
+Otros:
+
+- [Uso de atributos privados en Python](https://github.com/Carlossamu7/CC1-Conservatorio/issues/54)
+- [Eliminar métodos innecesarios en Conservatorio.py](https://github.com/Carlossamu7/CC1-Conservatorio/issues/55)
+- [Cambiar a estructura de datos de tipo diccionario en Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/issues/56)
