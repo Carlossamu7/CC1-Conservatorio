@@ -56,24 +56,6 @@ class Conservatorio:
                 return alum
         return "No existe ningún alumno con ese DNI."
 
-    def getNombreAlumno(self, dni):
-        if(self.existAlumno(dni)):
-            return self.getAlumno(dni).getNombre()
-        else:
-            return "No existe ningún alumno con ese DNI."
-
-    def getEmail(self, dni):
-        if(self.existAlumno(dni)):
-            return self.getAlumno(dni).getEmail()
-        else:
-            return "No existe ningún alumno con ese DNI."
-
-    def getAsignaturas(self, dni):
-        if(self.existAlumno(dni)):
-            return self.getAlumno(dni).getAsignaturas()
-        else:
-            return "No existe ningún alumno con ese DNI."
-
     def getAlumnos(self, nombreAlum):
         list = []
         for alum in self.__listaAlum:
@@ -140,24 +122,6 @@ class Conservatorio:
             if(asig.getAsignatura()==nombreAsig):
                 return asig
         return "No existe la asignatura " + nombreAsig + "."
-
-    def getProfesor(self, nombreAsig):
-        if(self.existAsignatura(nombreAsig)):
-            return self.getAsignatura(nombreAsig).getProfesor()
-        else:
-            return "No existe la asignatura " + nombreAsig + "."
-
-    def getHorario(self, nombreAsig):
-        if(self.existAsignatura(nombreAsig)):
-            return self.getAsignatura(nombreAsig).getHorario()
-        else:
-            return "No existe la asignatura " + nombreAsig + "."
-
-    def getAula(self, nombreAsig):
-        if(self.existAsignatura(nombreAsig)):
-            return self.getAsignatura(nombreAsig).getAula()
-        else:
-            return "No existe la asignatura " + nombreAsig + "."
 
     def getListaAsignaturasProfesor(self, profesor):
         list = []

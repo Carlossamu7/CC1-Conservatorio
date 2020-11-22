@@ -62,25 +62,6 @@ class TestConservatorio(unittest.TestCase):
         self.assertEqual(conser.getAlumno("75931715K").toString(), alumno.toString(), "Comprobando getAlumno()")
         self.assertEqual(conser.getAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAlumno() con alumno no existente")
 
-    def test_getNombreAlumno(self):
-        conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getNombreAlumno("75931715K"), "Carlos", "Comprobando getNombreAlumno()")
-        self.assertEqual(conser.getNombreAlumno("00000000A"), "No existe ningún alumno con ese DNI.",
-                         "Comprobando getNombreAlumno() con alumno no existente")
-
-    def test_getEmail(self):
-        conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getEmail("75931715K"), "carlossamu7@correo.ugr.es", "Comprobando getEmail()")
-        self.assertEqual(conser.getEmail("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getEmail() con alumno no existente")
-
-    def test_getAsignaturas(self):
-        conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getAsignaturas("75931715K"), "Lenguaje Musical", "Comprobando getAsignaturas()")
-        self.assertEqual(conser.getAsignaturas("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAsignaturas() con alumno no existente")
-
     def test_getAlumnos(self):
         conser = Conservatorio()
         conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
@@ -134,24 +115,6 @@ class TestConservatorio(unittest.TestCase):
         asig = Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         self.assertEqual(conser.getAsignatura("Lenguaje Musical").toString(), asig.toString(), "Comprobando getAsignatura()")
         self.assertEqual(conser.getAsignatura("Piano"), "No existe la asignatura Piano.", "Comprobando getAsignatura() con asignatura no existente")
-
-    def test_getProfesor(self):
-        conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(conser.getProfesor("Lenguaje Musical"), "JJ", "Comprobando getProfesor()")
-        self.assertEqual(conser.getProfesor("Piano"), "No existe la asignatura Piano.", "Comprobando getProfesor() con asignatura no existente")
-
-    def test_getHorario(self):
-        conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(conser.getHorario("Lenguaje Musical"), "L:16-17, X:16-17", "Comprobando getHorario()")
-        self.assertEqual(conser.getHorario("Piano"), "No existe la asignatura Piano.", "Comprobando getHorario() con asignatura no existente")
-
-    def test_getAula(self):
-        conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(conser.getAula("Lenguaje Musical"), "Aula01", "Comprobando getAula()")
-        self.assertEqual(conser.getAula("Piano"), "No existe la asignatura Piano.", "Comprobando getAula() con asignatura no existente")
 
     def test_getListaAsignaturasProfesor(self):
         conser = Conservatorio()
