@@ -12,6 +12,7 @@ sys.path.append('src')
 from Asignatura import Asignatura
 
 class TestAsignatura(unittest.TestCase):
+    
     def setUp(self):
         self.asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
 

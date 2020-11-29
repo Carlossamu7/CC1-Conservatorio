@@ -13,6 +13,7 @@ from Alumno import Alumno
 from Alumno import valido_dni
 
 class TestAlumno(unittest.TestCase):
+    
     def setUp(self):
         self.alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
 
