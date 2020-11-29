@@ -12,30 +12,30 @@ class Asignatura:
         self.__horario = horario
         self.__aula = aula
 
-    def getAsignatura(self):
+    def get_asignatura(self):
         return self.__asignatura
 
-    def getProfesor(self):
+    def get_profesor(self):
         return self.__profesor
 
-    def getHorario(self):
+    def get_horario(self):
         return self.__horario
 
-    def getAula(self):
+    def get_aula(self):
         return self.__aula
 
     # La asignatura no cambia, no existe setter.
 
-    def setProfesor(self, profesor):
+    def set_profesor(self, profesor):
         self.__profesor = profesor
 
-    def setHorario(self, horario):
+    def set_horario(self, horario):
         self.__horario = horario
 
-    def setAula(self, aula):
+    def set_aula(self, aula):
         self.__aula = aula
 
-    def toString(self):
+    def to_string(self):
         str = "--> " + self.__asignatura + "\n"
         str += "    Profesor: " + self.__profesor + "\n"
         str += "    Horario: " + self.__horario + "\n"

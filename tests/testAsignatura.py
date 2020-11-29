@@ -13,42 +13,42 @@ from Asignatura import Asignatura
 
 class TestAsignatura(unittest.TestCase):
 
-    def test_getAsignatura(self):
+    def test_get_asignatura(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(asig.getAsignatura(), "LenguajeMusical", "Comprobando getAsignatura()")
+        self.assertEqual(asig.get_asignatura(), "LenguajeMusical", "Comprobando get_asignatura()")
 
-    def test_getProfesor(self):
+    def test_get_profesor(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(asig.getProfesor(), "JJ", "Comprobando getProfesor()")
+        self.assertEqual(asig.get_profesor(), "JJ", "Comprobando get_profesor()")
 
-    def test_getHorario(self):
+    def test_get_horario(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(asig.getHorario(), "L:16-17, X:16-17", "Comprobando getHorario()")
+        self.assertEqual(asig.get_horario(), "L:16-17, X:16-17", "Comprobando get_horario()")
 
-    def test_getAula(self):
+    def test_get_aula(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(asig.getAula(), "Aula01", "Comprobando getAula()")
+        self.assertEqual(asig.get_aula(), "Aula01", "Comprobando get_aula()")
 
-    def test_setProfesor(self):
+    def test_set_profesor(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        asig.setProfesor("Pepe")
-        self.assertEqual(asig.getProfesor(), "Pepe", "Comprobando setProfesor()")
+        asig.set_profesor("Pepe")
+        self.assertEqual(asig.get_profesor(), "Pepe", "Comprobando set_profesor()")
 
-    def test_setHorario(self):
+    def test_set_horario(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        asig.setHorario("V:10-11")
-        self.assertEqual(asig.getHorario(), "V:10-11", "Comprobando setHorario()")
+        asig.set_horario("V:10-11")
+        self.assertEqual(asig.get_horario(), "V:10-11", "Comprobando set_horario()")
 
-    def test_setAula(self):
+    def test_set_aula(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        asig.setAula("Aula02")
-        self.assertEqual(asig.getAula(), "Aula02", "Comprobando setAula()")
+        asig.set_aula("Aula02")
+        self.assertEqual(asig.get_aula(), "Aula02", "Comprobando set_aula()")
 
-    def test_toString(self):
+    def test_to_string(self):
         asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(asig.toString(),
+        self.assertEqual(asig.to_string(),
             "--> LenguajeMusical\n    Profesor: JJ\n    Horario: L:16-17, X:16-17\n    Aula: Aula01",
-            "Comprobando toString()")
+            "Comprobando to_string()")
 
 
 if __name__ == '__main__':
