@@ -11,7 +11,7 @@ Implementación de la clase Alumno
 # el último (control) que pueden estar entre unas letras concretas.
 # - Si es extranjero se sustituye la primera letra por su número correspondiente.
 # - Se comprueba el dígito de control (última cifra).
-def validoDNI(dni):
+def valido_dni(dni):
     tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
     dig_ext = "XYZ"
     reemp_dig_ext = {'X':'0', 'Y':'1', 'Z':'2'}
@@ -30,40 +30,40 @@ class Alumno:
     def __init__(self, nombre, email, dni, asignaturas):
         self.__nombre = nombre
         self.__email = email
-        if(validoDNI(dni)):
+        if(valido_dni(dni)):
             self.__dni = dni
         else: # Lanza excepción
             raise ValueError("El DNI no es válido.")
         self.__asignaturas = asignaturas
 
-    def getNombre(self):
+    def get_nombre(self):
         return self.__nombre
 
-    def getEmail(self):
+    def get_email(self):
         return self.__email
 
-    def getDni(self):
+    def get_dni(self):
         return self.__dni
 
-    def getAsignaturas(self):
+    def get_asignaturas(self):
         return self.__asignaturas
 
-    def setNombre(self, nombre):
+    def set_nombre(self, nombre):
         self.__nombre = nombre
 
-    def setEmail(self, email):
+    def set_email(self, email):
         self.__email = email
 
     # El DNI no cambia, no existe setter.
 
-    def setAsignaturas(self, asignaturas):
+    def set_asignaturas(self, asignaturas):
         self.__asignaturas = asignaturas
 
-    def listaAsignaturas(self):
+    def lista_asignaturas(self):
         return self.__asignaturas.split(", ")
 
-    def matriculaAsignatura(self, asig):
-        if asig in self.listaAsignaturas():	# Lanza excepción
+    def matricula_asignatura(self, asig):
+        if asig in self.lista_asignaturas():	# Lanza excepción
             raise ValueError("Asignatura ya matriculada.")
         else:
             if self.__asignaturas == "":
@@ -71,15 +71,15 @@ class Alumno:
             else:
                 self.__asignaturas += ", " + asig
 
-    def desmatriculaAsignatura(self, asig):
-        list = self.listaAsignaturas()
+    def desmatricula_asignatura(self, asig):
+        list = self.lista_asignaturas()
         if(asig in list):
             list.remove(asig)
             self.__asignaturas = ", ".join(list)
         else:	# Lanza excepción
             raise ValueError("No existe tal asignatura.")
 
-    def toString(self):
+    def to_string(self):
         str = "--> " + self.__nombre + " (DNI: " + self.__dni + ", @: " + self.__email + ")" + "\n"
         str += "    Asignaturas: " + self.__asignaturas
         return str
