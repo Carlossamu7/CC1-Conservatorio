@@ -56,9 +56,6 @@ class Alumno:
 
     # El DNI no cambia, no existe setter.
 
-    def set_asignaturas(self, asignaturas):
-        self.__asignaturas = asignaturas
-
     def lista_asignaturas(self):
         return self.__asignaturas.split(", ")
 
