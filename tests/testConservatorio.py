@@ -15,147 +15,147 @@ from Asignatura import Asignatura
 
 class TestConservatorio(unittest.TestCase):
 
-    def test_getConservatorio(self):
+    def test_get_conservatorio(self):
         conser = Conservatorio()
-        self.assertEqual(conser.getNombreConservatorio(), "MiConservatorio", "Comprobando getConservatorio()")
+        self.assertEqual(conser.get_nombre_conservatorio(), "MiConservatorio", "Comprobando get_nombre_conservatorio()")
 
-    def test_getDiccionarioAlumnos(self):
+    def test_get_diccionario_alumnos(self):
         conser = Conservatorio()
-        self.assertEqual(conser.getDiccionarioAlumnos(), {}, "Comprobando getDiccionarioAlumnos()")
+        self.assertEqual(conser.get_diccionario_alumnos(), {}, "Comprobando get_diccionario_alumnos()")
 
-    def test_getNumeroAlumnos(self):
+    def test_get_numero_alumnos(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
-        self.assertEqual(conser.getNumeroAlumnos(), 2, "Comprobando getNumeroAlumnos()")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.assertEqual(conser.get_numero_alumnos(), 2, "Comprobando get_numero_alumnos()")
 
-    def test_getDiccionarioAsignaturas(self):
+    def test_get_diccionario_asignaturas(self):
         conser = Conservatorio()
-        self.assertEqual(conser.getDiccionarioAsignaturas(), {}, "Comprobando getDiccionarioAsignaturas()")
+        self.assertEqual(conser.get_diccionario_asignaturas(), {}, "Comprobando get_diccionario_asignaturas()")
 
-    def test_getNumeroAsignaturas(self):
+    def test_get_numero_asignaturas(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Armonia", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getNumeroAsignaturas(), 2, "Comprobando getNumeroAsignaturas()")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Armonia", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_numero_asignaturas(), 2, "Comprobando get_numero_asignaturas()")
 
     ###############
     ### Alumnos ###
     ###############
 
-    def test_existAlumno(self):
+    def test_exist_alumno(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertTrue(conser.existAlumno("75931715K"), "Comprobando existAlumno()")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertTrue(conser.exist_alumno("75931715K"), "Comprobando exist_alumno()")
 
-    def test_darAltaAlumno(self):
+    def test_dar_alta_alumno(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getDiccionarioAlumnos()["75931715K"].toString(), alumno.toString(), "Comprobando darAltaAlumno()")
-        with self.assertRaises(ValueError): conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        self.assertEqual(conser.get_diccionario_alumnos()["75931715K"].to_string(), alumno.to_string(), "Comprobando dar_alta_alumno()")
+        with self.assertRaises(ValueError): conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
 
-    def test_getAlumno(self):
+    def test_get_alumno(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(conser.getAlumno("75931715K").toString(), alumno.toString(), "Comprobando getAlumno()")
-        self.assertEqual(conser.getAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAlumno() con alumno no existente")
+        self.assertEqual(conser.get_alumno("75931715K").to_string(), alumno.to_string(), "Comprobando get_alumno()")
+        self.assertEqual(conser.get_alumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando get_alumno() con alumno no existente")
 
-    def test_getAlumnos(self):
+    def test_get_alumnos_nombre(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
-        self.assertEqual(conser.getAlumnos("Carlos"), ["75931715K", "74606489D"], "Comprobando getAlumnos()")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.assertEqual(conser.get_alumnos_nombre("Carlos"), ["75931715K", "74606489D"], "Comprobando get_alumnos_nombre()")
 
-    def test_getHorarioAsignaturaAlumno(self):
+    def test_get_horario_asignatura_alumno(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getHorarioAsignaturaAlumno("75931715K", "Lenguaje Musical"), "L:16-17, X:16-17", "Comprobando getHorarioAsignaturaAlumno()")
-        self.assertEqual(conser.getHorarioAsignaturaAlumno("75931715K", "Piano"), "Este alumno no está matriculado en esa asignatura.", "Comprobando getHorarioAsignaturaAlumno() con alumno no existente")
-        self.assertEqual(conser.getHorarioAsignaturaAlumno("00000000A", "Lenguaje Musical"), "No existe ningún alumno con ese DNI.", "Comprobando getHorarioAsignaturaAlumno() con alumno no existente")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Coro", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_horario_asignatura_alumno("75931715K", "Lenguaje Musical"), "L:16-17, X:16-17", "Comprobando get_horario_asignatura_alumno()")
+        self.assertEqual(conser.get_horario_asignatura_alumno("75931715K", "Piano"), "Este alumno no está matriculado en esa asignatura.", "Comprobando get_horario_asignatura_alumno() con alumno no existente")
+        self.assertEqual(conser.get_horario_asignatura_alumno("00000000A", "Lenguaje Musical"), "No existe ningún alumno con ese DNI.", "Comprobando get_horario_asignatura_alumno() con alumno no existente")
 
-    def test_getHorarioAlumno(self):
+    def test_get_horario_alumno(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getHorarioAlumno("75931715K"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando getHorarioAlumno()")
-        self.assertEqual(conser.getHorarioAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getHorarioAlumno() con alumno no existente")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Coro", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_horario_alumno("75931715K"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando get_horario_alumno()")
+        self.assertEqual(conser.get_horario_alumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando get_horario_alumno() con alumno no existente")
 
-    def test_getAulasAlumno(self):
+    def test_get_aulas_alumno(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getAulasAlumno("75931715K"), ["Aula01"], "Comprobando getAulasAlumno()")
-        self.assertEqual(conser.getAulasAlumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando getAulasAlumno() con alumno no existente")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Coro", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_aulas_alumno("75931715K"), ["Aula01"], "Comprobando get_aulas_alumno()")
+        self.assertEqual(conser.get_aulas_alumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando get_aulas_alumno() con alumno no existente")
 
     ###################
     ### Asignaturas ###
     ###################
 
-    def test_existAsignatura(self):
+    def test_exist_asignatura(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertTrue(conser.existAsignatura("Lenguaje Musical"), "Comprobando existAsignatura()")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertTrue(conser.exist_asignatura("Lenguaje Musical"), "Comprobando exist_asignatura()")
 
-    def test_darAltaAsignatura(self):
+    def test_dar_alta_asignatura(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         asig = Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(conser.getDiccionarioAsignaturas()["Lenguaje Musical"].toString(), asig.toString(), "Comprobando darAltaAsignatura()")
-        with self.assertRaises(ValueError): conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertEqual(conser.get_diccionario_asignaturas()["Lenguaje Musical"].to_string(), asig.to_string(), "Comprobando dar_alta_asignatura()")
+        with self.assertRaises(ValueError): conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
 
-    def test_borrarAsignatura(self):
+    def test_borrar_asignatura(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.borrarAsignatura("Lenguaje Musical")
-        self.assertEqual(conser.getNumeroAsignaturas(), 0, "Comprobando borrarAsignatura()")
-        with self.assertRaises(ValueError): conser.borrarAsignatura("Lenguaje Musical")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.borrar_asignatura("Lenguaje Musical")
+        self.assertEqual(conser.get_numero_asignaturas(), 0, "Comprobando borrar_asignatura()")
+        with self.assertRaises(ValueError): conser.borrar_asignatura("Lenguaje Musical")
 
-    def test_getAsignatura(self):
+    def test_get_asignatura(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
         asig = Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(conser.getAsignatura("Lenguaje Musical").toString(), asig.toString(), "Comprobando getAsignatura()")
-        self.assertEqual(conser.getAsignatura("Piano"), "No existe la asignatura Piano.", "Comprobando getAsignatura() con asignatura no existente")
+        self.assertEqual(conser.get_asignatura("Lenguaje Musical").to_string(), asig.to_string(), "Comprobando get_asignatura()")
+        self.assertEqual(conser.get_asignatura("Piano"), "No existe la asignatura Piano.", "Comprobando get_asignatura() con asignatura no existente")
 
-    def test_getListaAsignaturasProfesor(self):
+    def test_get_lista_asignaturas_profesor(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
-        listaAsig = conser.getListaAsignaturasProfesor("JJ")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Armonía", "JJ", "M:20-21", "Aula01")
+        listaAsig = conser.get_lista_asignaturas_profesor("JJ")
         listaAsig2 = [Asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01"), Asignatura("Armonía", "JJ", "M:20-21", "Aula01")]
         for i in range(len(listaAsig)):
-            self.assertEqual(listaAsig[i].toString(), listaAsig2[i].toString(), "Comprobando getListaAsignaturasProfesor()")
+            self.assertEqual(listaAsig[i].to_string(), listaAsig2[i].to_string(), "Comprobando get_lista_asignaturas_profesor()")
 
-    def test_getNombreAsignaturasProfesor(self):
+    def test_get_nombre_asignaturas_profesor(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getNombreAsignaturasProfesor("JJ"), ["Lenguaje Musical", "Armonía"], "Comprobando getNombreAsignaturasProfesor()")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Armonía", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_nombre_asignaturas_profesor("JJ"), ["Lenguaje Musical", "Armonía"], "Comprobando get_nombre_asignaturas_profesor()")
 
-    def test_getHorarioProfesor(self):
+    def test_get_horario_profesor(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getHorarioProfesor("JJ"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando getHorarioProfesor()")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Armonía", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_horario_profesor("JJ"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando get_horario_profesor()")
 
-    def test_getAulasProfesor(self):
+    def test_get_aulas_profesor(self):
         conser = Conservatorio()
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Armonía", "JJ", "M:20-21", "Aula01")
-        self.assertEqual(conser.getAulasProfesor("JJ"), ["Aula01"], "Comprobando getAulasProfesor()")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Armonía", "JJ", "M:20-21", "Aula01")
+        self.assertEqual(conser.get_aulas_profesor("JJ"), ["Aula01"], "Comprobando get_aulas_profesor()")
 
-    def test_toString(self):
+    def test_to_string(self):
         conser = Conservatorio()
-        conser.darAltaAlumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        conser.darAltaAlumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
-        conser.darAltaAsignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
-        conser.darAltaAsignatura("Coro", "JJ", "M:20-21", "Aula01")
+        conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        conser.dar_alta_asignatura("Lenguaje Musical", "JJ", "L:16-17, X:16-17", "Aula01")
+        conser.dar_alta_asignatura("Coro", "JJ", "M:20-21", "Aula01")
         str = "¡Bienvenido a MiConservatorio!\n\n"
         str += "--------------    ALUMNOS    --------------\n\n"
         str += "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\n"
@@ -171,7 +171,7 @@ class TestConservatorio(unittest.TestCase):
         str += "    Profesor: JJ\n"
         str += "    Horario: M:20-21\n"
         str += "    Aula: Aula01\n"
-        self.assertEqual(conser.toString(), str, "Comprobando toString()")
+        self.assertEqual(conser.to_string(), str, "Comprobando to_string()")
 
 
 if __name__ == '__main__':
