@@ -13,49 +13,42 @@ from Alumno import Alumno
 from Alumno import valido_dni
 
 class TestAlumno(unittest.TestCase):
+    def setUp(self):
+        self.alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
 
     def test_get_nombre(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(alumno.get_nombre(), "Carlos", "Comprobando get_nombre()")
+        self.assertEqual(self.alumno.get_nombre(), "Carlos", "Comprobando get_nombre()")
 
     def test_get_email(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(alumno.get_email(), "carlossamu7@correo.ugr.es", "Comprobando get_email()")
+        self.assertEqual(self.alumno.get_email(), "carlossamu7@correo.ugr.es", "Comprobando get_email()")
 
     def test_get_dni(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(alumno.get_dni(), "75931715K", "Comprobando get_dni()")
+        self.assertEqual(self.alumno.get_dni(), "75931715K", "Comprobando get_dni()")
 
     def test_get_asignaturas(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(alumno.get_asignaturas(), "Lenguaje Musical", "Comprobando get_asignaturas()")
+        self.assertEqual(self.alumno.get_asignaturas(), "Lenguaje Musical, Coro", "Comprobando get_asignaturas()")
 
     def test_set_nombre(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        alumno.set_nombre("Pepe")
-        self.assertEqual(alumno.get_nombre(), "Pepe", "Comprobando set_nombre()")
+        self.alumno.set_nombre("Pepe")
+        self.assertEqual(self.alumno.get_nombre(), "Pepe", "Comprobando set_nombre()")
 
     def test_set_email(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        alumno.set_email("otro_correo@correo.ugr.es")
-        self.assertEqual(alumno.get_email(), "otro_correo@correo.ugr.es", "Comprobando set_email()")
+        self.alumno.set_email("otro_correo@correo.ugr.es")
+        self.assertEqual(self.alumno.get_email(), "otro_correo@correo.ugr.es", "Comprobando set_email()")
 
     def test_to_string(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        self.assertEqual(alumno.to_string(),
-            "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\n    Asignaturas: Lenguaje Musical",
+        self.assertEqual(self.alumno.to_string(),
+            "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\n    Asignaturas: Lenguaje Musical, Coro",
             "Comprobando to_string()")
 
     def test_lista_asignaturas(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
-        self.assertEqual(alumno.lista_asignaturas(), ["Lenguaje Musical", "Coro"],
+        self.assertEqual(self.alumno.lista_asignaturas(), ["Lenguaje Musical", "Coro"],
                          "Comprobando lista_asignaturas()")
 
     def test_matricula_asignatura(self):
         # Alumno con asignaturas
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
-        alumno.matricula_asignatura("Coro")
-        self.assertEqual(alumno.get_asignaturas(), "Lenguaje Musical, Coro",
+        self.alumno.matricula_asignatura("Piano")
+        self.assertEqual(self.alumno.get_asignaturas(), "Lenguaje Musical, Coro, Piano",
                          "Comprobando matricula_asignatura() con alumno que ya tiene asignaturas matriculadas")
 
         # Alumno sin asignaturas
@@ -68,9 +61,8 @@ class TestAlumno(unittest.TestCase):
         with self.assertRaises(ValueError): alumno3.matricula_asignatura("Coro")
 
     def test_desmatricula_asignatura(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
-        alumno.desmatricula_asignatura("Coro")
-        self.assertEqual(alumno.get_asignaturas(), "Lenguaje Musical", "Comproband desmatricula_asignatura()")
+        self.alumno.desmatricula_asignatura("Coro")
+        self.assertEqual(self.alumno.get_asignaturas(), "Lenguaje Musical", "Comproband desmatricula_asignatura()")
 
         # Excepción asignatura no matriculada
         alumno2 = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
