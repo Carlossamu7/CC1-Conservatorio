@@ -68,7 +68,7 @@ class Conservatorio:
             alum = self.__dic_alumnos[dni]
             if (asignatura in alum.lista_asignaturas()):
                 for asi in self.__dic_asignaturas:
-                    if(asi==asignatura):
+                    if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asignatura):
                         return self.__dic_asignaturas[asi].get_horario()
             else:
                 return "Este alumno no está matriculado en esa asignatura."
@@ -82,7 +82,7 @@ class Conservatorio:
             alum = self.__dic_alumnos[dni]
             for asig in alum.lista_asignaturas():
                 for asi in self.__dic_asignaturas:
-                    if(asi==asig):
+                    if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asig):
                         list.append(self.__dic_asignaturas[asi].get_horario())
             return list
         else:
@@ -94,7 +94,7 @@ class Conservatorio:
             alum = self.__dic_alumnos[dni]
             for asig in alum.lista_asignaturas():
                 for asi in self.__dic_asignaturas:
-                    if(asi==asig):
+                    if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asig):
                         if(not self.__dic_asignaturas[asi].get_aula() in list):
                             list.append(self.__dic_asignaturas[asi].get_aula())
             return list
@@ -105,29 +105,29 @@ class Conservatorio:
     ### Asignaturas ###
     ###################
 
-    def exist_asignatura(self, asignatura):
-        if asignatura in self.__dic_asignaturas:
+    def exist_asignatura(self, id):
+        if id in self.__dic_asignaturas:
             return True
         else:
             return False
 
-    def dar_alta_asignatura(self, asignatura, profesor, horario, aula):
-        if(self.exist_asignatura(asignatura)):
+    def dar_alta_asignatura(self, id, nombre_asignatura, curso, concepto, profesor, horario, aula):
+        if(self.exist_asignatura(id)):
             raise ValueError("Ya existe esta asignatura.")
         else:
-            self.__dic_asignaturas[asignatura] = Asignatura(asignatura, profesor, horario, aula)
+            self.__dic_asignaturas[id] = Asignatura(id, nombre_asignatura, curso, concepto, profesor, horario, aula)
 
-    def borrar_asignatura(self, asignatura):
-        if(self.exist_asignatura(asignatura)):
-            del self.__dic_asignaturas[asignatura]
+    def borrar_asignatura(self, id):
+        if(self.exist_asignatura(id)):
+            del self.__dic_asignaturas[id]
         else:
             raise ValueError("Ya existe esta asignatura.")
 
-    def get_asignatura(self, nombreAsig):
-        if self.exist_asignatura(nombreAsig):
-            return self.__dic_asignaturas[nombreAsig]
+    def get_asignatura(self, id):
+        if self.exist_asignatura(id):
+            return self.__dic_asignaturas[id]
         else:
-            return "No existe la asignatura " + nombreAsig + "."
+            return "No existe la asignatura con ID " + id + "."
 
     def get_lista_asignaturas_profesor(self, profesor):
         list = []
@@ -140,7 +140,7 @@ class Conservatorio:
         list = []
         asigProf = self.get_lista_asignaturas_profesor(profesor)
         for asig in asigProf:
-            list.append(asig.get_asignatura())
+            list.append(asig.get_nombre_asignatura())
         return list
 
     def get_horario_profesor(self, profesor):
