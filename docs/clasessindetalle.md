@@ -5,21 +5,28 @@ En primer lugar la **estructura del proyecto** es sencilla con dos clases:
 ```bash
 src
 ├── Alumno.py
+├── AsignaturaConcepto.py
 ├── Asignatura.py
 └── Conservatorio.py
 ```
+
+- Clase [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Tiene los siguientes atributos:
+    - nombre (`getter` y `setter`)
+    - email (`getter` y `setter`)
+    - dni (`getter`)
+    - asignaturas (`getter`)
+
+- Clase [AsignaturaConcepto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/AsignaturaConcepto.py). Tiene los siguientes atributos:
+    - id (`getter`)
+    - nombre_asignatura (`getter`)
+    - curso (`getter`)
+    - concepto (`getter`)
 
 - Clase [Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py). Tiene los siguientes atributos:
     - asignatura (`getter`)
     - profesor (`getter` y `setter`)
     - horario (`getter` y `setter`)
     - aula (`getter` y `setter`)
-
-- Clase [Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Alumno.py). Tiene los siguientes atributos:
-    - nombre (`getter` y `setter`)
-    - email (`getter` y `setter`)
-    - dni (`getter`)
-    - asignaturas (`getter` y `setter`)
 
 - Clase [Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Tiene los siguientes atributos:
     - `nombreConservatorio` (que es `MiConservatorio`, tiene `getter`)
