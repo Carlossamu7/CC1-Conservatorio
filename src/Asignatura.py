@@ -5,15 +5,17 @@ Carlos Santiago Sánchez Muñoz
 Implementación de la clase Asignatura
 """
 
-class Asignatura:
-    def __init__(self, asignatura, profesor, horario, aula):
-        self.__asignatura = asignatura
+import sys
+sys.path.append('src')
+
+from AsignaturaConcepto import AsignaturaConcepto
+
+class Asignatura(AsignaturaConcepto):
+    def __init__(self, id, nombre_asignatura, curso, concepto, profesor, horario, aula):
+        AsignaturaConcepto.__init__(self, id, nombre_asignatura, curso, concepto)
         self.__profesor = profesor
         self.__horario = horario
         self.__aula = aula
-
-    def get_asignatura(self):
-        return self.__asignatura
 
     def get_profesor(self):
         return self.__profesor
@@ -36,7 +38,9 @@ class Asignatura:
         self.__aula = aula
 
     def to_string(self):
-        str = "--> " + self.__asignatura + "\n"
+        str = "--> " + self.get_nombre_asignatura() + " (" + self.get_id() + ")\n"
+        str += "    Curso: {}".format(self.get_curso()) + "\n"
+        str += "    Concepto: " + self.get_concepto() + "\n"
         str += "    Profesor: " + self.__profesor + "\n"
         str += "    Horario: " + self.__horario + "\n"
         str += "    Aula: " + self.__aula

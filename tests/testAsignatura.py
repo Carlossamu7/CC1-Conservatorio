@@ -14,10 +14,8 @@ from Asignatura import Asignatura
 class TestAsignatura(unittest.TestCase):
 
     def setUp(self):
-        self.asig = Asignatura("LenguajeMusical", "JJ", "L:16-17, X:16-17", "Aula01")
-
-    def test_get_asignatura(self):
-        self.assertEqual(self.asig.get_asignatura(), "LenguajeMusical", "Comprobando get_self.asignatura()")
+        self.asig = Asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
+                               "JJ", "L:16-17, X:16-17", "Aula01")
 
     def test_get_profesor(self):
         self.assertEqual(self.asig.get_profesor(), "JJ", "Comprobando get_profesor()")
@@ -42,7 +40,8 @@ class TestAsignatura(unittest.TestCase):
 
     def test_to_string(self):
         self.assertEqual(self.asig.to_string(),
-            "--> LenguajeMusical\n    Profesor: JJ\n    Horario: L:16-17, X:16-17\n    Aula: Aula01",
+            "--> Lenguaje Musical (001)\n    Curso: 1\n    Concepto: Nociones básicas acerca de leer una partitura, entonar y hacer dictados\n"
+            + "    Profesor: JJ\n    Horario: L:16-17, X:16-17\n    Aula: Aula01",
             "Comprobando to_string()")
 
 
