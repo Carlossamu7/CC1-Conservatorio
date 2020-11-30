@@ -46,7 +46,7 @@ class Conservatorio:
         if(self.exist_alumno(dni)):
             raise ValueError("Ya existe un alumno con este DNI.")
         else:
-            # En caso de DNI inválido se levanta una expeción
+            # En caso de DNI o email inválido se levanta una expeción
             alumno = Alumno(nombre, email, dni, asignaturas)
             self.__dic_alumnos[dni] = alumno
 
