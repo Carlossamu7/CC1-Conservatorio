@@ -9,11 +9,10 @@ import unittest
 import sys
 sys.path.append('src')
 
-from Alumno import Alumno
-from Alumno import valido_dni
+from Alumno import Alumno, valido_dni, valido_email
 
 class TestAlumno(unittest.TestCase):
-    
+
     def setUp(self):
         self.alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
 
@@ -78,6 +77,20 @@ class TestAlumno(unittest.TestCase):
 
     def test_crea_alumno_dni_no_valido(self):
         with self.assertRaises(ValueError): Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715A", "Lenguaje Musical")
+
+    def test_valido_email(self):
+        self.assertTrue(valido_email('a@b.com'), "Comprobando valido_email() con email correcto")  # True.
+        self.assertTrue(valido_email('abc@def.com'), "Comprobando valido_email() con email correcto")  # True.
+        self.assertTrue(valido_email('abc@3def.com'), "Comprobando valido_email() con email correcto")  # True.
+        self.assertTrue(valido_email('abc@def.us'), "Comprobando valido_email() con email correcto")  # True.
+        self.assertTrue(valido_email('abc@d_-f.us'), "Comprobando valido_email() con email correcto")  # True.
+
+        self.assertFalse(valido_email('@def.com'), "Comprobando valido_email() con email incorrecto")  # False.
+        self.assertFalse(valido_email('"abc@def".com'), "Comprobando valido_email() con email incorrecto")  # False.
+        self.assertFalse(valido_email('abc+def.com'), "Comprobando valido_email() con email incorrecto")  # False.
+        self.assertFalse(valido_email('abc@def.x'), "Comprobando valido_email() con email incorrecto")  # False.
+        self.assertFalse(valido_email('abc@def.12'), "Comprobando valido_email() con email incorrecto")  # False.
+        self.assertFalse(valido_email('abc@def..com'), "Comprobando valido_email() con email incorrecto")  # False.
 
 
 if __name__ == '__main__':
