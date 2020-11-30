@@ -35,6 +35,7 @@ class TestAlumno(unittest.TestCase):
     def test_set_email(self):
         self.alumno.set_email("otro_correo@correo.ugr.es")
         self.assertEqual(self.alumno.get_email(), "otro_correo@correo.ugr.es", "Comprobando set_email()")
+        with self.assertRaises(ValueError): self.alumno.set_email("@correo.ugr.es")
 
     def test_to_string(self):
         self.assertEqual(self.alumno.to_string(),
@@ -75,8 +76,9 @@ class TestAlumno(unittest.TestCase):
         self.assertFalse(valido_dni("232A"), "Comprobando valido_dni() con DNI de longitud incorrecta")
         self.assertFalse(valido_dni("X1234567Z"), "Comprobando valido_dni() con DNI extranjero incorrecto")
 
-    def test_crea_alumno_dni_no_valido(self):
+    def test_crea_alumno_no_valido(self):
         with self.assertRaises(ValueError): Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715A", "Lenguaje Musical")
+        with self.assertRaises(ValueError): Alumno("Carlos", "@correo.ugr.es", "75931715A", "Lenguaje Musical")
 
     def test_valido_email(self):
         self.assertTrue(valido_email('a@b.com'), "Comprobando valido_email() con email correcto")  # True.

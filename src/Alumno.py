@@ -79,7 +79,10 @@ def valido_email(email):
 class Alumno:
     def __init__(self, nombre, email, dni, asignaturas):
         self.__nombre = nombre
-        self.__email = email
+        if(valido_email(email)):
+            self.__email = email
+        else: # Lanza excepción
+            raise ValueError("El email no es válido.")
         if(valido_dni(dni)):
             self.__dni = dni
         else: # Lanza excepción
@@ -102,7 +105,10 @@ class Alumno:
         self.__nombre = nombre
 
     def set_email(self, email):
-        self.__email = email
+        if(valido_email(email)):
+            self.__email = email
+        else: # Lanza excepción
+            raise ValueError("El email no es válido.")
 
     # El DNI no cambia, no existe setter.
 
