@@ -173,11 +173,3 @@ class Conservatorio:
             str += self.__dic_asignaturas[asig].to_string()
             str += "\n"
         return str
-
-conser = Conservatorio()
-conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
-conser.dar_alta_asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
-                                "JJ", "L:16-17, X:16-17", "Aula01")
-conser.dar_alta_asignatura("002", "Coro", 1, "Nociones básicas acerca de canto",
-                                "JJ", "M:20-21", "Aula01")
-#print(conser.to_string())
