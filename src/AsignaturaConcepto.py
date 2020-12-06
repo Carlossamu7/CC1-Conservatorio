@@ -6,7 +6,7 @@ Implementación de la clase AsignaturaConcepto
 """
 
 class AsignaturaConcepto:
-    def __init__(self, id, nombre_asignatura, curso, concepto):
+    def __init__(self, id: str, nombre_asignatura: str, curso: int, concepto: str):
         self.__id = id
         self.__nombre_asignatura = nombre_asignatura
         self.__curso = curso

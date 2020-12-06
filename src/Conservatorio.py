@@ -7,6 +7,7 @@ Implementación de la clase Conservatorio
 
 import sys
 sys.path.append('src')
+from typing import List
 
 from Alumno import Alumno
 from Asignatura import Asignatura
@@ -36,13 +37,13 @@ class Conservatorio:
     ### Alumnos ###
     ###############
 
-    def exist_alumno(self, dni):
+    def exist_alumno(self, dni: str):
         if dni in self.__dic_alumnos:
             return True
         else:
             return False
 
-    def dar_alta_alumno(self, nombre, email, dni, asignaturas):
+    def dar_alta_alumno(self, nombre: str, email: str, dni: str, asignaturas: List[str]):
         if(self.exist_alumno(dni)):
             raise ValueError("Ya existe un alumno con este DNI.")
         else:
@@ -50,20 +51,20 @@ class Conservatorio:
             alumno = Alumno(nombre, email, dni, asignaturas)
             self.__dic_alumnos[dni] = alumno
 
-    def get_alumno(self, dni):
+    def get_alumno(self, dni: str):
         if self.exist_alumno(dni):
             return self.__dic_alumnos[dni]
         else:
             return "No existe ningún alumno con ese DNI."
 
-    def get_alumnos_nombre(self, nombreAlum):
+    def get_alumnos_nombre(self, nombreAlum: str):
         list = []
         for alum in self.__dic_alumnos:
             if(self.__dic_alumnos[alum].get_nombre()==nombreAlum):
                 list.append(self.__dic_alumnos[alum].get_dni())
         return list
 
-    def get_horario_asignatura_alumno(self, dni, asignatura):
+    def get_horario_asignatura_alumno(self, dni: str, asignatura: str):
         if(self.exist_alumno(dni)):
             alum = self.__dic_alumnos[dni]
             if (asignatura in alum.get_lista_asignaturas()):
@@ -76,7 +77,7 @@ class Conservatorio:
         else:
             return "No existe ningún alumno con ese DNI."
 
-    def get_horario_alumno(self, dni):
+    def get_horario_alumno(self, dni: str):
         list = []
         if(self.exist_alumno(dni)):
             alum = self.__dic_alumnos[dni]
@@ -88,7 +89,7 @@ class Conservatorio:
         else:
             return "No existe ningún alumno con ese DNI."
 
-    def get_aulas_alumno(self, dni):
+    def get_aulas_alumno(self, dni: str):
         list = []
         if(self.exist_alumno(dni)):
             alum = self.__dic_alumnos[dni]
@@ -105,52 +106,52 @@ class Conservatorio:
     ### Asignaturas ###
     ###################
 
-    def exist_asignatura(self, id):
+    def exist_asignatura(self, id: str):
         if id in self.__dic_asignaturas:
             return True
         else:
             return False
 
-    def dar_alta_asignatura(self, id, nombre_asignatura, curso, concepto, profesor, horario, aula):
+    def dar_alta_asignatura(self, id: str, nombre_asignatura: str, curso: int, concepto: str, profesor: str, horario: str, aula: str):
         if(self.exist_asignatura(id)):
             raise ValueError("Ya existe esta asignatura.")
         else:
             self.__dic_asignaturas[id] = Asignatura(id, nombre_asignatura, curso, concepto, profesor, horario, aula)
 
-    def borrar_asignatura(self, id):
+    def borrar_asignatura(self, id: str):
         if(self.exist_asignatura(id)):
             del self.__dic_asignaturas[id]
         else:
             raise ValueError("Ya existe esta asignatura.")
 
-    def get_asignatura(self, id):
+    def get_asignatura(self, id: str):
         if self.exist_asignatura(id):
             return self.__dic_asignaturas[id]
         else:
             return "No existe la asignatura con ID " + id + "."
 
-    def get_lista_asignaturas_profesor(self, profesor):
+    def get_lista_asignaturas_profesor(self, profesor: str):
         list = []
         for asig in self.__dic_asignaturas:
             if(self.__dic_asignaturas[asig].get_profesor()==profesor):
                 list.append(self.__dic_asignaturas[asig])
         return list
 
-    def get_nombre_asignaturas_profesor(self, profesor):
+    def get_nombre_asignaturas_profesor(self, profesor: str):
         list = []
         asigProf = self.get_lista_asignaturas_profesor(profesor)
         for asig in asigProf:
             list.append(asig.get_nombre_asignatura())
         return list
 
-    def get_horario_profesor(self, profesor):
+    def get_horario_profesor(self, profesor: str):
         list = []
         asigProf = self.get_lista_asignaturas_profesor(profesor)
         for asig in asigProf:
             list.append(asig.get_horario())
         return list
 
-    def get_aulas_profesor(self, profesor):
+    def get_aulas_profesor(self, profesor: str):
         list = []
         asigProf = self.get_lista_asignaturas_profesor(profesor)
         for asig in asigProf:

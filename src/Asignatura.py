@@ -11,7 +11,7 @@ sys.path.append('src')
 from AsignaturaConcepto import AsignaturaConcepto
 
 class Asignatura(AsignaturaConcepto):
-    def __init__(self, id, nombre_asignatura, curso, concepto, profesor, horario, aula):
+    def __init__(self, id: str, nombre_asignatura: str, curso: int, concepto: str, profesor: str, horario: str, aula: str):
         AsignaturaConcepto.__init__(self, id, nombre_asignatura, curso, concepto)
         self.__profesor = profesor
         self.__horario = horario
@@ -28,13 +28,13 @@ class Asignatura(AsignaturaConcepto):
 
     # La asignatura no cambia, no existe setter.
 
-    def set_profesor(self, profesor):
+    def set_profesor(self, profesor: str):
         self.__profesor = profesor
 
-    def set_horario(self, horario):
+    def set_horario(self, horario: str):
         self.__horario = horario
 
-    def set_aula(self, aula):
+    def set_aula(self, aula: str):
         self.__aula = aula
 
     def to_string(self):

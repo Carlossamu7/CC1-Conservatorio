@@ -6,6 +6,7 @@ Implementación de la clase Alumno
 """
 
 import re
+from typing import List
 
 # Función sacada de https://perezmartin.es/codigo-python-para-comprobar-si-un-dni-nif-o-nie-es-valido/
 # Eso comprueba que:
@@ -13,7 +14,7 @@ import re
 #   el último (control) que pueden estar entre unas letras concretas.
 # - Si es extranjero se sustituye la primera letra por su número correspondiente.
 # - Se comprueba el dígito de control (última cifra).
-def valido_dni(dni):
+def valido_dni(dni: str):
     tabla = "TRWAGMYFPDXBNJZSQVHLCKE"
     dig_ext = "XYZ"
     reemp_dig_ext = {'X':'0', 'Y':'1', 'Z':'2'}
@@ -56,7 +57,7 @@ domain_regex = re.compile('''
    )$
 ''', re.VERBOSE | re.IGNORECASE)
 
-def valido_email(email):
+def valido_email(email: str):
     if not isinstance(email, str) or not email or '@' not in email:
         return False
 
@@ -77,7 +78,7 @@ def valido_email(email):
     return (match_body is not None) and (match_domain is not None)
 
 class Alumno:
-    def __init__(self, nombre, email, dni, lista_asignaturas):
+    def __init__(self, nombre: str, email: str, dni :str, lista_asignaturas: List[str]):
         self.__nombre = nombre
         if(valido_email(email)):
             self.__email = email
@@ -101,10 +102,10 @@ class Alumno:
     def get_lista_asignaturas(self):
         return self.__lista_asignaturas
 
-    def set_nombre(self, nombre):
+    def set_nombre(self, nombre: str):
         self.__nombre = nombre
 
-    def set_email(self, email):
+    def set_email(self, email: str):
         if(valido_email(email)):
             self.__email = email
         else: # Lanza excepción
@@ -112,13 +113,13 @@ class Alumno:
 
     # El DNI no cambia, no existe setter.
 
-    def matricula_asignatura(self, asig):
+    def matricula_asignatura(self, asig: List[str]):
         if asig in self.__lista_asignaturas:	# Lanza excepción
             raise ValueError("Asignatura ya matriculada.")
         else:
             self.__lista_asignaturas.append(asig)
 
-    def desmatricula_asignatura(self, asig):
+    def desmatricula_asignatura(self, asig: List[str]):
         if(asig in self.__lista_asignaturas):
             self.__lista_asignaturas.remove(asig)
         else:	# Lanza excepción
