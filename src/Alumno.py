@@ -77,7 +77,7 @@ def valido_email(email):
     return (match_body is not None) and (match_domain is not None)
 
 class Alumno:
-    def __init__(self, nombre, email, dni, asignaturas):
+    def __init__(self, nombre, email, dni, lista_asignaturas):
         self.__nombre = nombre
         if(valido_email(email)):
             self.__email = email
@@ -87,7 +87,7 @@ class Alumno:
             self.__dni = dni
         else: # Lanza excepción
             raise ValueError("El DNI no es válido.")
-        self.__asignaturas = asignaturas
+        self.__lista_asignaturas = lista_asignaturas
 
     def get_nombre(self):
         return self.__nombre
@@ -98,8 +98,8 @@ class Alumno:
     def get_dni(self):
         return self.__dni
 
-    def get_asignaturas(self):
-        return self.__asignaturas
+    def get_lista_asignaturas(self):
+        return self.__lista_asignaturas
 
     def set_nombre(self, nombre):
         self.__nombre = nombre
@@ -112,27 +112,19 @@ class Alumno:
 
     # El DNI no cambia, no existe setter.
 
-    def lista_asignaturas(self):
-        return self.__asignaturas.split(", ")
-
     def matricula_asignatura(self, asig):
-        if asig in self.lista_asignaturas():	# Lanza excepción
+        if asig in self.__lista_asignaturas:	# Lanza excepción
             raise ValueError("Asignatura ya matriculada.")
         else:
-            if self.__asignaturas == "":
-                self.__asignaturas = asig
-            else:
-                self.__asignaturas += ", " + asig
+            self.__lista_asignaturas.append(asig)
 
     def desmatricula_asignatura(self, asig):
-        list = self.lista_asignaturas()
-        if(asig in list):
-            list.remove(asig)
-            self.__asignaturas = ", ".join(list)
+        if(asig in self.__lista_asignaturas):
+            self.__lista_asignaturas.remove(asig)
         else:	# Lanza excepción
             raise ValueError("No existe tal asignatura.")
 
     def to_string(self):
         str = "--> " + self.__nombre + " (DNI: " + self.__dni + ", @: " + self.__email + ")" + "\n"
-        str += "    Asignaturas: " + self.__asignaturas
+        str += "    Asignaturas: " + ", ".join(self.__lista_asignaturas)
         return str
