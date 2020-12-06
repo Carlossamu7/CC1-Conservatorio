@@ -4,6 +4,7 @@ lenguaje:
 
 entidad:
   - src/Alumno.py
+  - src/AsignaturaConcepto.py
   - src/Asignatura.py
   - src/Conservatorio.py
 
@@ -12,5 +13,6 @@ fichero_tareas:
 
 test:
   - tests/testAlumno.py
+  - tests/testAsignaturaConcepto.py
   - tests/testAsignatura.py
   - tests/testConservatorio.py
