@@ -11,7 +11,7 @@ En mi caso, que estoy implementando el proyecto en `Python3` y encontré aquí a
 - `Robot` tiene menos flexibilidad: sin funciones como etiqueta de autor, prueba de omisión, sin bucles anidados, etc.
 - La opción de usar `pytest` está ampliamente aceptada y usada por programadores `Python`. Una desventaja es que no viene integrado y es necesaria su instalación y [documentándome](https://stackoverflow.com/questions/27954702/unittest-vs-pytest) me pareció más intuitivo usar `unittest`. Asimismo, evitar instalaciones nos aliviará mucho la imagen del contenedor que en el próximo hito se va a desplegar. Optimizar la futura imagen `docker` es beneficioso para el proyecto.
 
-De este modo, el marco de pruebas que he elegido es `unittest`. Aunque puede llevar a confusión con que sea una biblioteca de aserciones, ya que posee ambas cosas, en la [documentación oficial](https://docs.python.org/3/library/unittest.html) se describe como un *test framework*. Buenos motivos para esta elección es que está integrado en `Python` y es todo un estándar por lo que hay bastante información al respecto. Resulta cómodo hacer TDD mediante esta biblioteca.
+De este modo, el **marco de pruebas** que he elegido es `unittest`. Aunque puede llevar a confusión con que sea una biblioteca de aserciones, ya que posee ambas cosas, en la [documentación oficial](https://docs.python.org/3/library/unittest.html) se describe como un *test framework*. Buenos motivos para esta elección es que está integrado en `Python` y es todo un estándar por lo que hay bastante información al respecto. Resulta cómodo hacer TDD mediante esta biblioteca.
 
 En `Python` encontramos diferenes **aserciones explícitas** con `assert`. Se pueden consultar [todas las aserciones](https://docs.python.org/3/library/unittest.html#assert-methods) pero resumo a continuación las que más he usado:
 - `assertTrue`: fallará sólo si no devuelve `True`.
@@ -40,6 +40,7 @@ La ejecución de un test es como un programa en `Python`:
 
 ```
 python3.8 tests/testAlumno.py
+python3.8 tests/testAsignaturaConcepto.py
 python3.8 tests/testAsignatura.py
 python3.8 tests/testConservatorio.py
 ```
@@ -50,6 +51,9 @@ Para ejecutarlo en el entorno virtual sería a través de `pipenv`, documentaci�
 ```
 ##########################  Test de Alumno  ##########################
 pipenv run coverage run tests/testAlumno.py -v
+pipenv run coverage report -m
+########################  Test de AsignaturaConcepto  ########################
+pipenv run coverage run tests/testAsignaturaConcepto.py -v
 pipenv run coverage report -m
 ########################  Test de Asignatura  ########################
 pipenv run coverage run tests/testAsignatura.py -v
@@ -79,17 +83,19 @@ Observamos que los test barren el 100% del código de `Alumno.py`, de `Asignatur
 
 ### Gestor de tareas ###
 
+Los gestores de tareas más populares para `Python` a día de hoy son `invoke`, `poetry` y `Makefile`. A continuación voy a explicar algunos detalles de estos así como posibles ventajas y desventajas.
+
 Algunos de los inconvenientes de `Invoke` para mi gusto es que es dirigido por código, por tanto tiene sintaxis Python y los errores se muestran como tal. Los comandos del shell se ejecutan usando `run('orden')`. Al fin y al cabo [hereda de Make](http://www.pyinvoke.org/) y para eso prefiero elegir `Makefile` como gestor de tareas.
 
-`Poetry` es u  gestor de tareas y dependencias más moderno con muchos puntos fuertes. Sin embargo, en este [enlace](https://news.ycombinator.com/item?id=24081125) encontré algunos motivos por los cuales no usar `Poetry` o fallos que han tenido algunos desarrolladores. A mí personalmente me pareció un tanto complejo de usar y configurar correctamente, y más aún después de observar los fallos que otros desarrolladores han tenido con las dependencias de esta herramienta.
+`Poetry` es u  gestor de tareas y dependencias más moderno con muchos puntos fuertes. Sin embargo, en este [enlace](https://news.ycombinator.com/item?id=24081125) encontré algunos motivos por los cuales no usar `Poetry` o fallos que han tenido algunos desarrolladores. A mí personalmente me pareció un tanto **complejo de usar y configurar correctamente**, y más aún después de observar los fallos que otros desarrolladores han tenido con las dependencias de esta herramienta.
 -  `Poetry` todavía tiene que luchar contra los errores.
 - La resolución de dependencias puede ser un problema difícil de resolver al mismo tiempo, pero sería genial, si `Poetry` no solo usara un solo núcleo, para acelerar el proceso.
 - Problemas y fallos de CI aleatorias que ocurren cuando `Poetry` resuelve las dependencias: https://github.com/actions/virtual-environments/issues/1343
 - Otra opinión: "Soy un gran fanático de `Poetry` pero no está exento de inconvenientes. Hace al menos unos meses, necesitaba instalar una suite de compilación completa si deseaba instalar una distribución de código fuente de `Python` puro (`sdist`) que se creó con `Poetry` en *Alpine*".
 
-Aquí otro ejemplo en donde `Poetry` coge la versión incorrecta de Python: [enlace](https://github.com/python-poetry/poetry/issues/655).
+Aquí otro ejemplo en donde `Poetry` coge la versión incorrecta de `Python`: [enlace](https://github.com/python-poetry/poetry/issues/655).
 
-El gestor de tareas que elegido para el proyecto es `Makefile`. No es perfecto y tiene algunas carencias pero para las tareas que voy a necesitar creo que es una opción idónea. En él se pueden ejecutar los test unitarios rápidamente con la orden `make test`.
+El **gestor de tareas** que he elegido para el proyecto es `Makefile`. No es perfecto y tiene algunas carencias pero para las tareas que voy a necesitar y por su sencillez creo que es una opción idónea. En él se pueden ejecutar los test unitarios rápidamente con la orden `make test`.
 
 ```
 test:
