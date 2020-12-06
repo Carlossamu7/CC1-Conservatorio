@@ -4,8 +4,7 @@
     - dni (`getter`)
     - asignaturas (`getter` y `setter`)
 
-  Y los siguientes métodos (además de `validoDNI()`):
-    - `lista_asignaturas()`
+  Y los siguientes métodos (además de `valido_dni()` y `valido_email`):
     - `matricula_asignatura()`
     - `desmatricula_asignatura()`
     - `to_string()`

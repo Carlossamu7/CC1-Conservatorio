@@ -14,7 +14,7 @@ src
     - nombre (`getter` y `setter`)
     - email (`getter` y `setter`)
     - dni (`getter`)
-    - asignaturas (`getter`)
+    - lista_asignaturas (`getter`)
 
 - Clase [AsignaturaConcepto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/AsignaturaConcepto.py). Tiene los siguientes atributos:
     - id (`getter`)
