@@ -66,7 +66,7 @@ class Conservatorio:
     def get_horario_asignatura_alumno(self, dni, asignatura):
         if(self.exist_alumno(dni)):
             alum = self.__dic_alumnos[dni]
-            if (asignatura in alum.lista_asignaturas()):
+            if (asignatura in alum.get_lista_asignaturas()):
                 for asi in self.__dic_asignaturas:
                     if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asignatura):
                         return self.__dic_asignaturas[asi].get_horario()
@@ -80,7 +80,7 @@ class Conservatorio:
         list = []
         if(self.exist_alumno(dni)):
             alum = self.__dic_alumnos[dni]
-            for asig in alum.lista_asignaturas():
+            for asig in alum.get_lista_asignaturas():
                 for asi in self.__dic_asignaturas:
                     if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asig):
                         list.append(self.__dic_asignaturas[asi].get_horario())
@@ -92,7 +92,7 @@ class Conservatorio:
         list = []
         if(self.exist_alumno(dni)):
             alum = self.__dic_alumnos[dni]
-            for asig in alum.lista_asignaturas():
+            for asig in alum.get_lista_asignaturas():
                 for asi in self.__dic_asignaturas:
                     if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asig):
                         if(not self.__dic_asignaturas[asi].get_aula() in list):
@@ -172,3 +172,11 @@ class Conservatorio:
             str += self.__dic_asignaturas[asig].to_string()
             str += "\n"
         return str
+
+conser = Conservatorio()
+conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
+conser.dar_alta_asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
+                                "JJ", "L:16-17, X:16-17", "Aula01")
+conser.dar_alta_asignatura("002", "Coro", 1, "Nociones básicas acerca de canto",
+                                "JJ", "M:20-21", "Aula01")
+#print(conser.to_string())

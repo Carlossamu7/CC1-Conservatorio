@@ -17,7 +17,7 @@ class TestConservatorio(unittest.TestCase):
 
     def setUp(self):
         self.conser = Conservatorio()
-        self.conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
+        self.conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
         self.conser.dar_alta_asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
                                         "JJ", "L:16-17, X:16-17", "Aula01")
         self.conser.dar_alta_asignatura("002", "Coro", 1, "Nociones básicas acerca de canto",
@@ -31,7 +31,7 @@ class TestConservatorio(unittest.TestCase):
         self.assertEqual(conser2.get_diccionario_alumnos(), {}, "Comprobando get_diccionario_alumnos()")
 
     def test_get_numero_alumnos(self):
-        self.conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", ["Coro"])
         self.assertEqual(self.conser.get_numero_alumnos(), 2, "Comprobando get_numero_alumnos()")
 
     def test_get_diccionario_asignaturas(self):
@@ -49,17 +49,17 @@ class TestConservatorio(unittest.TestCase):
         self.assertTrue(self.conser.exist_alumno("75931715K"), "Comprobando exist_alumno()")
 
     def test_dar_alta_alumno(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical, Coro"])
         self.assertEqual(self.conser.get_diccionario_alumnos()["75931715K"].to_string(), alumno.to_string(), "Comprobando dar_alta_alumno()")
-        with self.assertRaises(ValueError): self.conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical")
+        with self.assertRaises(ValueError): self.conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical"])
 
     def test_get_alumno(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", "Lenguaje Musical, Coro")
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
         self.assertEqual(self.conser.get_alumno("75931715K").to_string(), alumno.to_string(), "Comprobando get_alumno()")
         self.assertEqual(self.conser.get_alumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando get_alumno() con alumno no existente")
 
     def test_get_alumnos_nombre(self):
-        self.conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", ["Coro"])
         self.assertEqual(self.conser.get_alumnos_nombre("Carlos"), ["75931715K", "74606489D"], "Comprobando get_alumnos_nombre()")
 
     def test_get_horario_asignatura_alumno(self):
@@ -119,7 +119,7 @@ class TestConservatorio(unittest.TestCase):
         self.assertEqual(self.conser.get_aulas_profesor("JJ"), ["Aula01"], "Comprobando get_aulas_profesor()")
 
     def test_to_string(self):
-        self.conser.dar_alta_alumno("Luis", "otro@correo.ugr.es", "74606489D", "Coro")
+        self.conser.dar_alta_alumno("Luis", "otro@correo.ugr.es", "74606489D", ["Coro"])
         str = "¡Bienvenido a MiConservatorio!\n\n"
         str += "--------------    ALUMNOS    --------------\n\n"
         str += "--> Carlos (DNI: 75931715K, @: carlossamu7@correo.ugr.es)\n"
