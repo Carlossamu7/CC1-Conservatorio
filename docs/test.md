@@ -67,13 +67,13 @@ Veremos más adelante que esto se puede automatizar. Los resultados de las ejecu
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testAlumno.png)
 
-Para la clase `Asignatura`:
-
-![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testAsignatura.png)
-
 Para la clase `AsignaturaConcepto`:
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testAsignaturaConcepto.png)
+
+Para la clase `Asignatura`:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_04_05/testAsignatura.png)
 
 Para la clase `Conservatorio`:
 
@@ -90,7 +90,7 @@ Algunos de los inconvenientes de `Invoke` para mi gusto es que es dirigido por c
 `Poetry` es u  gestor de tareas y dependencias más moderno con muchos puntos fuertes. Sin embargo, en este [enlace](https://news.ycombinator.com/item?id=24081125) encontré algunos motivos por los cuales no usar `Poetry` o fallos que han tenido algunos desarrolladores. A mí personalmente me pareció un tanto **complejo de usar y configurar correctamente**, y más aún después de observar los fallos que otros desarrolladores han tenido con las dependencias de esta herramienta.
 -  `Poetry` todavía tiene que luchar contra los errores.
 - La resolución de dependencias puede ser un problema difícil de resolver al mismo tiempo, pero sería genial, si `Poetry` no solo usara un solo núcleo, para acelerar el proceso.
-- Problemas y fallos de CI aleatorias que ocurren cuando `Poetry` resuelve las dependencias: https://github.com/actions/virtual-environments/issues/1343
+- Problemas y fallos de CI aleatorias que ocurren cuando `Poetry` resuelve las dependencias: [enlace](https://github.com/actions/virtual-environments/issues/1343).
 - Otra opinión: "Soy un gran fanático de `Poetry` pero no está exento de inconvenientes. Hace al menos unos meses, necesitaba instalar una suite de compilación completa si deseaba instalar una distribución de código fuente de `Python` puro (`sdist`) que se creó con `Poetry` en *Alpine*".
 
 Aquí otro ejemplo en donde `Poetry` coge la versión incorrecta de `Python`: [enlace](https://github.com/python-poetry/poetry/issues/655).
@@ -145,7 +145,7 @@ Los avances en el código en este entrega son los siguientes. No obstante en dur
 
 *Nota*: las funciones implementadas de rastreo de aulas que ha pisado un alumno/profesor correspondientes a la [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47) son de gran utilidad para periodos como el actual debido a la COVID-19, en donde rastrear el virus es muy importante.
 
-#### Nuevos avances ####
+### Nuevos avances del proyecto ###
 
 - [Cambiar a notación `snake_case`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/62).
 
