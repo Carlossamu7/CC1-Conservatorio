@@ -49,7 +49,7 @@ script:
 
 En la página web de travis encontramos un *badget* de este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
 
-[![Build Test](https://travis-ci.org/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.org/github/Carlossamu7/CC1-Conservatorio)
+[![TravisCI](https://travis-ci.org/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.org/github/Carlossamu7/CC1-Conservatorio)
 
 ### Integración continua adicional: `Circle CI`
 
@@ -92,9 +92,17 @@ jobs:
 
 Por úlitmo se incluye el *badget* de *Circle CI* en este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
 
-[![Build Test](https://circleci.com/gh/Carlossamu7/CC1-Conservatorio.svg?style=svg)](https://github.com/Carlossamu7/CC1-Conservatorio)
+[![CircleCI](https://circleci.com/gh/Carlossamu7/CC1-Conservatorio.svg?style=svg)](https://app.circleci.com/pipelines/github/Carlossamu7/CC1-Conservatorio)
 
 ### Gestor de tareas
+
+El gestor de tareas automatiza los cometidos de cualquier proyecto software. Hasta ahora siempre nos ha simplificado las tareas de instalación, comprobación de sintaxis, ejecución de tests, etc. En la integración continua también juega un papel fundamental haciendo que la tarea de instalación de dependencias y ejecución de tests sea sencilla.
+
+El gestor que se eligió para este proyecto fue [`Makefile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/Makefile). Veamos el papel que juega en cada uno de los sistemas de CI usados:
+
+- *Travis CI*. Realiza dos tareas. La primera es `install` en donde se instalan las dependencias mediante `make install` que básicamente instala los paquetes contenidos en [`requirements.txt`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/requirements.txt). La segunda es `script` en donde se lanzan todos los tests unitarios mediante `make test`.
+
+- *Circle CI*. En el trabajo `test` el paso fundamental, una vez descargada la imagen, es ejecutar `make test` lo cual comprueba los tests unitarios del código del proyecto.
 
 ### Uso del contenedor de Docker en CI
 
