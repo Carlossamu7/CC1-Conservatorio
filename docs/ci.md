@@ -4,9 +4,61 @@ En sistemas de desarrollo ágil quien desarrolle tiene que asegurar que el códi
 
 Estos tests tienen el fin obvio de asegurar la calidad del mismo, pero también en un entorno de desarrollo colaborativo permiten integrar código fácilmente asegurándose de que no se rompa nada. En cada incorporación de código la ejecución automática de los tests asegura que el código sigue cumpliendo las especificaciones. Se va a configurar el repositorio del proyecto para que se pasen los tests, en diferentes ambientes, automáticamente.
 
-Para ello se van a elegir varios sistemas de integración continua, se va a dar de alta el usuario y posteriormente vincularlos con la cuenta de *GitHub* conectando con el repositorio del proyecto. Del mismo modo se va a aprovechar el contenedor docker en alguno de los sisstemas de integración continua.
+Para ello se van a elegir varios sistemas de integración continua, se va a dar de alta el usuario y posteriormente vincularlos con la cuenta de *GitHub* conectando con el repositorio del proyecto. Del mismo modo se va a aprovechar el contenedor docker en alguno de los sistemas de integración continua.
 
-Las elecciones que se van a valorar son *Travis-CI*, *Circle-CI*, *Jenkins* y *Shippable*.
+#### Justificación de la elección de los sistemas de CI ####
+
+Las sistemas de integración continua que se van a valorar son *Travis-CI*, *Circle-CI*, *Jenkins* y *Shippable*. Se han consultado algunos enlaces: [enlace principal](https://www.altexsoft.com/blog/engineering/comparison-of-most-popular-continuous-integration-tools-jenkins-teamcity-bamboo-travis-ci-and-more/) y [enlace complementario](https://www.trustradius.com/products/jfrog-pipelines/reviews).
+
+***Travis-CI***
+
+- Ventajas:
+    - Lleva mucho tiempo y es una herramienta muy popular.
+    - Fácil instalación y configuración.
+    - Conectividad directa con *GitHub*.
+    - Copia de seguridad de la compilación reciente. Siempre que ejecuta una nueva compilación, *Travis-CI* clona su repositorio de GitHub en un nuevo entorno virtual.
+
+- Desventajas:
+    - No tiene CD (distribución continua).
+    - Alojamiento solo de GitHub. Solo ofrece soporte para proyectos alojados en *GitHub*, los equipos que usan *GitLab* o cualquier otra alternativa, se ven obligados a confiar en otra herramienta de CI.
+
+***Circle-CI***
+
+- Ventajas:
+    - Interfa de usuario simple.
+    - Atención al cliente de alta calidad. Los miembros de la comunidad de *StackShare* destacan el rápido soporte de *Circle-CI*: responden a las solicitudes en 12 horas.
+    - *Circle-CI* ejecuta todo tipo de pruebas de software, incluidos entornos web, móviles y de contenedores.
+    - Almacenamiento en caché de la instalación de requisitos y dependencias de terceros.
+    - Sin necesidad de depuración manual. *Circle-CI* tiene la función de depuración *Debug* a través de SSH.
+    - Permite usar imágenes docker.
+
+- Desventajas:
+    - Automatización excesiva: cambia el entorno sin previo aviso, lo que puede ser un problema.
+    - Sin almacenamiento en caché de imágenes de Docker.
+
+***Jenkins***
+
+- Ventajas:
+    - Es gratuita.
+    - Integraciones ilimitadas. Jenkins puede integrarse con casi cualquier programa externo utilizado para desarrollar aplicaciones. Le permite utilizar tecnología de contenedores como *Docker* y *Kubernetes*. Tiene muchos plugins.
+    - Distribución de compilaciones y cargas de prueba en varias máquinas.
+
+- Desventajas:
+    - La documentación no es suficiente.
+    - Tiene una interfaz de usuario muy pobre.
+
+***Shippable***
+
+- Ventajas:
+    - Usa docker. Esto le da una buena velocidad de compilación.
+    - Usa una sintaxis de superconjunto para *Travis-CI* y, por lo tanto, su configuración de compilación de *Travis-CI* funcionará.
+
+- Desventajas:
+    - A veces, las compilaciones se cuelgan en el paso de aprovisionamiento del nodo y, por lo general, lleva mucho tiempo completar este paso.
+    - Hubo tiempos de inactividad del servicio intermitentes.
+    - Solía tener problemas frecuentes con la autenticación y solía evitar que inicie sesión y esto sucedió varias veces, pero su equipo de soporte resuelve la mayoría de los problemas rápidamente.
+
+Finalmente, tras este análisis, se ha decidido usar *Travis-CI* porque es la herramienta mejor valorada cuando se trabaja con *GitHub* como es el caso. Las buenas prácticas aconsejan usar una herramienta de integración continua adicional. La segunda elección llevada a cabo es *Circle-CI* ya que sus ventajas son numerosas y permite usar imágenes docker, lo cual nos permitirá experimentar un poco.
 
 ### Integración continua: `Travis CI`
 
@@ -88,6 +140,11 @@ jobs:
         steps:
             - checkout
             - run: make tests
+
+workflows:
+    build_test:
+        jobs:
+            - test
 ```
 
 Por úlitmo se incluye el *badget* de *Circle CI* en este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
