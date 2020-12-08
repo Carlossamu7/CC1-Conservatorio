@@ -124,7 +124,7 @@ La ventaja es que este entorno ya está preparado para la ejecución de los test
     - Es necesario hacer tests para cada uno de estos métodos `__eq__`.
     - Una vez implementados usarlos en los tests de la clase Conservatorio. Esta era el objetivo primordial.
 
-### Otros avances del proyecto ###
+#### Otros avances del proyecto ####
 
 Mejorando la entrega correspondiente al *Desarrollo basado en tests* se han hecho muchas mejoras y modificaciones del proyecto, las cuales recuerdo que son las siguientes:
 
