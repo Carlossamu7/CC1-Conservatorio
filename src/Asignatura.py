@@ -45,3 +45,12 @@ class Asignatura(AsignaturaConcepto):
         str += "    Horario: " + self.__horario + "\n"
         str += "    Aula: " + self.__aula
         return str
+
+    def __eq__(self, other):
+        return (self.get_id() == other.get_id() and
+               self.get_nombre_asignatura() == other.get_nombre_asignatura() and
+               self.get_curso() == other.get_curso() and
+               self.get_concepto() == other.get_concepto() and
+               self.__profesor == other.get_profesor() and
+               self.__horario == other.get_horario() and
+               self.__aula == other.get_aula())

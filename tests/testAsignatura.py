@@ -44,6 +44,11 @@ class TestAsignatura(unittest.TestCase):
             + "    Profesor: JJ\n    Horario: L:16-17, X:16-17\n    Aula: Aula01",
             "Comprobando to_string()")
 
+    def test_eq(self):
+        asi = Asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
+                               "JJ", "L:16-17, X:16-17", "Aula01")
+        self.assertTrue(self.asig.__eq__(asi))
+
 
 if __name__ == '__main__':
     unittest.main()
