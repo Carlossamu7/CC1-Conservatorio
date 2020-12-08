@@ -1,0 +1,10 @@
+---
+version: 2.1
+
+jobs:
+    test:
+        docker:
+            - image: carlossamu7/my_docker:latest
+        steps:
+            - checkout
+            - run: make tests
