@@ -49,13 +49,13 @@ class TestConservatorio(unittest.TestCase):
         self.assertTrue(self.conser.exist_alumno("75931715K"), "Comprobando exist_alumno()")
 
     def test_dar_alta_alumno(self):
-        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical, Coro"])
-        self.assertEqual(self.conser.get_diccionario_alumnos()["75931715K"].to_string(), alumno.to_string(), "Comprobando dar_alta_alumno()")
+        alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
+        self.assertTrue (self.conser.get_diccionario_alumnos()["75931715K"].__eq__(alumno), "Comprobando dar_alta_alumno()")
         with self.assertRaises(ValueError): self.conser.dar_alta_alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical"])
 
     def test_get_alumno(self):
         alumno = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
-        self.assertEqual(self.conser.get_alumno("75931715K").to_string(), alumno.to_string(), "Comprobando get_alumno()")
+        self.assertTrue(self.conser.get_alumno("75931715K").__eq__(alumno), "Comprobando get_alumno()")
         self.assertEqual(self.conser.get_alumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando get_alumno() con alumno no existente")
 
     def test_get_alumnos_nombre(self):
@@ -85,7 +85,7 @@ class TestConservatorio(unittest.TestCase):
     def test_dar_alta_asignatura(self):
         asig = Asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
                           "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(self.conser.get_diccionario_asignaturas()["001"].to_string(), asig.to_string(), "Comprobando dar_alta_asignatura()")
+        self.assertTrue(self.conser.get_diccionario_asignaturas()["001"].__eq__(asig), "Comprobando dar_alta_asignatura()")
         with self.assertRaises(ValueError): self.conser.dar_alta_asignatura("001", "LenguajeMusical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
                                                                             "JJ", "L:16-17, X:16-17", "Aula01")
 
@@ -97,7 +97,7 @@ class TestConservatorio(unittest.TestCase):
     def test_get_asignatura(self):
         asig = Asignatura("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
                           "JJ", "L:16-17, X:16-17", "Aula01")
-        self.assertEqual(self.conser.get_asignatura("001").to_string(), asig.to_string(), "Comprobando get_asignatura()")
+        self.assertTrue(self.conser.get_asignatura("001").__eq__(asig), "Comprobando get_asignatura()")
         self.assertEqual(self.conser.get_asignatura("010"), "No existe la asignatura con ID 010.", "Comprobando get_asignatura() con asignatura no existente")
 
     def test_get_lista_asignaturas_profesor(self):
@@ -107,7 +107,7 @@ class TestConservatorio(unittest.TestCase):
                       Asignatura("002", "Coro", 1, "Nociones básicas acerca de canto",
                                  "JJ", "M:20-21", "Aula01")]
         for i in range(len(listaAsig)):
-            self.assertEqual(listaAsig[i].to_string(), listaAsig2[i].to_string(), "Comprobando get_lista_asignaturas_profesor()")
+            self.assertTrue(listaAsig[i].__eq__(listaAsig2[i]), "Comprobando get_lista_asignaturas_profesor()")
 
     def test_get_nombre_asignaturas_profesor(self):
         self.assertEqual(self.conser.get_nombre_asignaturas_profesor("JJ"), ["Lenguaje Musical", "Coro"], "Comprobando get_nombre_asignaturas_profesor()")
