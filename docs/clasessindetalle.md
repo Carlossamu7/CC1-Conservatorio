@@ -30,8 +30,8 @@ src
 
 - Clase [Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Tiene los siguientes atributos:
     - `nombreConservatorio` (que es `MiConservatorio`, tiene `getter`)
-    - `listaAlum` (`getter`)
-    - `listaAsig` (`getter`)
+    - `dic_alumnos` (`getter`)
+    - `dic_asignaturas` (`getter`)
 
 [Consultar con más detalle los métodos de estas clases.](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clases.md)
 
@@ -41,6 +41,7 @@ Ejecutando las órdenes
 
 ```
 python3.8 src/Alumno.py
+python3.8 src/AsignaturaConcepto.py
 python3.8 src/Asignatura.py
 python3.8 src/Conservatorio.py
 ```

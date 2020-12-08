@@ -8,6 +8,7 @@
     - `matricula_asignatura()`
     - `desmatricula_asignatura()`
     - `to_string()`
+    - `__eq__()`
 
 - Clase [AsignaturaConcepto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/AsignaturaConcepto.py). Tiene los siguientes atributos:
     - id (`getter`)
@@ -17,6 +18,7 @@
 
   Y los siguientes métodos:
     - `to_string()`
+    - `__eq__()`
 
 - Clase [Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Asignatura.py). Tiene los siguientes atributos:
     - Hereda de AsignaturaConcepto
@@ -26,6 +28,7 @@
 
   Y los siguientes métodos:
     - `to_String()`
+    - `__eq__()`
 
 - Clase [Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Tiene los siguientes atributos:
     - `nombre_conservatorio` (que es `MiConservatorio`, tiene `getter`)
