@@ -90,6 +90,10 @@ class TestAlumno(unittest.TestCase):
         self.assertFalse(valido_email('abc@def.12'), "Comprobando valido_email() con email incorrecto")  # False.
         self.assertFalse(valido_email('abc@def..com'), "Comprobando valido_email() con email incorrecto")  # False.
 
+    def test_eq(self):
+        al = Alumno("Carlos", "carlossamu7@correo.ugr.es", "75931715K", ["Lenguaje Musical", "Coro"])
+        self.assertTrue(self.alumno.__eq__(al))
+
 
 if __name__ == '__main__':
     unittest.main()

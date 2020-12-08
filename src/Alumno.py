@@ -129,3 +129,9 @@ class Alumno:
         str = "--> " + self.__nombre + " (DNI: " + self.__dni + ", @: " + self.__email + ")" + "\n"
         str += "    Asignaturas: " + ", ".join(self.__lista_asignaturas)
         return str
+
+    def __eq__(self, other):
+        return (self.__nombre == other.get_nombre() and
+               self.__dni == other.get_dni() and
+               self.__email == other.get_email() and
+               self.__lista_asignaturas == other.get_lista_asignaturas())
