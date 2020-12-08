@@ -4,11 +4,11 @@ En sistemas de desarrollo ágil quien desarrolle tiene que asegurar que el códi
 
 Estos tests tienen el fin obvio de asegurar la calidad del mismo, pero también en un entorno de desarrollo colaborativo permiten integrar código fácilmente asegurándose de que no se rompa nada. En cada incorporación de código la ejecución automática de los tests asegura que el código sigue cumpliendo las especificaciones. Se va a configurar el repositorio del proyecto para que se pasen los tests, en diferentes ambientes, automáticamente.
 
-Para ello se van a elegir varios sistemas de integración continua, se va a dar de alta el usuario y posteriormente vincularlos con la cuenta de GitHub conectando con el repositorio del proyecto. Del mismo modo se va a aprovechar el contenedor docker en alguno de los sisstemas de integración continua.
+Para ello se van a elegir varios sistemas de integración continua, se va a dar de alta el usuario y posteriormente vincularlos con la cuenta de *GitHub* conectando con el repositorio del proyecto. Del mismo modo se va a aprovechar el contenedor docker en alguno de los sisstemas de integración continua.
 
 Las elecciones que se van a valorar son *Travis-CI*, *Circle-CI*, *Jenkins* y *Shippable*.
 
-### Integración continua: Travis CI
+### Integración continua: `Travis CI`
 
 El primer sistema de integración continua que se va a usar es [Travis-CI](https://travis-ci.com/). A continuación se enumeran los pasos seguidos para darse de alta, activar el repositorio y configurar correctamente la integración continua:
 
@@ -51,7 +51,27 @@ En la página web de travis encontramos un *badget* de este repositorio, el cual
 
 [![Build Test](https://travis-ci.org/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.org/github/Carlossamu7/CC1-Conservatorio)
 
-### Integración continua adicional: Circle CI
+### Integración continua adicional: `Circle CI`
+
+El sistema de integración continua adicional que se va a usar es [Circle-CI](https://circleci.com/) A continuación se enumeran los pasos seguidos para darse de alta, activar el repositorio y configurar correctamente la integración continua:
+
+1. En primer lugar hay que darse de alta. Entramos en *Sign Up* y a continuación *Sign Up with GitHub*. Autorizamos el acceso. Le indicamos la organización a usar, que va a ser nuestra cuenta de *GitHub*.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_08_09/circle_init.png)
+
+2. Una vez registrados indicamos el repositorio y hacemos click en *Set Up Project*.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_08_09/set_up_project.png)
+
+3. Nos propone un fichero de configuración y yo he elegido la opcióon *Use Existing Config*.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_08_09/configyml.png)
+
+Como aún no está disponible el fichero no lo encuentra.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_08_09/noconfigyml.png)
+
+4. Por último es momento de configurar [`config.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/.circleci/config.yml) en el directorio `.circleci`.
 
 ### Gestor de tareas
 
