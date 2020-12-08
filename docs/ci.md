@@ -73,6 +73,27 @@ Como aún no está disponible el fichero no lo encuentra.
 
 4. Por último es momento de configurar [`config.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/.circleci/config.yml) en el directorio `.circleci`.
 
+- Se va a usar la imagen docker disponible en *Docker Hub*. En un apartado posterior se comentarán más detalles acerca de esto.
+
+- Utilizando el gestor de tareas se ejecutan los tests implementados.
+
+```
+---
+version: 2.1
+
+jobs:
+    test:
+        docker:
+            - image: carlossamu7/my_docker:latest
+        steps:
+            - checkout
+            - run: make tests
+```
+
+Por úlitmo se incluye el *badget* de *Circle CI* en este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
+
+[![Build Test](https://circleci.com/gh/Carlossamu7/CC1-Conservatorio.svg?style=svg)](https://github.com/Carlossamu7/CC1-Conservatorio)
+
 ### Gestor de tareas
 
 ### Uso del contenedor de Docker en CI
