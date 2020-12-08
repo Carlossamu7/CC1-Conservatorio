@@ -33,5 +33,9 @@ class TestAsignaturaConcepto(unittest.TestCase):
             "--> Lenguaje Musical (001)\n    Curso: 1\n    Concepto: Nociones básicas acerca de leer una partitura, entonar y hacer dictados",
             "Comprobando to_string()")
 
+    def test_eq(self):
+        asi = AsignaturaConcepto("001", "Lenguaje Musical", 1, "Nociones básicas acerca de leer una partitura, entonar y hacer dictados")
+        self.assertTrue(self.asig.__eq__(asi))
+
 if __name__ == '__main__':
     unittest.main()

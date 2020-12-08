@@ -29,3 +29,9 @@ class AsignaturaConcepto:
         str += "    Curso: {}".format(self.__curso) + "\n"
         str += "    Concepto: " + self.__concepto
         return str
+
+    def __eq__(self, other):
+        return (self.__id == other.get_id() and
+               self.__nombre_asignatura == other.get_nombre_asignatura() and
+               self.__curso == other.get_curso() and
+               self.__concepto == other.get_concepto())
