@@ -74,3 +74,9 @@ Otros:
 - [Uso de atributos privados en Python](https://github.com/Carlossamu7/CC1-Conservatorio/issues/54)
 - [Eliminar métodos innecesarios en Conservatorio.py](https://github.com/Carlossamu7/CC1-Conservatorio/issues/55)
 - [Cambiar a estructura de datos de tipo diccionario en Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/issues/56)
+
+***Milestone*** 4 - [Integración continua](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/7)
+
+- [Documentación para milestone 4 (CI)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/60)
+- [Fichero de Travis-CI](https://github.com/Carlossamu7/CC1-Conservatorio/issues/61)
+- [Fichero de Circle-CI](https://github.com/Carlossamu7/CC1-Conservatorio/issues/69)
