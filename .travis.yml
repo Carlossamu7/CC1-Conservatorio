@@ -11,6 +11,6 @@ python:
 install:
   - make install
 
-# Ejecuta los tests
+# Ejecuta todos los tests
 script:
   - make test
