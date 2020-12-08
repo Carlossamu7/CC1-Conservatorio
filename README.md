@@ -1,7 +1,8 @@
 # *MiConservatorio*
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
-[![Build Test](https://travis-ci.org/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.org/github/Carlossamu7/CC1-Conservatorio)
+[![TravisCI](https://travis-ci.org/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.org/github/Carlossamu7/CC1-Conservatorio)
+[![CircleCI](https://circleci.com/gh/Carlossamu7/CC1-Conservatorio.svg?style=svg)](https://app.circleci.com/pipelines/github/Carlossamu7/CC1-Conservatorio)
 
 Repositorio para el proyecto (con propósito educativo) de **Cloud Computing**: Fundamentos e Infraestructuras (2020-21) del Máster en Ingeniería Informática de la Universidad de Granada.
 
@@ -25,6 +26,14 @@ Los test del código resultan fundamentales en el desarrollo de proyectos actual
 El principal objetivo del uso de [Docker]((https://www.docker.com/)) u otra infraestructura de contenedores es aislar la ejecución de una aplicación de forma que sea mucho más fácil desplegarla, incluyendo los datos y el estado en el que se encuentre en un momento determinado. Usar dockers facilita el hecho de mantener un entorno de pruebas consistente y obtener una mayor consistencia entre los entornos de prueba y los entornos de producción.
 
 [Documentación de contenerización](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker.md)
+
+## Integración continua ##
+
+En sistemas de desarrollo ágil quien desarrolle tiene que asegurar que el código pasa todos los tests antes de ser desplegado o simplemente incorporado a la rama principal, porque los tests son la especificación de los requisitos. Para ello se escriben una serie de tests que se ejecutan automáticamente al añadir o modificar código.
+
+Estos tests tienen el fin obvio de asegurar la calidad del mismo, pero también en un entorno de desarrollo colaborativo permiten integrar código fácilmente asegurándose de que no se rompa nada. En cada incorporación de código la ejecución automática de los tests asegura que el código sigue cumpliendo las especificaciones. Se va a configurar el repositorio del proyecto para que se pasen los tests, en diferentes ambientes, automáticamente. Para ello han elegido varios sistemas de integración continua, [Travis-CI](https://travis-ci.com/) y [Circle-CI](https://circleci.com/) en donde se ha hecho uso del docker.
+
+[Documentación de integración continua](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/ci.md)
 
 ## Licencia
 
