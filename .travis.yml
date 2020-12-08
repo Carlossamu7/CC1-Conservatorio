@@ -13,4 +13,4 @@ install:
 
 # Ejecuta los tests
 script:
-  - echo "skip ci"
+  - make test
