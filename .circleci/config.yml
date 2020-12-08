@@ -8,3 +8,8 @@ jobs:
         steps:
             - checkout
             - run: make tests
+
+workflows:
+    build_test:
+        jobs:
+            - test
