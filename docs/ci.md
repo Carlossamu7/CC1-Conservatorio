@@ -118,3 +118,30 @@ docker:
 La ventaja es que este entorno ya está preparado para la ejecución de los tests. Tiene todas las dependencias instaladas así como el paquete `build-essentials` en donde está gestor de tareas *GNU Make*.
 
 ### Avance del proyecto
+
+- [Sobrescribir el método `__eq__` de `Python` para las clases Alumno y Asignatura](https://github.com/Carlossamu7/CC1-Conservatorio/issues/70).
+    - Para hacerlo en Asignatura va a ser conveniente hacerlo en AsignaturaConcepto.
+    - Es necesario hacer tests para cada uno de estos métodos `__eq__`.
+    - Una vez implementados usarlos en los tests de la clase Conservatorio. Esta era el objetivo primordial.
+
+### Otros avances del proyecto ###
+
+Mejorando la entrega correspondiente al *Desarrollo basado en tests* se han hecho muchas mejoras y modificaciones del proyecto, las cuales recuerdo que son las siguientes:
+
+- [Cambiar a notación `snake_case`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/62).
+
+- [Se deben justificar todas las modificaciones de un objeto](https://github.com/Carlossamu7/CC1-Conservatorio/issues/58). No había ninguna HU indicando que se puedan modificar todas las asignaturas a la vez a través `set_asignaturas` por lo que es eliminado.
+
+- [Se debe almacenar la asignaturas de la forma más adecuada para las HUs](https://github.com/Carlossamu7/CC1-Conservatorio/issues/59). Almacenar las asignaturas en una lista. Usar la clase asignatura.
+
+- [Usar fixtures en los tests de Python](https://github.com/Carlossamu7/CC1-Conservatorio/issues/63)
+
+- Se ha relacionado el *issue* [Cambio en el tratamiento de asignaturas dentro de Alumno](https://github.com/Carlossamu7/CC1-Conservatorio/issues/42) con las HU correspondientes.
+
+- [Como desarrollador quiero comprobar la validez de un email para [HU7]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/64)
+
+- [Como desarrollador, voy a distinguir entre AsignaturaConcepto (concepto, material, curso) y la Asignatura (profesor, aula, horario)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/65)
+
+- [Se debe almacenar la asignaturas de la forma más adecuada para las HUs](https://github.com/Carlossamu7/CC1-Conservatorio/issues/59). Efectivamente, no es lo más eficiente guardar las asignaturas como un único *string* separado por comas y espacios. Se ha valorado la opción de usar la clase `Asignatura` pero no parece lo más correcto porque dicha clase tiene el aula, horario, profesor y otros campos que no son de interés para el alumno. Es más, es posible que en el momento de la matriculación esto no se sepa (en la Universidad normalmente sí se sabe en el momento de la matriculación pero no es así en los Conservatorios) y la asignatura no esté dada de alta. Por eso me parece lo más correcto cambiar a usar una lista de *strings* lo cual elimina el método `lista_asignaturas` y simplifica y hace más eficiente algunas cosas.
+
+- [Añadir comprobación de tipos](https://github.com/Carlossamu7/CC1-Conservatorio/issues/68)
