@@ -106,4 +106,15 @@ El gestor que se eligió para este proyecto fue [`Makefile`](https://github.com/
 
 ### Uso del contenedor de Docker en CI
 
+Algunos sitemas de integración continua permiten aprovehar la imagen generada para el proyecto lo cual resulta muy útil. Este es el caso dell sistema de integración continua *Circle CI* por lo que se ha aprovechado el docker generado para el proyecto.
+
+En el fichero de configuración se indica la imagen a usar, en donde indicamos que se use la subida en *Docker Hub*: `carlossamu7/my_docker:latest`. Veamos:
+
+```
+docker:
+    - image: carlossamu7/my_docker:latest
+```
+
+La ventaja es que este entorno ya está preparado para la ejecución de los tests. Tiene todas las dependencias instaladas así como el paquete `build-essentials` en donde está gestor de tareas *GNU Make*.
+
 ### Avance del proyecto
