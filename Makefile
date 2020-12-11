@@ -4,22 +4,22 @@ install: requirements.txt
 
 # Comprueba sintaxis
 sintaxis:
-	python3.8 src/Alumno.py
-	python3.8 src/AsignaturaConcepto.py
-	python3.8 src/Asignatura.py
-	python3.8 src/Conservatorio.py
+	python3 src/Alumno.py
+	python3 src/AsignaturaConcepto.py
+	python3 src/Asignatura.py
+	python3 src/Conservatorio.py
 
 # Ejecuta los tests
 test:
 	# Tests unitarios e informe a través de report -m
 	##########################  Test de Alumno  ##########################
-	python3.8 tests/testAlumno.py
+	python3 tests/testAlumno.py
 	########################  Test de AsignaturaConcepto  ########################
-	python3.8 tests/testAsignaturaConcepto.py
+	python3 tests/testAsignaturaConcepto.py
 	########################  Test de Asignatura  ########################
-	python3.8 tests/testAsignatura.py
+	python3 tests/testAsignatura.py
 	#######################  Test de Conservatorio  ######################
-	python3.8 tests/testConservatorio.py
+	python3 tests/testConservatorio.py
 
 # Borra ficheros creados
 clean:
