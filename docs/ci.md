@@ -101,7 +101,7 @@ script:
 
 En la página web de travis encontramos un *badget* de este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
 
-[![TravisCI](https://travis-ci.org/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.org/github/Carlossamu7/CC1-Conservatorio)
+[![TravisCI](https://travis-ci.com/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.com/github/Carlossamu7/CC1-Conservatorio)
 
 ### Integración continua adicional: `Circle CI`
 
