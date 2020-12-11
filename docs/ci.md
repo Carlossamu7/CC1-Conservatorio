@@ -163,7 +163,7 @@ El gestor que se eligió para este proyecto fue [`Makefile`](https://github.com/
 
 ### Uso del contenedor de Docker en CI
 
-Algunos sitemas de integración continua permiten aprovehar la imagen generada para el proyecto lo cual resulta muy útil. Este es el caso dell sistema de integración continua *Circle CI* por lo que se ha aprovechado el docker generado para el proyecto.
+Algunos sitemas de integración continua permiten aprovechar la imagen generada para el proyecto lo cual resulta muy útil. Este es el caso del sistema de integración continua *Circle CI* por lo que se ha aprovechado el docker generado para el proyecto.
 
 En el fichero de configuración se indica la imagen a usar, en donde indicamos que se use la subida en *Docker Hub*: `carlossamu7/my_docker:latest`. Veamos:
 
