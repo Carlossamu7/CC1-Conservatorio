@@ -177,8 +177,8 @@ En primer lugar nos damos de alta utilizando preferentemente el mismo *nickname*
 
 ```
 docker login --username=carlossamu7
-docker tag ce61eb646e2c carlossamu7/my_docker:latest
-docker push carlossamu7/my_docker
+docker tag ce61eb646e2c carlossamu7/cc1-conservatorio:latest
+docker push carlossamu7/cc1-conservatorio
 ```
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/docker_login.png)
@@ -189,7 +189,7 @@ Se puede observar el docker subido correctamente en la plataforma.
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/my_docker_hub.png)
 
-[Enlace al contenedor en Docker Hub](https://hub.docker.com/r/carlossamu7/my_docker).
+[Enlace al contenedor en Docker Hub](https://hub.docker.com/r/carlossamu7/cc1-conservatorio).
 
 #### Actualización automática
 
@@ -224,8 +224,8 @@ Este es el [tutorial](https://docs.github.com/es/free-pro-team@latest/packages/u
 4. Asignamos el `tag` indicando el nombre de la imagen y la versión y pusheamos.
 
 ```
-docker tag <ID> ghcr.io/carlossamu7/my_docker:0.1.0
-docker push ghcr.io/carlossamu7/my_docker:0.1.0
+docker tag <ID> ghcr.io/carlossamu7/cc1-conservatorio:0.1.0
+docker push ghcr.io/carlossamu7/cc1-conservatorio:0.1.0
 ```
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/github_tag_push.png)
@@ -237,6 +237,8 @@ Observamos el resultado en la sección *Packages* de GitHub.
 5. Finalmente, dentro del paquete GitHub nos indica que podemos conectar el docker a un repositorio. Hacemos esta configuración eligiendo el repositorio del proyecto. Veamos:
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_06_07/github_docker_conectado.png)
+
+[Enlace al package en GitHub](https://github.com/users/Carlossamu7/packages/container/package/cc1-conservatorio)
 
 ### Avance del proyecto
 
