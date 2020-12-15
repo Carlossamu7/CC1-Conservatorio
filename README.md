@@ -34,7 +34,7 @@ make install
 Alternativamente se puede comprobar la sintaxis de las clases del proyecto así como lanzar los test con las respectivas ordenes:
 
 ```
-make sintaxis
+make check
 make test
 ```
 
@@ -42,12 +42,6 @@ Por último para limpiar los ficheros generados:
 ```
 make clean
 ```
-
-## Test ##
-
-Los test del código resultan fundamentales en el desarrollo de proyectos actual por diferentes motivos. Por un lado, se ha de tener en cuenta el coste que supondría desplegar una aplicación con errores y por otro para asegurar la calidad del código mediante la comprobación de los requisitos planteados, como son las historias de usuario. Además, los test van a convertirse en un elemento esencial para la automatización de los ciclos de vida del software.
-
-[Documentación de test](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/test.md)
 
 ## Docker ##
 
