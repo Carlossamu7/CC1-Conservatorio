@@ -114,10 +114,10 @@ test:
 	pipenv run coverage report -m
 ```
 
-Además con `make sintaxis` se puede comprobar la sintaxis de las clases implementadas.
+Además con `make check` se puede comprobar la sintaxis de las clases implementadas.
 
 ```
-sintaxis:
+check:
 	pipenv run python3.8 src/Alumno.py
 	pipenv run python3.8 src/AsignaturaConcepto.py
 	pipenv run python3.8 src/Asignatura.py
