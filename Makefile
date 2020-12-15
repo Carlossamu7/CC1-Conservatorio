@@ -3,7 +3,7 @@ install: requirements.txt
 	pip3 install -r requirements.txt
 
 # Comprueba sintaxis
-sintaxis:
+check:
 	python3 src/Alumno.py
 	python3 src/AsignaturaConcepto.py
 	python3 src/Asignatura.py
