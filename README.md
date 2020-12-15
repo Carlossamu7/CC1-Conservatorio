@@ -15,6 +15,34 @@ Este proyecto es para la aplicación de gestión de un Conservatorio privado.
 - [Roadmap](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/roadmap.md)
 - [Clases y estructura del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/clasessindetalle.md)
 
+## Puesta en marcha del proyecto ##
+
+En primer lugar descarga el repo desde GitHub:
+
+```
+git clone https://github.com/Carlossamu7/CC1-Conservatorio.git
+```
+
+En segundo lugar has de tener una versión de `Python3` instalada, entre la `3.5` y la `latest`. Asimismo debes de tener instalado en tu sistema operativo el paquete `build-essentials` para poder usar el gestor de tareas.
+
+Una vez hecho esto desde la carpeta raíz del proyecto ejecuta la siguiente orden para instalar las dependencias:
+
+```
+make install
+```
+
+Alternativamente se puede comprobar la sintaxis de las clases del proyecto así como lanzar los test con las respectivas ordenes:
+
+```
+make sintaxis
+make test
+```
+
+Por último para limpiar los ficheros generados:
+```
+make clean
+```
+
 ## Test ##
 
 Los test del código resultan fundamentales en el desarrollo de proyectos actual por diferentes motivos. Por un lado, se ha de tener en cuenta el coste que supondría desplegar una aplicación con errores y por otro para asegurar la calidad del código mediante la comprobación de los requisitos planteados, como son las historias de usuario. Además, los test van a convertirse en un elemento esencial para la automatización de los ciclos de vida del software.
