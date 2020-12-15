@@ -23,7 +23,7 @@ En primer lugar descarga el repo desde GitHub:
 git clone https://github.com/Carlossamu7/CC1-Conservatorio.git
 ```
 
-En segundo lugar has de tener una versión de `Python3` instalada, entre la `3.5` y la `latest`. Asimismo debes de tener instalado en tu sistema operativo el paquete `build-essentials` para poder usar el gestor de tareas.
+En segundo lugar has de tener una versión de `Python3` instalada, entre la `3.6` y la `latest`. Asimismo debes de tener instalado en tu sistema operativo el paquete `build-essentials` para poder usar el gestor de tareas.
 
 Una vez hecho esto desde la carpeta raíz del proyecto ejecuta la siguiente orden para instalar las dependencias:
 

@@ -86,7 +86,6 @@ language: python
 
 # Versiones
 python:
-  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
@@ -101,7 +100,7 @@ script:
   - make test
 ```
 
-*Travis* permite saber cuál es la versión mínima de tu lenguaje y también saber si funciona con la versión *latest*. En esta [documentación](https://docs.travis-ci.com/user/languages/python/) encontramos que podemos ejecutar la última versión de `Python` con `nightly`. Básicamente apunta a una versión de desarrollo reciente de la compilación de `Python`. Como versión mínima he elegido la `3.5` porque anterior a esta sería demasiado desfase.
+*Travis* permite saber cuál es la versión mínima de tu lenguaje y también saber si funciona con la versión *latest*. En esta [documentación](https://docs.travis-ci.com/user/languages/python/) encontramos que podemos ejecutar la última versión de `Python` con `nightly`. Básicamente apunta a una versión de desarrollo reciente de la compilación de `Python`. Como versión mínima he elegido la `3.6` porque con la `3.5` no funciona porque dicha versión realiza un ordenamiento sobre algunas estructuras de datos como el las listas haciendo que los test fallen. [Aquí se puede consultar el error](https://travis-ci.com/github/Carlossamu7/CC1-Conservatorio/jobs/460798577).
 
 En la página web de *Travis-CI* encontramos un *badget* de este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
 
