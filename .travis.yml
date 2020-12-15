@@ -1,11 +1,13 @@
 #Lenguaje de programación
 language: python
 
-# Versiones (de momento)
+# Versiones
 python:
+  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
+  - "nightly"
 
 # Instala dependencias
 install:
