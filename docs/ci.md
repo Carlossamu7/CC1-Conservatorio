@@ -84,11 +84,13 @@ El primer sistema de integración continua que se va a usar es [Travis-CI](https
 #Lenguaje de programación
 language: python
 
-# Versiones (de momento)
+# Versiones
 python:
+  - "3.5"
   - "3.6"
   - "3.7"
   - "3.8"
+  - "nightly"
 
 # Instala dependencias
 install:
@@ -99,7 +101,9 @@ script:
   - make test
 ```
 
-En la página web de travis encontramos un *badget* de este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
+*Travis* permite saber cuál es la versión mínima de tu lenguaje y también saber si funciona con la versión *latest*. En esta [documentación](https://docs.travis-ci.com/user/languages/python/) encontramos que podemos ejecutar la última versión de `Python` con `nightly`. Básicamente apunta a una versión de desarrollo reciente de la compilación de `Python`. Como versión mínima he elegido la `3.5` porque anterior a esta sería demasiado desfase.
+
+En la página web de *Travis-CI* encontramos un *badget* de este repositorio, el cual situaremos en el `README` del proyecto y que nos indica si se ha pasado el *build*.
 
 [![TravisCI](https://travis-ci.com/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.com/github/Carlossamu7/CC1-Conservatorio)
 
