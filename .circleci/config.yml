@@ -4,7 +4,7 @@ version: 2.1
 jobs:
     test:
         docker:
-            - image: carlossamu7/my_docker:latest
+            - image: carlossamu7/cc1-conservatorio:latest
         steps:
             - checkout
             - run: make tests
