@@ -43,17 +43,11 @@ Por último para limpiar los ficheros generados:
 make clean
 ```
 
-## Docker ##
+## Microservicios ##
 
-El principal objetivo del uso de [Docker]((https://www.docker.com/)) u otra infraestructura de contenedores es aislar la ejecución de una aplicación de forma que sea mucho más fácil desplegarla, incluyendo los datos y el estado en el que se encuentre en un momento determinado. Usar dockers facilita el hecho de mantener un entorno de pruebas consistente y obtener una mayor consistencia entre los entornos de prueba y los entornos de producción.
+Sobre la base de la clase hecha se va a diseñar una API consistente en una serie de rutas (API REST) y testearlo. También se va a crear la infraestructura necesaria para comenzar a ejecutarlo. Para ello, se va de usar el mismo fichero de construcción que hasta ahora, añadiendo las nuevas tareas. Esto también permite, por ejemplo, usar uno de los sistemas de integración continua creados para hacer una ejecución de prueba, en vez de ejecutar los tests.
 
-[Documentación de contenerización](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker.md)
-
-## Integración continua ##
-
-En sistemas de desarrollo ágil quien desarrolle tiene que asegurar que el código pasa todos los tests antes de ser desplegado o simplemente incorporado a la rama principal, porque los tests son la especificación de los requisitos. Para ello se escriben una serie de tests que se ejecutan automáticamente al añadir o modificar código. Estos tests tienen el fin obvio de asegurar la calidad del mismo, pero también en un entorno de desarrollo colaborativo permiten integrar código fácilmente asegurándose de que no se rompa nada. Se va a configurar el repositorio del proyecto para que se pasen los tests, en diferentes ambientes, automáticamente. Para ello han elegido varios sistemas de integración continua, [Travis-CI](https://travis-ci.com/) y [Circle-CI](https://circleci.com/) en donde se ha hecho uso del contenedor docker.
-
-[Documentación de integración continua](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/ci.md)
+[Documentación de microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/microservices.md)
 
 ## Licencia
 
