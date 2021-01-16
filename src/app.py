@@ -58,6 +58,11 @@ def get_numero_alumnos():
 def get_numero_asignaturas():
     return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()})
 
+@app.route('/alumno/<string:id_alumno>/asignatura')
+def get_asignaturas_alumno(id_alumno: str):
+    print(conser.get_alumno(id_alumno).get_lista_asignaturas())
+    return jsonify(conser.get_alumno(id_alumno).get_lista_asignaturas())
+
 if __name__ == '__main__':
     # Leemos el fichero json
     data = lee_json()
