@@ -32,7 +32,7 @@ def crea_conservatorio(data):
         conser.dar_alta_alumno(data["alumnos"][i]["nombre"],
                                data["alumnos"][i]["email"],
                                data["alumnos"][i]["dni"],
-                               [asig["nombre_asignatura"] for asig in data["alumnos"][0]["lista_asignaturas"]])
+                               [asig for asig in data["alumnos"][i]["lista_asignaturas"]])
 
     # Dando de alta las asignaturas existentes
     for i in range(len(data["asignaturas"])):

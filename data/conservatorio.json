@@ -3,17 +3,12 @@
     	{ "nombre": "Carlos",
     	  "email": "carlossamu7@correo.ugr.es",
     	  "dni": "75931715K",
-        "lista_asignaturas" : [
-          { "nombre_asignatura": "Lenguaje Musical" },
-          { "nombre_asignatura": "Coro" }
-          ]
+        "lista_asignaturas" : ["Lenguaje Musical", "Coro"]
       },
       { "nombre": "Luis",
     	  "email": "luis@gmail.com",
     	  "dni": "74585246H",
-        "lista_asignaturas" : [
-          { "nombre_asignatura": "Coro" }
-          ]
+        "lista_asignaturas" : ["Coro"]
         }
     ],
     "asignaturas" : [
