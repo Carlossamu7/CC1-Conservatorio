@@ -5,6 +5,7 @@ from flask import Flask, jsonify, request
 
 app = Flask(__name__)
 
+# Función que lee conservatorio.json
 def lee_json():
     try: # De https://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file
         if os.path.exists('../data/conservatorio.json'):
@@ -22,7 +23,7 @@ def lee_json():
 
     return data
 
-# Función para tener algunas instancias en el coleccionable
+# Función que crea el Conservatorio a partir del json
 def crea_conservatorio(data):
     # Creando el conservatorio
     conser = Conservatorio()
@@ -120,5 +121,5 @@ if __name__ == '__main__':
     data = lee_json()
     # Creamos el conservatorio con algunos alumnos y asignaturas
     conser = crea_conservatorio(data)
-    print(conser.to_string())
-    app.run(debug=True, port=4000)
+    # Ejecutamos la app
+    app.run(debug=True, host="127.0.0.1", port=4000)
