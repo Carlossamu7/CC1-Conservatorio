@@ -47,7 +47,7 @@ def crea_conservatorio(data):
     return conser
 
 @app.route('/')
-def getProducts():
+def helloConser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
 
 if __name__ == '__main__':
