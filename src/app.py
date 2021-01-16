@@ -63,7 +63,12 @@ def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
 #[HU9] Como alumno quiero consultar el aula de una asignatura
 @app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/aula')
 def get_aulas_alumno(id_alumno: str, nombre_asignatura: str):
-    return jsonify({'Aula': conser.get_aula_asignatura_alumno(id_alumno, nombre_asignatura)})
+    content = conser.get_aula_asignatura_alumno(id_alumno, nombre_asignatura)
+    if(content=="No existe ningún alumno con ese DNI." or
+        content=="Este alumno no está matriculado en esa asignatura."):
+        return jsonify({"Mensaje": content}), 404
+    else:
+        return jsonify({'Aula': content}), 200
 
 # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
 @app.route('/alumno/num')
