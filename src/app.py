@@ -116,6 +116,24 @@ def get_horario_profesor(nombre_profesor: str):
     else:
         return jsonify({'Horario completo': content}), 200
 
+# [HU14] Como administrador quiero saber las aulas que usa un profesor
+@app.route('/profesor/<string:nombre_profesor>/aula')
+def get_aulas_profesor(nombre_profesor: str):
+    content = conser.get_aulas_profesor(nombre_profesor)
+    if(content==[]):
+        return jsonify({"Mensaje": "No existe el profesor {} o no imparte asignaturas.".format(nombre_profesor)}), 404
+    else:
+        return jsonify({'Horario completo': content}), 200
+
+# [HU14] Como administrador quiero saber las aulas que usa un alumno
+@app.route('/alumno/<string:id_alumno>/aula')
+def get_aulas_alumno(id_alumno: str):
+    content = conser.get_aulas_alumno(id_alumno)
+    if(content==[]):
+        return jsonify({"Mensaje": "No existe el alumno {} o no imparte asignaturas.".format(nombre_profesor)}), 404
+    else:
+        return jsonify({'Horario completo': content}), 200
+
 if __name__ == '__main__':
     # Leemos el fichero json
     data = lee_json()
