@@ -71,7 +71,7 @@ def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
 
 # [HU9] Como alumno quiero consultar el aula de una asignatura
 @app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/aula')
-def get_aulas_alumno(id_alumno: str, nombre_asignatura: str):
+def get_aula_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
     content = conser.get_aula_asignatura_alumno(id_alumno, nombre_asignatura)
     if(content=="No existe ningún alumno con ese DNI." or
         content=="Este alumno no está matriculado en esa asignatura."):
