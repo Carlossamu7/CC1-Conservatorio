@@ -54,7 +54,7 @@ def hello_conser():
 def get_numero_alumnos():
     return jsonify({'Numero de alumnos': conser.get_numero_alumnos()})
 
-@app.route('/asignaturas/num')
+@app.route('/asignatura/num')
 def get_numero_asignaturas():
     return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()})
 
