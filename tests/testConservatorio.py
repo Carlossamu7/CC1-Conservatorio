@@ -67,6 +67,11 @@ class TestConservatorio(unittest.TestCase):
         self.assertEqual(self.conser.get_horario_asignatura_alumno("75931715K", "Piano"), "Este alumno no está matriculado en esa asignatura.", "Comprobando get_horario_asignatura_alumno() con alumno no existente")
         self.assertEqual(self.conser.get_horario_asignatura_alumno("00000000A", "Lenguaje Musical"), "No existe ningún alumno con ese DNI.", "Comprobando get_horario_asignatura_alumno() con alumno no existente")
 
+    def test_get_aula_asignatura_alumno(self):
+        self.assertEqual(self.conser.get_aula_asignatura_alumno("75931715K", "Lenguaje Musical"), "Aula01", "Comprobando get_aula_asignatura_alumno()")
+        self.assertEqual(self.conser.get_aula_asignatura_alumno("75931715K", "Piano"), "Este alumno no está matriculado en esa asignatura.", "Comprobando get_horario_asignatura_alumno() con alumno no existente")
+        self.assertEqual(self.conser.get_aula_asignatura_alumno("00000000A", "Lenguaje Musical"), "No existe ningún alumno con ese DNI.", "Comprobando get_horario_asignatura_alumno() con alumno no existente")
+
     def test_get_horario_alumno(self):
         self.assertEqual(self.conser.get_horario_alumno("75931715K"), ["L:16-17, X:16-17", "M:20-21"], "Comprobando get_horario_alumno()")
         self.assertEqual(self.conser.get_horario_alumno("00000000A"), "No existe ningún alumno con ese DNI.", "Comprobando get_horario_alumno() con alumno no existente")

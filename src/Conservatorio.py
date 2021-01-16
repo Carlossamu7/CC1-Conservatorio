@@ -77,6 +77,19 @@ class Conservatorio:
         else:
             return "No existe ningún alumno con ese DNI."
 
+    def get_aula_asignatura_alumno(self, dni: str, asignatura: str):
+        if(self.exist_alumno(dni)):
+            alum = self.__dic_alumnos[dni]
+            if (asignatura in alum.get_lista_asignaturas()):
+                for asi in self.__dic_asignaturas:
+                    if(self.__dic_asignaturas[asi].get_nombre_asignatura()==asignatura):
+                        return self.__dic_asignaturas[asi].get_aula()
+            else:
+                return "Este alumno no está matriculado en esa asignatura."
+
+        else:
+            return "No existe ningún alumno con ese DNI."
+
     def get_horario_alumno(self, dni: str):
         list = []
         if(self.exist_alumno(dni)):
