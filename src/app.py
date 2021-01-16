@@ -73,7 +73,6 @@ def get_aulas_alumno(id_alumno: str, nombre_asignatura: str):
 # [HU10] Como alumno quiero saber mi horario completo
 @app.route('/alumno/<string:id_alumno>/horario')
 def get_horario_alumno(id_alumno: str):
-    print("AHHHHHHHHHHHHHHHHH")
     content = conser.get_horario_alumno(id_alumno)
     if(content=="No existe ningún alumno con ese DNI."):
         return jsonify({"Mensaje": content}), 404
