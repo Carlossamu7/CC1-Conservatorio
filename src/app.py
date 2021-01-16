@@ -51,6 +51,14 @@ def crea_conservatorio(data):
 def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
 
+# [HU6] Como alumno consultar mis asignaturas matriculadas
+@app.route('/alumno/<string:id_alumno>/asignatura')
+def get_asignaturas_alumno(id_alumno: str):
+    if(conser.exist_alumno(id_alumno)):
+        return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
+    else:
+        return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
+
 # [HU8] Como alumno quiero consultar el horario de una asignatura
 @app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/horario')
 def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
@@ -107,14 +115,6 @@ def get_horario_profesor(nombre_profesor: str):
         return jsonify({"Mensaje": "No existe el profesor {}.".format(nombre_profesor)}), 404
     else:
         return jsonify({'Horario completo': content}), 200
-
-# [HU15] Como alumno consultar mis asignaturas matriculadas
-@app.route('/alumno/<string:id_alumno>/asignatura')
-def get_asignaturas_alumno(id_alumno: str):
-    if(conser.exist_alumno(id_alumno)):
-        return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
-    else:
-        return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 if __name__ == '__main__':
     # Leemos el fichero json
