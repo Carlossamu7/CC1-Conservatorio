@@ -73,8 +73,13 @@ def get_numero_asignaturas():
 # [HU15] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
 def get_asignaturas_alumno(id_alumno: str):
-    print(conser.get_alumno(id_alumno).get_lista_asignaturas())
-    return jsonify(conser.get_alumno(id_alumno).get_lista_asignaturas())
+    if(conser.exist_alumno(id_alumno)):
+        status = 200
+        content = {"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}
+    else:
+        status = 204
+        content = {"mensaje": "No existe ningún alumno con ese DNI."}
+    return jsonify(content), status
 
 if __name__ == '__main__':
     # Leemos el fichero json
