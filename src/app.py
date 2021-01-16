@@ -1,6 +1,9 @@
 import os
 import json
 from Conservatorio import Conservatorio
+from flask import Flask, jsonify, request
+
+app = Flask(__name__)
 
 def lee_json():
     try: # De https://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file
@@ -43,9 +46,14 @@ def crea_conservatorio(data):
 
     return conser
 
+@app.route('/')
+def getProducts():
+    return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
+
 if __name__ == '__main__':
     # Leemos el fichero json
     data = lee_json()
     # Creamos el conservatorio con algunos alumnos y asignaturas
     conser = crea_conservatorio(data)
     print(conser.to_string())
+    app.run(debug=True, port=4000)
