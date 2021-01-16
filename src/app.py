@@ -98,6 +98,15 @@ def get_nombre_asignaturas_profesor(nombre_profesor: str):
     else:
         return jsonify({'Asignaturas': content}), 200
 
+# [HU13] Como administrador quiero saber el horario completo de un profesor
+@app.route('/profesor/<string:nombre_profesor>/horario')
+def get_horario_profesor(nombre_profesor: str):
+    content = conser.get_horario_profesor(nombre_profesor)
+    if(content==[]):
+        return jsonify({"Mensaje": "No existe el profesor {}.".format(nombre_profesor)}), 404
+    else:
+        return jsonify({'Horario completo': content}), 200
+
 # [HU15] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
 def get_asignaturas_alumno(id_alumno: str):
