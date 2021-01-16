@@ -47,8 +47,16 @@ def crea_conservatorio(data):
     return conser
 
 @app.route('/')
-def helloConser():
+def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
+
+@app.route('/alumno/num')
+def get_numero_alumnos():
+    return jsonify({'Numero de alumnos': conser.get_numero_alumnos()})
+
+@app.route('/asignaturas/num')
+def get_numero_asignaturas():
+    return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()})
 
 if __name__ == '__main__':
     # Leemos el fichero json
