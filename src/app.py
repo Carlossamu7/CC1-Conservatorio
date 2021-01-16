@@ -89,6 +89,15 @@ def get_numero_alumnos():
 def get_numero_asignaturas():
     return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()}), 200
 
+# [HU12] Como administrador quiero saber las asignaturas que imparte un profesor
+@app.route('/profesor/<string:nombre_profesor>/asignatura')
+def get_nombre_asignaturas_profesor(nombre_profesor: str):
+    content = conser.get_nombre_asignaturas_profesor(nombre_profesor)
+    if(content==[]):
+        return jsonify({"Mensaje": "No existe el profesor {}.".format(nombre_profesor)}), 404
+    else:
+        return jsonify({'Asignaturas': content}), 200
+
 # [HU15] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
 def get_asignaturas_alumno(id_alumno: str):
