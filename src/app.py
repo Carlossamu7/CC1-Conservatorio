@@ -50,14 +50,17 @@ def crea_conservatorio(data):
 def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
 
+# [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
 @app.route('/alumno/num')
 def get_numero_alumnos():
     return jsonify({'Numero de alumnos': conser.get_numero_alumnos()})
 
+# [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
 @app.route('/asignatura/num')
 def get_numero_asignaturas():
     return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()})
 
+# [HU15] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
 def get_asignaturas_alumno(id_alumno: str):
     print(conser.get_alumno(id_alumno).get_lista_asignaturas())
