@@ -24,7 +24,6 @@ class TestApp(unittest.TestCase):
 
     # [HU1] Como administrador quiero dar de alta una asignatura
     # [HU16] Como administrador quiero obtener un listado de las asignaturas y su información
-    @app.route('/asignatura', methods=['GET', 'POST'])
     def test_dar_alta_asignatura(self):
         # 'GET'
         response = self.app.get('/asignatura')
