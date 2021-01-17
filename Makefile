@@ -21,6 +21,14 @@ test:
 	#######################  Test de Conservatorio  ######################
 	python3 tests/testConservatorio.py
 
+# Construcción
+build:
+	echo 'No es necesario realizar build'
+
+# Ejecuta la app
+execute:
+	python3 src/app.py
+
 # Borra ficheros creados
 clean:
 	#rm -r ./src/__pycache__
