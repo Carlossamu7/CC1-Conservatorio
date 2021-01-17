@@ -222,3 +222,23 @@ build:
 execute:
 	python3 src/app.py
 ```
+
+##### Dockerfile de despliegue #####
+
+Se ha cambiado la ejecución final respecto del `Dockerfile` normal:
+```
+# Ejecutamos la API
+CMD ["make", "execute"]
+```
+
+[Dockerfile_execute](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/Dockerfile_execute)
+
+La hacemos disponible en [DockerHub](https://hub.docker.com/repository/docker/carlossamu7/cc1-conservatorio_exec).
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_10_11_12/docker_run.png)
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_10_11_12/docker_push.png)
+
+Uno el repo de DockerHub creado al de GitHub.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_10_11_12/docker_hub.png)
