@@ -51,6 +51,29 @@ def crea_conservatorio(data):
 def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
 
+# [HU1] Como administrador quiero dar de alta una asignatura
+@app.route('/asignatura', methods=['POST'])
+def dar_alta_asignatura():
+    """ Espera un json del tipo
+    {
+        "id": "003",
+        "nombre_asignatura": "Armonía",
+        "curso": 2,
+        "concepto": "Nociones de acordes",
+        "profesor": "Valdivia",
+        "horario": "V:16-18",
+        "aula": "Aula02"
+    }
+    """
+    conser.dar_alta_asignatura(request.json["id"],
+                               request.json["nombre_asignatura"],
+                               request.json["curso"],
+                               request.json["concepto"],
+                               request.json["profesor"],
+                               request.json["horario"],
+                               request.json["aula"])
+    return jsonify({"m": "bien"}), 200
+
 # [HU6] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
 def get_asignaturas_alumno(id_alumno: str):
@@ -123,7 +146,7 @@ def get_aulas_profesor(nombre_profesor: str):
     if(content==[]):
         return jsonify({"Mensaje": "No existe el profesor {} o no imparte asignaturas.".format(nombre_profesor)}), 404
     else:
-        return jsonify({'Horario completo': content}), 200
+        return jsonify({'Aulas': content}), 200
 
 # [HU14] Como administrador quiero saber las aulas que usa un alumno
 @app.route('/alumno/<string:id_alumno>/aula')
@@ -132,7 +155,7 @@ def get_aulas_alumno(id_alumno: str):
     if(content==[]):
         return jsonify({"Mensaje": "No existe el alumno {} o no imparte asignaturas.".format(nombre_profesor)}), 404
     else:
-        return jsonify({'Horario completo': content}), 200
+        return jsonify({'Aulas': content}), 200
 
 if __name__ == '__main__':
     # Leemos el fichero json
