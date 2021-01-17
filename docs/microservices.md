@@ -153,6 +153,48 @@ def hello_conser():
 
 ### Tests ###
 
+Uno de los motivos de la elección de `Flask` es su fácil uso con `unittest`. A continuación vamos a comprobar que efectivamente es relativamente cómodo e intuitivo. No obstante antes de ello me gustaría introducir un programa que me ayudó a comprobar las peticiones HTTP por ejemplo en el caso de que haya que enviar un formulario. Dicho programa es [insomnia.rest](https://insomnia.rest/) disponible también en linux.
+
+En él puedo crear `requests` que se quedan guardados, almacenan el tipo de petición, la ruta e inclusive el contenido JSON que hay que enviar. Es una herramienta excelente para el desarrollo del API. Personalmente he creado al menos un `request` por cada HU. Dejo una captura del mismo:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_10_11_12/insomnia.png)
+
+- Arranco la app en `setUp()`
+
+```
+import unittest
+import json
+import sys
+sys.path.append('src')
+
+from app import app, lee_json
+
+class TestApp(unittest.TestCase):
+
+    def setUp(self):
+        self.app = app.test_client()
+```
+
+- Cuando tengo que incluir nuevos alumnos o asignaturas en el Conservatorio para un test lo leo de del JSON [`conservatorio_test.json`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/data/conservatorio_test.json).
+
+- Tengo cuidado con los `DELETE` ya que los cambios en la aplicación cliente persisten entre diferentes test  por lo que habitualmente volveré a dejar la instancia tal y como estaba.
+
+- Siempre se testea el código de estado:
+
+  ```
+  self.assertEqual(response.status_code, 200)
+  ```
+
+- Siempre se testea el contenido, o una parte del mismo para asegurar el buen funcionamiento:
+
+  ```
+  self.assertIn(b'Asignaturas', response.data)
+  ```
+
+- En caso de que una función pueda devolver varias salidas en función de la existencia de un determinado objeto u otro se realizará una petición para cada posible caso.
+
+[Consultar `testApp.py`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/tests/testApp.py).
+
 ### Avance del proyecto ###
 
 - Mejoras en la descripción de todas las historias de usuario. Asimismo se ha tenido en cuanta la aportación realizada en la [úndecima sesión](https://github.com/JJ/CC-20-21/blob/master/sesiones/11-semana.md). Se ha dado un formato común a todas, añadiendo notas técnicas e indicando las rutas de la API específicas de dicha HU.
