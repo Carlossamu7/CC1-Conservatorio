@@ -151,6 +151,55 @@ def hello_conser():
 
 ### Configuración distribuida: `logs` ###
 
+El framework `Flask` trae una herramienta para realizar rápida y sencillamente los `logs`. Consultar [información](http://lineadecodigo.com/python/logs-en-flask/). Se hacen a través del objeto `app.logger`, dicho objeto tiene tres métodos que me han servido para indicar el tipo de `log`:
+- `app.logger.debug()`
+- `app.logger.warning()`
+- `app.logger.error()`
+
+Antes de implementar los `logs`, en el servidor podíamos observar:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_10_11_12/sin_logs.png)
+
+Se puede observar la implementación en [`app.py`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/app.py), aquí se deja sólo un ejemplo:
+
+```
+# [HU1] Como administrador quiero dar de alta una asignatura
+# [HU17] Como administrador quiero obtener un listado de las asignaturas y su información
+@app.route('/asignatura', methods=['GET', 'POST'])
+def dar_alta_asignatura():
+    """ Espera un json del tipo
+    {
+        "id": "003",
+        "nombre_asignatura": "Armonía",
+        "curso": 2,
+        "concepto": "Nociones de acordes",
+        "profesor": "Valdivia",
+        "horario": "V:16-18",
+        "aula": "Aula02"
+    }
+    """
+    if(request.method == 'POST'):
+        try:
+            conser.dar_alta_asignatura(request.json["id"],
+                                       request.json["nombre_asignatura"],
+                                       request.json["curso"],
+                                       request.json["concepto"],
+                                       request.json["profesor"],
+                                       request.json["horario"],
+                                       request.json["aula"])
+        except Exception as err:   # Error: ya existe la asignatura.
+            app.logger.error('Asignatura existente')
+            return jsonify({"Mensaje": str(err)}), 400
+
+    # Tanto 'POST' como 'GET'
+    app.logger.debug('Devolviendo todas las asignaturas')
+    return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
+```
+
+En la siguiente imagen podemos ver el nuevo resultado:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_10_11_12/con_logs.png)
+
 ### Tests ###
 
 Uno de los motivos de la elección de `Flask` es su fácil uso con `unittest`. A continuación vamos a comprobar que efectivamente es relativamente cómodo e intuitivo. No obstante antes de ello me gustaría introducir un programa que me ayudó a comprobar las peticiones HTTP por ejemplo en el caso de que haya que enviar un formulario. Dicho programa es [insomnia.rest](https://insomnia.rest/) disponible también en linux.
