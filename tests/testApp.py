@@ -67,5 +67,21 @@ class TestApp(unittest.TestCase):
         # Compruebo que ya no está la asignatura con identificador 1.
         self.assertNotIn(b'001', response.data)
 
+    # [HU4] Como alumno quiero matricularme de ciertas asignaturas
+    # [HU6] Como alumno consultar mis asignaturas matriculadas
+    def test_get_asignaturas_alumno(self):
+        # 'GET'
+        response = self.app.get('/alumno/74585246H/asignatura')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo que esté Coro que es la asignatura de dicho alumno
+        self.assertIn(b'Coro', response.data)
+
+        # 'POST'
+        data = json.dumps({"nombre_asignatura": "Lenguaje Musical"})
+        response = self.app.post('/alumno/74585246H/asignatura', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo que el identificador esté en la respuesta
+        self.assertIn(b'Lenguaje Musical', response.data)
+
 if __name__ == '__main__':
     unittest.main()
