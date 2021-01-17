@@ -95,6 +95,29 @@ class TestApp(unittest.TestCase):
         # Compruebo que el identificador esté en la respuesta
         self.assertIn(b'matriculada', response.data)
 
+    # [HU5] Como alumno quiero desmatricularme de ciertas asignaturas
+    def test_delete_asignatura_alumno(self):
+        # 'DELETE'
+        response = self.app.delete('/alumno/74585246H/asignatura/Coro')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo que ya no está la asignatura con identificador 1.
+        self.assertNotIn(b'Coro', response.data)
+
+        # Deshago el efecto de 'DELETE'
+        data = json.dumps({"nombre_asignatura": "Coro"})
+        response = self.app.post('/alumno/74585246H/asignatura', data = data, content_type='application/json')
+
+        # 'DELETE' de una asignatura que no existe
+        response = self.app.delete('/alumno/74585246H/asignatura/Corrrro')
+        self.assertEqual(response.status_code, 400)
+        # Compruebo que ya no está la asignatura con identificador 1.
+        self.assertIn(b'No existe', response.data)
+
+        # 'DELETE' de un alumno que no existe
+        response = self.app.delete('/alumno/745246H/asignatura/Coro')
+        self.assertEqual(response.status_code, 404)
+        # Compruebo que ya no está la asignatura con identificador 1.
+        self.assertIn(b'No existe', response.data)
 
 if __name__ == '__main__':
     unittest.main()
