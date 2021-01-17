@@ -120,7 +120,7 @@ class TestApp(unittest.TestCase):
         self.assertIn(b'No existe', response.data)
 
     # [HU7] Como alumno quiero modificar la dirección de correo
-    def test_(self):
+    def test_actualiza_email_alumno(self):
         # 'GET'
         response = self.app.get('/alumno/74585246H')
         self.assertEqual(response.status_code, 200)
