@@ -76,12 +76,25 @@ class TestApp(unittest.TestCase):
         # Compruebo que esté Coro que es la asignatura de dicho alumno
         self.assertIn(b'Coro', response.data)
 
+        # 'GET' no existe
+        response = self.app.get('/alumno/745246H/asignatura')
+        self.assertEqual(response.status_code, 404)
+        # Compruebo que esté Coro que es la asignatura de dicho alumno
+        self.assertIn(b'No existe', response.data)
+
         # 'POST'
         data = json.dumps({"nombre_asignatura": "Lenguaje Musical"})
         response = self.app.post('/alumno/74585246H/asignatura', data = data, content_type='application/json')
         self.assertEqual(response.status_code, 200)
         # Compruebo que el identificador esté en la respuesta
         self.assertIn(b'Lenguaje Musical', response.data)
+
+        # 'POST' segunda vez
+        response = self.app.post('/alumno/74585246H/asignatura', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        # Compruebo que el identificador esté en la respuesta
+        self.assertIn(b'matriculada', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
