@@ -197,7 +197,7 @@ class TestApp(unittest.TestCase):
         # 'GET'
         response = self.app.get('/alumno/num')
         self.assertEqual(response.status_code, 200)
-        self.assertIn(b'2', response.data)
+        self.assertIn(b'3', response.data)
 
     # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
     def test_get_numero_asignaturas(self):
@@ -255,6 +255,27 @@ class TestApp(unittest.TestCase):
         response = self.app.get('/alumno/745856H/horario')
         self.assertEqual(response.status_code, 404)
         self.assertIn(b'No existe', response.data)
+
+    # [HU15] Como administrador quiero dar de alta un alumno
+    # [HU16] Como administrador quiero obtener un listado de los alumnos y su información
+    def test_dar_alta_alumno(self):
+        # 'GET'
+        response = self.app.get('/alumno')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Carlos', response.data)
+
+        # 'POST'
+        # La información que se envía se lee de conservatorio_test.json
+        data = json.dumps(lee_json('conservatorio_test.json')["alumnos"][0])
+        response = self.app.post('/alumno', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo que el identificador esté en la respuesta
+        self.assertIn(b'71254236Y', response.data)
+
+        # 'POST' segunda vez
+        response = self.app.post('/asignatura', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        self.assertIn(b'Mensaje', response.data)
 
 
 if __name__ == '__main__':
