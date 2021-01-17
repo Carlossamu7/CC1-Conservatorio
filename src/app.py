@@ -103,7 +103,7 @@ def dar_alta_asignatura():
                                        request.json["horario"],
                                        request.json["aula"])
         except Exception as err:   # Error: ya existe la asignatura.
-            return str(err), 400
+            return jsonify({"Mensaje": str(err)}), 400
 
     # Tanto 'POST' como 'GET'
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
@@ -130,12 +130,12 @@ def set_delete_asignatura(id_asignatura: str):
             asi.set_horario(request.json["horario"])
             asi.set_aula(request.json["aula"])
         else:
-            return str(conser.get_asignatura(request.json["id"])), 400
+            return jsonify({"Mensaje": str(conser.get_asignatura(request.json["id"]))}), 400
     elif(request.method == 'DELETE'):
         try:
             conser.borrar_asignatura(id_asignatura)
-        except Exception as err:   # Error: ya existe la asignatura.
-            return str(err), 400
+        except Exception as err:   # Error: No existe tal asignatura.
+            return jsonify({"Mensaje": str(err)}), 400
     # Tanto 'POST' como 'GET' como 'DELETE'
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
@@ -153,7 +153,7 @@ def get_asignaturas_alumno(id_alumno: str):
             try:
                 conser.get_alumno(id_alumno).matricula_asignatura(request.json["nombre_asignatura"])
             except Exception as err:   # Error: Asignatura ya matriculada.
-                return str(err), 400
+                return jsonify({"Mensaje": str(err)}), 400
         return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
     else:
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
@@ -265,7 +265,7 @@ def dar_alta_alumno():
                                    request.json["dni"],
                                    request.json["lista_asignaturas"])
         except Exception as err:   # Error: ya existe el alumno.
-            return str(err), 400
+            return jsonify({"Mensaje": str(err)}), 400
 
     # Tanto 'POST' como 'GET'
     return jsonify({"Alumnos": get_alumnos_json(conser.get_diccionario_alumnos())}), 200
