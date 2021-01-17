@@ -40,6 +40,9 @@ Para cada microservicio se ha definido un *milestone*. Cuando alguno de estos *m
 - [[HU12] Como administrador quiero saber las asignaturas que imparte un profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45)
 - [[HU13] Como administrador quiero saber el horario completo de un  profesor.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46)
 - [[HU14] Como administrador quiero saber las aulas que usa un profesor/alumno.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47)
+- [[HU15] Como administrador quiero dar de alta un alumno.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/57)
+- [[HU16] Como administrador quiero obtener un listado de los alumnos y su información.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/77)
+- [[HU17] [HU17] Como administrador quiero obtener un listado de las asignaturas y su información.](https://github.com/Carlossamu7/CC1-Conservatorio/issues/78)
 
 
 ***Milestone*** - [Alumnos](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/3)
