@@ -13,20 +13,20 @@ from flask import Flask, jsonify, request
 app = Flask(__name__)
 
 # Función que lee conservatorio.json
-def lee_json():
+def lee_json(fichero):
     try: # De https://stackoverflow.com/questions/2835559/parsing-values-from-a-json-file
-        if os.path.exists('../data/conservatorio.json'):
-            path='../data/conservatorio.json'
-        elif os.path.exists('./data/conservatorio.json'):
-            path='./data/conservatorio.json'
+        if os.path.exists('../data/{:s}'.format(fichero)):
+            path='../data/' + fichero
+        elif os.path.exists('./data/{:s}'.format(fichero)):
+            path='./data/' + fichero
         else:
-            raise IOError("No se encuentra 'conservatorio.json'")
+            raise IOError("No se encuentra '{:s}'".format(fichero))
 
         with open(path) as data_file:
             data = json.load(data_file)
 
     except IOError as fallo:
-        print("Error {:s} leyendo conservatorio.json".format( fallo ) )
+        print("Error {:s} leyendo '{:s}'".format(fichero, fallo))
 
     return data
 
@@ -295,10 +295,11 @@ def dar_alta_alumno():
     # Tanto 'POST' como 'GET'
     return jsonify({"Alumnos": get_alumnos_json(conser.get_diccionario_alumnos())}), 200
 
+# Leemos el fichero json
+data = lee_json('conservatorio.json')
+# Creamos el conservatorio con algunos alumnos y asignaturas
+conser = crea_conservatorio(data)
+
 if __name__ == '__main__':
-    # Leemos el fichero json
-    data = lee_json()
-    # Creamos el conservatorio con algunos alumnos y asignaturas
-    conser = crea_conservatorio(data)
     # Ejecutamos la app
     app.run(debug=True, host="127.0.0.1", port=4000)
