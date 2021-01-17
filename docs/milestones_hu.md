@@ -89,3 +89,4 @@ Otros:
 - [Documentación para milestone 5 (Microservicios)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/74)
 - [Implementación de microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/75)
 - [Actualizar `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/76)
+- [Actualizar el gestor de tareas](https://github.com/Carlossamu7/CC1-Conservatorio/issues/79)
