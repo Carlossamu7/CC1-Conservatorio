@@ -206,6 +206,19 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertIn(b'3', response.data)
 
+    # [HU12] Como administrador quiero saber las asignaturas que imparte un profesor
+    def get_nombre_asignaturas_profesor(nombre_profesor: str):
+        # 'GET'
+        response = self.app.get('/profesor/JJ/asignatura')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Lenguaje Musical', response.data)
+        self.assertIn(b'Coro', response.data)
+
+        # 'GET'
+        response = self.app.get('/profesor/JaJ/asignatura')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
