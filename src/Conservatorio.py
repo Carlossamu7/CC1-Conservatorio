@@ -21,6 +21,9 @@ class Conservatorio:
     def get_nombre_conservatorio(self):
         return self.nombre_conservatorio
 
+    def get_diccionario_alumnos(self):
+        return self.__dic_alumnos
+
     def get_numero_alumnos(self):
         return len(self.__dic_alumnos)
 
