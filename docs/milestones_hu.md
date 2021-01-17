@@ -90,3 +90,5 @@ Otros:
 - [Implementación de microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/75)
 - [Actualizar `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/76)
 - [Actualizar el gestor de tareas](https://github.com/Carlossamu7/CC1-Conservatorio/issues/79)
+- [Actualizar requirements.txt (Microservicios)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/80)
+- [Imagen Docker de despliegue](https://github.com/Carlossamu7/CC1-Conservatorio/issues/81)
