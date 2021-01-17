@@ -92,6 +92,43 @@ def dar_alta_asignatura():
         asigs.append(asig)
     return jsonify({"Asignaturas": asigs}), 200
 
+# [HU2] Como administrador quiero modificar una asignatura
+@app.route('/asignatura/<id_asignatura>', methods=['GET', 'PUT'])
+def set_asignatura(id_asignatura: str):
+    """ Espera un json del tipo
+    {
+        "id": "002",
+        "nombre_asignatura": "Coro",
+        "curso": 1,
+        "concepto": "Nociones básicas acerca de canto",
+        "profesor": "JJ",
+        "horario": "M:20-21",
+        "aula": "Aula02"
+    }
+    """
+    if(request.method == 'PUT'):
+        if(conser.exist_asignatura(request.json["id"])):
+            asi = conser.get_asignatura(request.json["id"])
+            asi.set_profesor(request.json["profesor"])
+            asi.set_horario(request.json["horario"])
+            asi.set_aula(request.json["aula"])
+        else:
+            return str(conser.get_asignatura(request.json["id"])), 400
+    
+    # Tanto 'POST' como 'GET'
+    asigs = []
+    for asi in conser.get_diccionario_asignaturas():
+        asig = {}
+        asig["id"] = conser.get_diccionario_asignaturas()[asi].get_id()
+        asig["nombre_asignatura"] = conser.get_diccionario_asignaturas()[asi].get_nombre_asignatura()
+        asig["curso"] = conser.get_diccionario_asignaturas()[asi].get_curso()
+        asig["concepto"] = conser.get_diccionario_asignaturas()[asi].get_concepto()
+        asig["profesor"] = conser.get_diccionario_asignaturas()[asi].get_profesor()
+        asig["horario"] = conser.get_diccionario_asignaturas()[asi].get_horario()
+        asig["aula"] = conser.get_diccionario_asignaturas()[asi].get_aula()
+        asigs.append(asig)
+    return jsonify({"Asignaturas": asigs}), 200
+
 # [HU6] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
 def get_asignaturas_alumno(id_alumno: str):
