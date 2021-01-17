@@ -1,15 +1,17 @@
 {
     "alumnos" : [
-    	{ "nombre": "Carlos",
+    	{
+        "nombre": "Carlos",
     	  "email": "carlossamu7@correo.ugr.es",
     	  "dni": "75931715K",
         "lista_asignaturas" : ["Lenguaje Musical", "Coro"]
       },
-      { "nombre": "Luis",
-    	  "email": "luis@gmail.com",
-    	  "dni": "74585246H",
+      {
+        "nombre": "Luis",
+        "email": "luis@gmail.com",
+        "dni": "74585246H",
         "lista_asignaturas" : ["Coro"]
-        }
+      }
     ],
     "asignaturas" : [
       {
@@ -31,5 +33,4 @@
         "aula": "Aula01"
       }
     ]
-
 }
