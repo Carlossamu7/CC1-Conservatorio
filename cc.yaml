@@ -16,3 +16,7 @@ test:
   - tests/testAsignaturaConcepto.py
   - tests/testAsignatura.py
   - tests/testConservatorio.py
+  - tests/testApi.py
+
+make:
+  - make
