@@ -26,17 +26,9 @@ class TestConservatorio(unittest.TestCase):
     def test_get_conservatorio(self):
         self.assertEqual(self.conser.get_nombre_conservatorio(), "MiConservatorio", "Comprobando get_nombre_conservatorio()")
 
-    def test_get_diccionario_alumnos(self):
-        conser2 = Conservatorio()
-        self.assertEqual(conser2.get_diccionario_alumnos(), {}, "Comprobando get_diccionario_alumnos()")
-
     def test_get_numero_alumnos(self):
         self.conser.dar_alta_alumno("Carlos", "otro@correo.ugr.es", "74606489D", ["Coro"])
         self.assertEqual(self.conser.get_numero_alumnos(), 2, "Comprobando get_numero_alumnos()")
-
-    def test_get_diccionario_asignaturas(self):
-        conser2 = Conservatorio()
-        self.assertEqual(conser2.get_diccionario_asignaturas(), {}, "Comprobando get_diccionario_asignaturas()")
 
     def test_get_numero_asignaturas(self):
         self.assertEqual(self.conser.get_numero_asignaturas(), 2, "Comprobando get_numero_asignaturas()")
