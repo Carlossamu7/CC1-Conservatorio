@@ -232,6 +232,30 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn(b'No existe', response.data)
 
+    # [HU14] Como administrador quiero saber las aulas que usa un profesor
+    def test_get_aulas_profesor(self):
+        # 'GET'
+        response = self.app.get('/profesor/JJ/aula')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Aula01', response.data)
+
+        # 'GET'
+        response = self.app.get('/profesor/JaJ/horario')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
+
+    # [HU14] Como administrador quiero saber las aulas que usa un alumno
+    def test_get_aulas_alumno(self):
+        # 'GET'
+        response = self.app.get('/alumno/74585246H/aula')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Aula01', response.data)
+
+        # 'GET'
+        response = self.app.get('/alumno/745856H/horario')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
