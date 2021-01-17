@@ -146,5 +146,22 @@ class TestApp(unittest.TestCase):
         # Compruebo los datos cambiados estén en la respuesta
         self.assertIn(b'El email no es', response.data)
 
+    # [HU8] Como alumno quiero consultar el horario de una asignatura
+    def test_get_horario_asignatura_alumno(self):
+        # 'GET'
+        response = self.app.get('/alumno/74585246H/asignatura/Coro/horario')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'M:20-21', response.data)
+
+        # 'GET' de asignatura que no existe
+        response = self.app.get('/alumno/74585246H/asignatura/Corrro/horario')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'Este alumno no', response.data)
+
+        # 'GET' de alumno que no existe
+        response = self.app.get('/alumno/745846H/asignatura/Coro/horario')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
+
 if __name__ == '__main__':
     unittest.main()
