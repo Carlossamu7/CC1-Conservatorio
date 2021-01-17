@@ -109,20 +109,21 @@ def dar_alta_asignatura():
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
 # [HU2] Como administrador quiero modificar una asignatura
-@app.route('/asignatura/<id_asignatura>', methods=['GET', 'PUT'])
-def set_asignatura(id_asignatura: str):
-    """ Espera un json del tipo
-    {
-        "id": "002",
-        "nombre_asignatura": "Coro",
-        "curso": 1,
-        "concepto": "Nociones básicas acerca de canto",
-        "profesor": "JJ",
-        "horario": "M:20-21",
-        "aula": "Aula02"
-    }
-    """
+# [HU3] Como administrador quiero borrar una asignatura
+@app.route('/asignatura/<id_asignatura>', methods=['GET', 'PUT', 'DELETE'])
+def set_delete_asignatura(id_asignatura: str):
     if(request.method == 'PUT'):
+        """ Espera un json del tipo
+        {
+            "id": "002",
+            "nombre_asignatura": "Coro",
+            "curso": 1,
+            "concepto": "Nociones básicas acerca de canto",
+            "profesor": "JJ",
+            "horario": "M:20-21",
+            "aula": "Aula02"
+        }
+        """
         if(conser.exist_asignatura(request.json["id"])):
             asi = conser.get_asignatura(request.json["id"])
             asi.set_profesor(request.json["profesor"])
@@ -130,8 +131,12 @@ def set_asignatura(id_asignatura: str):
             asi.set_aula(request.json["aula"])
         else:
             return str(conser.get_asignatura(request.json["id"])), 400
-
-    # Tanto 'POST' como 'GET'
+    elif(request.method == 'DELETE'):
+        try:
+            conser.borrar_asignatura(id_asignatura)
+        except Exception as err:   # Error: ya existe la asignatura.
+            return str(err), 400
+    # Tanto 'POST' como 'GET' como 'DELETE'
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
 # [HU6] Como alumno consultar mis asignaturas matriculadas
