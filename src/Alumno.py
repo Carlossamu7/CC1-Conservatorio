@@ -113,13 +113,13 @@ class Alumno:
 
     # El DNI no cambia, no existe setter.
 
-    def matricula_asignatura(self, asig: List[str]):
+    def matricula_asignatura(self, asig: str):
         if asig in self.__lista_asignaturas:	# Lanza excepción
             raise ValueError("Asignatura ya matriculada.")
         else:
             self.__lista_asignaturas.append(asig)
 
-    def desmatricula_asignatura(self, asig: List[str]):
+    def desmatricula_asignatura(self, asig: str):
         if(asig in self.__lista_asignaturas):
             self.__lista_asignaturas.remove(asig)
         else:	# Lanza excepción
