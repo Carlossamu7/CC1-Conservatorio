@@ -14,12 +14,14 @@ test:
 	# Tests unitarios e informe a través de report -m
 	##########################  Test de Alumno  ##########################
 	python3 tests/testAlumno.py
-	########################  Test de AsignaturaConcepto  ########################
+	####################  Test de AsignaturaConcepto  ####################
 	python3 tests/testAsignaturaConcepto.py
 	########################  Test de Asignatura  ########################
 	python3 tests/testAsignatura.py
 	#######################  Test de Conservatorio  ######################
 	python3 tests/testConservatorio.py
+	###########################  Test de la API  #########################
+	python3 tests/testApp.py
 
 # Construcción
 build:
