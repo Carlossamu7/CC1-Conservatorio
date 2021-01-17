@@ -171,6 +171,24 @@ def delete_asignatura_alumno(id_alumno: str, nombre_asignatura :str):
     else:
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
+# [HU7] Como alumno quiero modificar la dirección de correo
+@app.route('/alumno/<string:id_alumno>', methods=['GET', 'PUT'])
+def actualiza_email_alumno(id_alumno: str):
+    if(conser.exist_alumno(id_alumno)):
+        if(request.method == 'PUT'):
+            """
+            {
+                "email" : "otroemail@gmail.com"
+            }
+            """
+            try:
+                conser.get_alumno(id_alumno).set_email(request.json["email"])
+            except Exception as err:   # Error: Email no válido.
+                return jsonify({"Mensaje": str(err)}), 400
+        return jsonify({"Alumno": get_alumnos_json({id_alumno: conser.get_alumno(id_alumno)})}), 200
+    else:
+        return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
+
 # [HU8] Como alumno quiero consultar el horario de una asignatura
 @app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/horario')
 def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
