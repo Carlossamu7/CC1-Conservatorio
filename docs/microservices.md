@@ -103,7 +103,7 @@ def get_horario_alumno(id_alumno: str):
 - La petición `GET` es la que hay por defecto así que cuando no se indique nada se está usando esa.
 - Los datos que se devuelven están en formato JSON.
 
-Para tener algunas instancias en el Conservatorio se ha preparado el JSON [`conservatorio.json`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/data/conservatorio.json) el cual se leerá y permitirá la creación de los objetos pertinentes en la clase controladora. Comenzamos explicando el diseño de las rutas.
+Para tener algunas instancias en el Conservatorio se ha preparado el JSON [`conservatorio.json`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/data/conservatorio.json) el cual se leerá y permitirá la creación de los objetos pertinentes en la clase controladora. Comenzamos explicando el diseño de las rutas y los [códigos de estado](https://developer.mozilla.org/es/docs/Web/HTTP/Status).
 
 #### Ruta `/`
 
@@ -146,6 +146,8 @@ def hello_conser():
 | [[HU12]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45) | `GET /profesor/<nombre_profesor>/asignatura` | 200, 404 |
 | [[HU13]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46) | `GET /profesor/<nombre_profesor>/horario` | 200, 404 |
 | [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47) | `GET /profesor/<nombre_profesor>/aula` y `GET /alumno/<id_alumno>/aula` | 200, 404 |
+
+[Consultar `app.py`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/app.py).
 
 ### Configuración distribuida: `logs` ###
 
