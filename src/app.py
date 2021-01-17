@@ -62,6 +62,18 @@ def get_asignaturas_json(dic):
         asigs.append(asig)
     return asigs
 
+# Devuelve el json de los alumnos
+def get_alumnos_json(dic):
+    alums = []
+    for alu in dic:
+        alum = {}
+        alum["nombre"] = dic[alu].get_nombre()
+        alum["email"] = dic[alu].get_email()
+        alum["dni"] = dic[alu].get_dni()
+        alum["lista_asignaturas"] = dic[alu].get_lista_asignaturas()
+        alums.append(alum)
+    return alums
+
 @app.route('/')
 def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
@@ -227,15 +239,7 @@ def dar_alta_alumno():
             return str(err), 400
 
     # Tanto 'POST' como 'GET'
-    alums = []
-    for alu in conser.get_diccionario_alumnos():
-        alum = {}
-        alum["nombre"] = conser.get_diccionario_alumnos()[alu].get_nombre()
-        alum["email"] = conser.get_diccionario_alumnos()[alu].get_email()
-        alum["dni"] = conser.get_diccionario_alumnos()[alu].get_dni()
-        alum["lista_asignaturas"] = conser.get_diccionario_alumnos()[alu].get_lista_asignaturas()
-        alums.append(alum)
-    return jsonify({"Alumnos": alums}), 200
+    return jsonify({"Alumnos": get_alumnos_json(conser.get_diccionario_alumnos())}), 200
 
 if __name__ == '__main__':
     # Leemos el fichero json
