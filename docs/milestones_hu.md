@@ -1,6 +1,6 @@
 ## *Milestones*
 
-En este apartado se van a exponer los diferentes *milestone* del proyecto y los issues (importantes) que siguen su traza.
+En este apartado se van a exponer los diferentes *milestone* del proyecto y los *issues* (importantes) que siguen su traza.
 
 ***Milestone*** 0 - [Descripción del proyecto usando correctamente git y GitHub](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/1)
 
@@ -83,3 +83,9 @@ Otros:
 - [Documentación para milestone 4 (CI)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/60)
 - [Fichero de Travis-CI](https://github.com/Carlossamu7/CC1-Conservatorio/issues/61)
 - [Fichero de Circle-CI](https://github.com/Carlossamu7/CC1-Conservatorio/issues/69)
+
+***Milestone*** 5 - [Microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/8)
+
+- [Documentación para milestone 5 (Microservicios)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/74)
+- [Implementación de microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/issues/75)
+- [Actualizar `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/76)
