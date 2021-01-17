@@ -135,7 +135,7 @@ class Conservatorio:
         if(self.exist_asignatura(id)):
             del self.__dic_asignaturas[id]
         else:
-            raise ValueError("Ya existe esta asignatura.")
+            raise ValueError("No existe esta asignatura.")
 
     def get_asignatura(self, id: str):
         if self.exist_asignatura(id):
