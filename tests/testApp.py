@@ -192,5 +192,20 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn(b'No existe', response.data)
 
+    # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
+    def test_get_numero_alumnos(self):
+        # 'GET'
+        response = self.app.get('/alumno/num')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'2', response.data)
+
+    # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
+    def test_get_numero_asignaturas(self):
+        # 'GET'
+        response = self.app.get('/asignatura/num')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'3', response.data)
+
+
 if __name__ == '__main__':
     unittest.main()
