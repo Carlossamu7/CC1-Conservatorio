@@ -1,6 +1,5 @@
 ---
-lenguaje:
-  - python
+lenguaje: python
 
 entidad:
   - src/Alumno.py
@@ -8,8 +7,7 @@ entidad:
   - src/Asignatura.py
   - src/Conservatorio.py
 
-fichero_tareas:
-  - Makefile
+fichero_tareas: Makefile
 
 test:
   - tests/testAlumno.py
@@ -18,5 +16,4 @@ test:
   - tests/testConservatorio.py
   - tests/testApi.py
 
-make:
-  - make
+make: make
