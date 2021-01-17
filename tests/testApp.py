@@ -43,5 +43,29 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 400)
         self.assertIn(b'Ya existe esta asignatura.', response.data)
 
+    # [HU2] Como administrador quiero modificar una asignatura
+    # [HU3] Como administrador quiero borrar una asignatura
+    def test_set_delete_asignatura(self):
+        # 'GET'
+        response = self.app.get('/asignatura/001')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'Lenguaje Musical', response.data)
+
+        # 'PUT'
+        # La información que se envía se lee de conservatorio_test.json
+        data = json.dumps(lee_json('conservatorio_test.json')["asignaturas"][1])
+        response = self.app.put('/asignatura/001', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo los datos cambiados estén en la respuesta
+        self.assertIn(b'Javi', response.data)
+        self.assertIn(b'V:20-21', response.data)
+        self.assertIn(b'Aula03', response.data)
+
+        # 'DELETE'
+        response = self.app.delete('/asignatura/001')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo que ya no está la asignatura con identificador 1.
+        self.assertNotIn(b'001', response.data)
+
 if __name__ == '__main__':
     unittest.main()
