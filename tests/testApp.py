@@ -119,5 +119,32 @@ class TestApp(unittest.TestCase):
         # Compruebo que ya no está la asignatura con identificador 1.
         self.assertIn(b'No existe', response.data)
 
+    # [HU7] Como alumno quiero modificar la dirección de correo
+    def test_(self):
+        # 'GET'
+        response = self.app.get('/alumno/74585246H')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'luis@gmail.com', response.data)
+
+        # 'GET' de un alumno que no existe
+        response = self.app.get('/alumno/745246H')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
+
+        # 'PUT'
+        data = json.dumps({"email": "otroemail@gmail.com"})
+        response = self.app.put('alumno/74585246H', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 200)
+        # Compruebo los datos cambiados estén en la respuesta
+        self.assertIn(b'otroemail@gmail.com', response.data)
+        self.assertNotIn(b'luis@gmail.com', response.data)
+
+        # 'PUT' de un email no válido
+        data = json.dumps({"email": "otroemailgmail.com"})
+        response = self.app.put('alumno/74585246H', data = data, content_type='application/json')
+        self.assertEqual(response.status_code, 400)
+        # Compruebo los datos cambiados estén en la respuesta
+        self.assertIn(b'El email no es', response.data)
+
 if __name__ == '__main__':
     unittest.main()
