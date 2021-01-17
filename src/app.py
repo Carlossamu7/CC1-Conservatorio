@@ -175,6 +175,38 @@ def get_aulas_alumno(id_alumno: str):
     else:
         return jsonify({'Aulas': content}), 200
 
+# [HU15] Como administrador quiero dar de alta un alumno
+# [HU16] Como administrador quiero obtener un listado de los alumnos y su información
+@app.route('/alumno', methods=['GET', 'POST'])
+def dar_alta_alumno():
+    """ Espera un json del tipo
+    {
+        "nombre": "Pepe",
+        "email": "pepe@gmail.com",
+        "dni": "71254236Y",
+        "lista_asignaturas" : ["Lenguaje Musical"]
+    }
+    """
+    if(request.method == 'POST'):
+        try:
+            conser.dar_alta_alumno(request.json["nombre"],
+                                   request.json["email"],
+                                   request.json["dni"],
+                                   request.json["lista_asignaturas"])
+        except Exception as err:   # Error: ya existe el alumno.
+            return str(err), 400
+
+    # Tanto 'POST' como 'GET'
+    alums = []
+    for alu in conser.get_diccionario_alumnos():
+        alum = {}
+        alum["nombre"] = conser.get_diccionario_alumnos()[alu].get_nombre()
+        alum["email"] = conser.get_diccionario_alumnos()[alu].get_email()
+        alum["dni"] = conser.get_diccionario_alumnos()[alu].get_dni()
+        alum["lista_asignaturas"] = conser.get_diccionario_alumnos()[alu].get_lista_asignaturas()
+        alums.append(alum)
+    return jsonify({"Alumnos": alums}), 200
+
 if __name__ == '__main__':
     # Leemos el fichero json
     data = lee_json()
