@@ -147,11 +147,11 @@ def get_asignaturas_alumno(id_alumno: str):
         if(request.method == 'POST'):
             """
             {
-                "asignatura" : "Lenguaje Musical"
+                "nombre_asignatura" : "Lenguaje Musical"
             }
             """
             try:
-                conser.get_alumno(id_alumno).matricula_asignatura(request.json["asignatura"])
+                conser.get_alumno(id_alumno).matricula_asignatura(request.json["nombre_asignatura"])
             except Exception as err:   # Error: Asignatura ya matriculada.
                 return str(err), 400
         return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
