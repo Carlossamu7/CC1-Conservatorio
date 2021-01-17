@@ -83,6 +83,7 @@ def get_alumnos_json(dic):
 
 @app.route('/')
 def hello_conser():
+    app.logger.debug('Bienvenida de la aplicación')
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"}), 200
 
 # [HU1] Como administrador quiero dar de alta una asignatura
@@ -110,9 +111,11 @@ def dar_alta_asignatura():
                                        request.json["horario"],
                                        request.json["aula"])
         except Exception as err:   # Error: ya existe la asignatura.
+            app.logger.error('Asignatura existente')
             return jsonify({"Mensaje": str(err)}), 400
 
     # Tanto 'POST' como 'GET'
+    app.logger.debug('Devolviendo todas las asignaturas')
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
 # [HU2] Como administrador quiero modificar una asignatura
@@ -137,13 +140,16 @@ def set_delete_asignatura(id_asignatura: str):
             asi.set_horario(request.json["horario"])
             asi.set_aula(request.json["aula"])
         else:
+            app.logger.error('Asignatura no existente')
             return jsonify({"Mensaje": str(conser.get_asignatura(request.json["id"]))}), 400
     elif(request.method == 'DELETE'):
         try:
             conser.borrar_asignatura(id_asignatura)
         except Exception as err:   # Error: No existe tal asignatura.
+            app.logger.error('Asignatura no existente')
             return jsonify({"Mensaje": str(err)}), 400
     # Tanto 'POST' como 'GET' como 'DELETE'
+    app.logger.debug('Devolviendo todas las asignaturas')
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
 # [HU4] Como alumno quiero matricularme de ciertas asignaturas
@@ -160,9 +166,12 @@ def get_asignaturas_alumno(id_alumno: str):
             try:
                 conser.get_alumno(id_alumno).matricula_asignatura(request.json["nombre_asignatura"])
             except Exception as err:   # Error: Asignatura ya matriculada.
+                app.logger.error('Asignatura ya matriculada')
                 return jsonify({"Mensaje": str(err)}), 400
+        app.logger.debug('Devolviendo lista de asignaturas del alumno')
         return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
     else:
+        app.logger.error('No existe ningún alumno con ese DNI')
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 # [HU5] Como alumno quiero desmatricularme de ciertas asignaturas
@@ -173,9 +182,12 @@ def delete_asignatura_alumno(id_alumno: str, nombre_asignatura :str):
             try:
                 conser.get_alumno(id_alumno).desmatricula_asignatura(nombre_asignatura)
             except Exception as err:   # Error: No existe tal asignatura.
+                app.logger.error('No existe la asignatura')
                 return jsonify({"Mensaje": str(err)}), 400
+        app.logger.debug('Devolviendo lista de asignaturas del alumno')
         return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
     else:
+        app.logger.error('No existe ningún alumno con ese DNI')
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 # [HU7] Como alumno quiero modificar la dirección de correo
@@ -191,9 +203,12 @@ def actualiza_email_alumno(id_alumno: str):
             try:
                 conser.get_alumno(id_alumno).set_email(request.json["email"])
             except Exception as err:   # Error: Email no válido.
+                app.logger.error('Email no válido')
                 return jsonify({"Mensaje": str(err)}), 400
+        app.logger.debug('Devolviendo información alumno')
         return jsonify({"Alumno": get_alumnos_json({id_alumno: conser.get_alumno(id_alumno)})}), 200
     else:
+        app.logger.error('No existe ningún alumno con ese DNI')
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 # [HU8] Como alumno quiero consultar el horario de una asignatura
@@ -202,8 +217,10 @@ def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
     content = conser.get_horario_asignatura_alumno(id_alumno, nombre_asignatura)
     if(content=="No existe ningún alumno con ese DNI." or
         content=="Este alumno no está matriculado en esa asignatura."):
+        app.logger.error('No existe el alumno o no está matriculado')
         return jsonify({"Mensaje": content}), 404
     else:
+        app.logger.debug('Devolviendo horario de una asignatura de alumno')
         return jsonify({'Horario': content}), 200
 
 # [HU9] Como alumno quiero consultar el aula de una asignatura
@@ -212,8 +229,10 @@ def get_aula_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
     content = conser.get_aula_asignatura_alumno(id_alumno, nombre_asignatura)
     if(content=="No existe ningún alumno con ese DNI." or
         content=="Este alumno no está matriculado en esa asignatura."):
+        app.logger.error('No existe el alumno o no está matriculado')
         return jsonify({"Mensaje": content}), 404
     else:
+        app.logger.debug('Devolviendo aula de una asignatura de alumno')
         return jsonify({'Aula': content}), 200
 
 # [HU10] Como alumno quiero saber mi horario completo
@@ -221,18 +240,22 @@ def get_aula_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
 def get_horario_alumno(id_alumno: str):
     content = conser.get_horario_alumno(id_alumno)
     if(content=="No existe ningún alumno con ese DNI."):
+        app.logger.error('No existe el alumno')
         return jsonify({"Mensaje": content}), 404
     else:
+        app.logger.debug('Devolviendo el horario completo de un alumno')
         return jsonify({'Horario completo': content}), 200
 
 # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
 @app.route('/alumno/num')
 def get_numero_alumnos():
+    app.logger.debug('Devolviendo número de alumnos')
     return jsonify({'Numero de alumnos': conser.get_numero_alumnos()}), 200
 
 # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
 @app.route('/asignatura/num')
 def get_numero_asignaturas():
+    app.logger.debug('Devolviendo número de asignaturas')
     return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()}), 200
 
 # [HU12] Como administrador quiero saber las asignaturas que imparte un profesor
@@ -240,8 +263,10 @@ def get_numero_asignaturas():
 def get_nombre_asignaturas_profesor(nombre_profesor: str):
     content = conser.get_nombre_asignaturas_profesor(nombre_profesor)
     if(content==[]):
+        app.logger.error('No existe el profesor')
         return jsonify({"Mensaje": "No existe el profesor {}.".format(nombre_profesor)}), 404
     else:
+        app.logger.debug('Devolviendo asignaturas de un profesor')
         return jsonify({'Asignaturas': content}), 200
 
 # [HU13] Como administrador quiero saber el horario completo de un profesor
@@ -249,8 +274,10 @@ def get_nombre_asignaturas_profesor(nombre_profesor: str):
 def get_horario_profesor(nombre_profesor: str):
     content = conser.get_horario_profesor(nombre_profesor)
     if(content==[]):
+        app.logger.error('No existe el profesor')
         return jsonify({"Mensaje": "No existe el profesor {}.".format(nombre_profesor)}), 404
     else:
+        app.logger.debug('Devolviendo el horario completo de un profesor')
         return jsonify({'Horario completo': content}), 200
 
 # [HU14] Como administrador quiero saber las aulas que usa un profesor
@@ -258,8 +285,10 @@ def get_horario_profesor(nombre_profesor: str):
 def get_aulas_profesor(nombre_profesor: str):
     content = conser.get_aulas_profesor(nombre_profesor)
     if(content==[]):
+        app.logger.error('No existe el profesor')
         return jsonify({"Mensaje": "No existe el profesor {} o no imparte asignaturas.".format(nombre_profesor)}), 404
     else:
+        app.logger.debug('Devolviendo aulas de un profesor')
         return jsonify({'Aulas': content}), 200
 
 # [HU14] Como administrador quiero saber las aulas que usa un alumno
@@ -267,8 +296,10 @@ def get_aulas_profesor(nombre_profesor: str):
 def get_aulas_alumno(id_alumno: str):
     content = conser.get_aulas_alumno(id_alumno)
     if(content==[]):
+        app.logger.error('No existe el alumno')
         return jsonify({"Mensaje": "No existe el alumno {} o no imparte asignaturas.".format(nombre_profesor)}), 404
     else:
+        app.logger.debug('Devolviendo aulas de un alumno')
         return jsonify({'Aulas': content}), 200
 
 # [HU15] Como administrador quiero dar de alta un alumno
@@ -290,9 +321,11 @@ def dar_alta_alumno():
                                    request.json["dni"],
                                    request.json["lista_asignaturas"])
         except Exception as err:   # Error: ya existe el alumno.
+            app.logger.error('Ya existe el alumno')
             return jsonify({"Mensaje": str(err)}), 400
 
     # Tanto 'POST' como 'GET'
+    app.logger.debug('Devolviendo los alumnos')
     return jsonify({"Alumnos": get_alumnos_json(conser.get_diccionario_alumnos())}), 200
 
 # Leemos el fichero json
