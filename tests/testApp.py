@@ -180,6 +180,17 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn(b'No existe', response.data)
 
+    # [HU10] Como alumno quiero saber mi horario completo
+    def test_get_horario_alumno(self):
+        # 'GET'
+        response = self.app.get('/alumno/74585246H/horario')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'M:20-21', response.data)
+
+        # 'GET' de alumno que no existe
+        response = self.app.get('/alumno/745846H/horario')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
 
 if __name__ == '__main__':
     unittest.main()
