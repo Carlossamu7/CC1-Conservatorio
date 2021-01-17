@@ -86,7 +86,7 @@ def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"}), 200
 
 # [HU1] Como administrador quiero dar de alta una asignatura
-# [HU16] Como administrador quiero obtener un listado de las asignaturas y su información
+# [HU17] Como administrador quiero obtener un listado de las asignaturas y su información
 @app.route('/asignatura', methods=['GET', 'POST'])
 def dar_alta_asignatura():
     """ Espera un json del tipo
