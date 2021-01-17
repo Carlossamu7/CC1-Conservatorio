@@ -91,4 +91,16 @@ Para el aprendizaje del microframework `Flask` se puede consultar este [video tu
 
 ### Avance del proyecto ###
 
+- Mejoras en la descripción de todas las historias de usuario. Asimismo se ha tenido en cuanta la aportación realizada en la [úndecima sesión](https://github.com/JJ/CC-20-21/blob/master/sesiones/11-semana.md). Se ha dado un formato común a todas, añadiendo notas técnicas e indicando las rutas de la API específicas de dicha HU.
+
+    [Consultar HUs](https://github.com/Carlossamu7/CC1-Conservatorio/issues).
+
+- Nuevas historias de usuario:
+    - [[HU16] Como administrador quiero obtener un listado de los alumnos y su información](https://github.com/Carlossamu7/CC1-Conservatorio/issues/77)
+    - [[HU17] Como administrador quiero obtener un listado de las asignaturas y su información](https://github.com/Carlossamu7/CC1-Conservatorio/issues/78).
+
+- [Documentación de HUs y milestones actualizada](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md).
+
+- Trabajo futuro: comprobar los tipos devueltos en el `request.json` de las peticiones HTTP.
+
 #### Gestor de tareas ####
