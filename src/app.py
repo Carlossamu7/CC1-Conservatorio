@@ -328,7 +328,7 @@ def dar_alta_alumno():
     app.logger.debug('Devolviendo los alumnos')
     return jsonify({"Alumnos": get_alumnos_json(conser.get_diccionario_alumnos())}), 200
 
-# Leemos el fichero json
+# Leemos el fichero JSON
 data = lee_json('conservatorio.json')
 # Creamos el conservatorio con algunos alumnos y asignaturas
 conser = crea_conservatorio(data)
