@@ -85,6 +85,68 @@ Para el aprendizaje del microframework `Flask` se puede consultar este [video tu
 
 ### Diseño del API ###
 
+En primer lugar es necesario conocer las buenas prácticas a la hora del diseño de una API Restful e intentar seguirlas lo máximo posible, esto nos ayudará a acercarnos a un código de calidad. En este [enlace](https://hackernoon.com/restful-api-designing-guidelines-the-best-practices-60e1d954e7c9) se encuentran algunas de ellas.
+
+Durante el diseño de la API se han tomado las siguientes decisiones:
+- Indicar el tipo en la ruta y en el argumento. Ejemplo:
+```
+# [HU10] Como alumno quiero saber mi horario completo
+@app.route('/alumno/<string:id_alumno>/horario')
+def get_horario_alumno(id_alumno: str):
+    content = conser.get_horario_alumno(id_alumno)
+    if(content=="No existe ningún alumno con ese DNI."):
+        return jsonify({"Mensaje": content}), 404
+    else:
+        return jsonify({'Horario completo': content}), 200
+```
+
+- La petición `GET` es la que hay por defecto así que cuando no se indique nada se está usando esa.
+- Los datos que se devuelven están en formato JSON.
+
+Para tener algunas instancias en el Conservatorio se ha preparado el JSON [`conservatorio.json`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/data/conservatorio.json) el cual se leerá y permitirá la creación de los objetos pertinentes en la clase controladora. Comenzamos explicando el diseño de las rutas.
+
+#### Ruta `/`
+
+Por elegancia se ha querido dar la bienvenida:
+
+```
+@app.route('/')
+def hello_conser():
+    return jsonify({'mensaje': "Bienvenido a MiConservatorio!"}), 200
+```
+
+#### Ruta `/asignatura`
+
+| HU | Comando y ruta | Código de estado |
+|--------|--------|---------|
+| [[HU1]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12) | `POST /asignatura` | 200, 400 |
+| [[HU2]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13) | `PUT /asignatura/<id_asignatura>` | 200, 400 |
+| [[HU3]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14) | `DELETE /asignatura/<id_asignatura>` | 200, 400 |
+| [[HU17]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/78) | `GET /asignatura` | 200 |
+
+#### Ruta `/alumno`
+
+| HU | Comando y ruta | Código de estado |
+|--------|--------|---------|
+| [[HU4]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15) | `POST /alumno/<id_alumno>/asignatura` | 200, 400, 404 |
+| [[HU5]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16) | `DELETE /alumno/<id_alumno>/asignatura/<nombre_asignatura>` | 200, 400, 404 |
+| [[HU6]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39) | `GET /alumno/<id_alumno>/asignatura` | 200, 404 |
+| [[HU7]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17) | `PUT /alumno/<id_alumno>` | 200, 400, 404 |
+| [[HU8]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18) | `GET /alumno/<id_alumno>/asignatura/<nombre_asignatura>/horario` | 200, 404 |
+| [[HU9]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19) | `GET /alumno/<id_alumno>/asignatura/<nombre_asignatura>/aula` | 200, 404 |
+| [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43) | `GET /alumno/<id_alumno>/horario` | 200, 404 |
+| [[HU11]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44) | `GET /alumno/num` y `GET /asignatura/num` | 200 |
+| [[HU15]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/57) | `POST /alumno` | 200, 400 |
+| [[HU16]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/77) | `GET /alumno` | 200 |
+
+#### Ruta `/profesor`
+
+| HU | Comando y ruta | Código de estado |
+|--------|--------|---------|
+| [[HU12]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45) | `GET /profesor/<nombre_profesor>/asignatura` | 200, 404 |
+| [[HU13]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46) | `GET /profesor/<nombre_profesor>/horario` | 200, 404 |
+| [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47) | `GET /profesor/<nombre_profesor>/aula` y `GET /alumno/<id_alumno>/aula` | 200, 404 |
+
 ### Configuración distribuida: `logs` ###
 
 ### Tests ###
