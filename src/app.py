@@ -139,10 +139,21 @@ def set_delete_asignatura(id_asignatura: str):
     # Tanto 'POST' como 'GET' como 'DELETE'
     return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
+# [HU4] Como alumno quiero matricularme de ciertas asignaturas
 # [HU6] Como alumno consultar mis asignaturas matriculadas
-@app.route('/alumno/<string:id_alumno>/asignatura')
+@app.route('/alumno/<string:id_alumno>/asignatura', methods=['GET', 'POST'])
 def get_asignaturas_alumno(id_alumno: str):
     if(conser.exist_alumno(id_alumno)):
+        if(request.method == 'POST'):
+            """
+            {
+                "asignatura" : "Lenguaje Musical"
+            }
+            """
+            try:
+                conser.get_alumno(id_alumno).matricula_asignatura(request.json["asignatura"])
+            except Exception as err:   # Error: Asignatura ya matriculada.
+                return str(err), 400
         return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
     else:
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
