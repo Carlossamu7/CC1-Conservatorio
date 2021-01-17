@@ -219,6 +219,19 @@ class TestApp(unittest.TestCase):
         self.assertEqual(response.status_code, 404)
         self.assertIn(b'No existe', response.data)
 
+    # [HU13] Como administrador quiero saber el horario completo de un profesor
+    def test_get_horario_profesor(self):
+        # 'GET'
+        response = self.app.get('/profesor/JJ/horario')
+        self.assertEqual(response.status_code, 200)
+        self.assertIn(b'L:16-17, X:16-17', response.data)
+        self.assertIn(b'M:20-21', response.data)
+
+        # 'GET'
+        response = self.app.get('/profesor/JaJ/horario')
+        self.assertEqual(response.status_code, 404)
+        self.assertIn(b'No existe', response.data)
+
 
 if __name__ == '__main__':
     unittest.main()
