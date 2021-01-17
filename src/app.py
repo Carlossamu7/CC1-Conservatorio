@@ -83,7 +83,7 @@ def get_alumnos_json(dic):
 
 @app.route('/')
 def hello_conser():
-    return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
+    return jsonify({'mensaje': "Bienvenido a MiConservatorio!"}), 200
 
 # [HU1] Como administrador quiero dar de alta una asignatura
 # [HU16] Como administrador quiero obtener un listado de las asignaturas y su información
