@@ -164,7 +164,7 @@ class TestApp(unittest.TestCase):
         self.assertIn(b'No existe', response.data)
 
     # [HU9] Como alumno quiero consultar el aula de una asignatura
-    def test_(self):
+    def test_get_aula_asignatura_alumno(self):
         # 'GET'
         response = self.app.get('/alumno/74585246H/asignatura/Coro/aula')
         self.assertEqual(response.status_code, 200)
