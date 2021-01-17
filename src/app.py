@@ -1,3 +1,10 @@
+"""
+Máster Universitario en Ingeniería Informática UGR
+Cloud Computing: Fundamentos e Infraestructuras (2020-2021)
+Carlos Santiago Sánchez Muñoz
+Implementación de la API
+"""
+
 import os
 import json
 from Conservatorio import Conservatorio
