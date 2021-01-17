@@ -209,4 +209,16 @@ class TestApp(unittest.TestCase):
 
 - Trabajo futuro: comprobar los tipos devueltos en el `request.json` de las peticiones HTTP.
 
-#### Gestor de tareas ####
+##### Gestor de tareas #####
+
+Se han añadido dos nuevas tareas al gestor: `build` que realmente no hace nada y `execute` y que ejecuta la API en `http://127.0.0.1:4000/`.
+
+```
+# Construcción
+build:
+	echo 'No es necesario realizar build'
+
+# Ejecuta la app
+execute:
+	python3 src/app.py
+```
