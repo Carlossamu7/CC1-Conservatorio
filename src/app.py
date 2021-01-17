@@ -158,6 +158,19 @@ def get_asignaturas_alumno(id_alumno: str):
     else:
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
+# [HU5] Como alumno quiero desmatricularme de ciertas asignaturas
+@app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>', methods=['DELETE'])
+def delete_asignatura_alumno(id_alumno: str, nombre_asignatura :str):
+    if(conser.exist_alumno(id_alumno)):
+        if(request.method == 'DELETE'):
+            try:
+                conser.get_alumno(id_alumno).desmatricula_asignatura(nombre_asignatura)
+            except Exception as err:   # Error: No existe tal asignatura.
+                return jsonify({"Mensaje": str(err)}), 400
+        return jsonify({"Asignaturas": conser.get_alumno(id_alumno).get_lista_asignaturas()}), 200
+    else:
+        return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
+
 # [HU8] Como alumno quiero consultar el horario de una asignatura
 @app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/horario')
 def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
