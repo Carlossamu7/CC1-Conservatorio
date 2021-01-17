@@ -47,6 +47,21 @@ def crea_conservatorio(data):
 
     return conser
 
+# Devuelve el json de las asignaturas
+def get_asignaturas_json(dic):
+    asigs = []
+    for asi in dic:
+        asig = {}
+        asig["id"] = dic[asi].get_id()
+        asig["nombre_asignatura"] = dic[asi].get_nombre_asignatura()
+        asig["curso"] = dic[asi].get_curso()
+        asig["concepto"] = dic[asi].get_concepto()
+        asig["profesor"] = dic[asi].get_profesor()
+        asig["horario"] = dic[asi].get_horario()
+        asig["aula"] = dic[asi].get_aula()
+        asigs.append(asig)
+    return asigs
+
 @app.route('/')
 def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"})
@@ -79,18 +94,7 @@ def dar_alta_asignatura():
             return str(err), 400
 
     # Tanto 'POST' como 'GET'
-    asigs = []
-    for asi in conser.get_diccionario_asignaturas():
-        asig = {}
-        asig["id"] = conser.get_diccionario_asignaturas()[asi].get_id()
-        asig["nombre_asignatura"] = conser.get_diccionario_asignaturas()[asi].get_nombre_asignatura()
-        asig["curso"] = conser.get_diccionario_asignaturas()[asi].get_curso()
-        asig["concepto"] = conser.get_diccionario_asignaturas()[asi].get_concepto()
-        asig["profesor"] = conser.get_diccionario_asignaturas()[asi].get_profesor()
-        asig["horario"] = conser.get_diccionario_asignaturas()[asi].get_horario()
-        asig["aula"] = conser.get_diccionario_asignaturas()[asi].get_aula()
-        asigs.append(asig)
-    return jsonify({"Asignaturas": asigs}), 200
+    return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
 # [HU2] Como administrador quiero modificar una asignatura
 @app.route('/asignatura/<id_asignatura>', methods=['GET', 'PUT'])
@@ -114,20 +118,9 @@ def set_asignatura(id_asignatura: str):
             asi.set_aula(request.json["aula"])
         else:
             return str(conser.get_asignatura(request.json["id"])), 400
-    
+
     # Tanto 'POST' como 'GET'
-    asigs = []
-    for asi in conser.get_diccionario_asignaturas():
-        asig = {}
-        asig["id"] = conser.get_diccionario_asignaturas()[asi].get_id()
-        asig["nombre_asignatura"] = conser.get_diccionario_asignaturas()[asi].get_nombre_asignatura()
-        asig["curso"] = conser.get_diccionario_asignaturas()[asi].get_curso()
-        asig["concepto"] = conser.get_diccionario_asignaturas()[asi].get_concepto()
-        asig["profesor"] = conser.get_diccionario_asignaturas()[asi].get_profesor()
-        asig["horario"] = conser.get_diccionario_asignaturas()[asi].get_horario()
-        asig["aula"] = conser.get_diccionario_asignaturas()[asi].get_aula()
-        asigs.append(asig)
-    return jsonify({"Asignaturas": asigs}), 200
+    return jsonify({"Asignaturas": get_asignaturas_json(conser.get_diccionario_asignaturas())}), 200
 
 # [HU6] Como alumno consultar mis asignaturas matriculadas
 @app.route('/alumno/<string:id_alumno>/asignatura')
