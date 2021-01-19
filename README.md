@@ -1,6 +1,7 @@
 # *MiConservatorio*
 
 [![License: GPL v3](https://img.shields.io/badge/License-GPL%20v3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+[![Language](https://img.shields.io/badge/Language-Python-blue.svg)](https://www.python.org/)
 [![TravisCI](https://travis-ci.com/Carlossamu7/CC1-Conservatorio.svg?branch=master)](https://travis-ci.com/github/Carlossamu7/CC1-Conservatorio)
 [![CircleCI](https://circleci.com/gh/Carlossamu7/CC1-Conservatorio.svg?style=svg)](https://app.circleci.com/pipelines/github/Carlossamu7/CC1-Conservatorio)
 
@@ -38,9 +39,14 @@ make check
 make test
 ```
 
-Por último para limpiar los ficheros generados:
+Para limpiar los ficheros generados:
 ```
 make clean
+```
+
+Y por último para ejecutar el servidor de la API:
+```
+make execute
 ```
 
 ## Microservicios ##
