@@ -68,7 +68,7 @@ def hello_conser():
 
 # [HU1] Como administrador quiero dar de alta una asignatura
 # [HU17] Como administrador quiero obtener un listado de las asignaturas y su información
-@app.route('/asignatura', methods=['GET', 'POST'])
+@app.route('/asignaturas', methods=['GET', 'POST'])
 def dar_alta_asignatura():
     """ Espera un json del tipo
     {
@@ -100,7 +100,7 @@ def dar_alta_asignatura():
 
 # [HU2] Como administrador quiero modificar una asignatura
 # [HU3] Como administrador quiero borrar una asignatura
-@app.route('/asignatura/<id_asignatura>', methods=['GET', 'PUT', 'DELETE'])
+@app.route('/asignaturas/<id_asignatura>', methods=['GET', 'PUT', 'DELETE'])
 def set_delete_asignatura(id_asignatura: str):
     if(request.method == 'PUT'):
         """ Espera un json del tipo
@@ -134,7 +134,7 @@ def set_delete_asignatura(id_asignatura: str):
 
 # [HU4] Como alumno quiero matricularme de ciertas asignaturas
 # [HU6] Como alumno consultar mis asignaturas matriculadas
-@app.route('/alumno/<string:id_alumno>/asignatura', methods=['GET', 'POST'])
+@app.route('/alumnos/<string:id_alumno>/asignaturas', methods=['GET', 'POST'])
 def get_asignaturas_alumno(id_alumno: str):
     if(conser.exist_alumno(id_alumno)):
         if(request.method == 'POST'):
@@ -155,7 +155,7 @@ def get_asignaturas_alumno(id_alumno: str):
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 # [HU5] Como alumno quiero desmatricularme de ciertas asignaturas
-@app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>', methods=['DELETE'])
+@app.route('/alumnos/<string:id_alumno>/asignaturas/<string:nombre_asignatura>', methods=['DELETE'])
 def delete_asignatura_alumno(id_alumno: str, nombre_asignatura :str):
     if(conser.exist_alumno(id_alumno)):
         if(request.method == 'DELETE'):
@@ -171,7 +171,7 @@ def delete_asignatura_alumno(id_alumno: str, nombre_asignatura :str):
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 # [HU7] Como alumno quiero modificar la dirección de correo
-@app.route('/alumno/<string:id_alumno>', methods=['GET', 'PUT'])
+@app.route('/alumnos/<string:id_alumno>', methods=['GET', 'PUT'])
 def actualiza_email_alumno(id_alumno: str):
     if(conser.exist_alumno(id_alumno)):
         if(request.method == 'PUT'):
@@ -192,7 +192,7 @@ def actualiza_email_alumno(id_alumno: str):
         return jsonify({"Mensaje": "No existe ningún alumno con ese DNI."}), 404
 
 # [HU8] Como alumno quiero consultar el horario de una asignatura
-@app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/horario')
+@app.route('/alumnos/<string:id_alumno>/asignaturas/<string:nombre_asignatura>/horario')
 def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
     content = conser.get_horario_asignatura_alumno(id_alumno, nombre_asignatura)
     if(content=="No existe ningún alumno con ese DNI." or
@@ -204,7 +204,7 @@ def get_horario_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
         return jsonify({'Horario': content}), 200
 
 # [HU9] Como alumno quiero consultar el aula de una asignatura
-@app.route('/alumno/<string:id_alumno>/asignatura/<string:nombre_asignatura>/aula')
+@app.route('/alumnos/<string:id_alumno>/asignaturas/<string:nombre_asignatura>/aula')
 def get_aula_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
     content = conser.get_aula_asignatura_alumno(id_alumno, nombre_asignatura)
     if(content=="No existe ningún alumno con ese DNI." or
@@ -216,7 +216,7 @@ def get_aula_asignatura_alumno(id_alumno: str, nombre_asignatura: str):
         return jsonify({'Aula': content}), 200
 
 # [HU10] Como alumno quiero saber mi horario completo
-@app.route('/alumno/<string:id_alumno>/horario')
+@app.route('/alumnos/<string:id_alumno>/horario')
 def get_horario_alumno(id_alumno: str):
     content = conser.get_horario_alumno(id_alumno)
     if(content=="No existe ningún alumno con ese DNI."):
@@ -227,19 +227,19 @@ def get_horario_alumno(id_alumno: str):
         return jsonify({'Horario completo': content}), 200
 
 # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
-@app.route('/alumno/num')
+@app.route('/alumnos/num')
 def get_numero_alumnos():
     app.logger.debug('Devolviendo número de alumnos')
     return jsonify({'Numero de alumnos': conser.get_numero_alumnos()}), 200
 
 # [HU11] Como administrador quiero saber en el número de alumnos y asignaturas del conservatorio
-@app.route('/asignatura/num')
+@app.route('/asignaturas/num')
 def get_numero_asignaturas():
     app.logger.debug('Devolviendo número de asignaturas')
     return jsonify({'Numero de asignaturas': conser.get_numero_asignaturas()}), 200
 
 # [HU12] Como administrador quiero saber las asignaturas que imparte un profesor
-@app.route('/profesor/<string:nombre_profesor>/asignatura')
+@app.route('/profesor/<string:nombre_profesor>/asignaturas')
 def get_nombre_asignaturas_profesor(nombre_profesor: str):
     content = conser.get_nombre_asignaturas_profesor(nombre_profesor)
     if(content==[]):
@@ -272,7 +272,7 @@ def get_aulas_profesor(nombre_profesor: str):
         return jsonify({'Aulas': content}), 200
 
 # [HU14] Como administrador quiero saber las aulas que usa un alumno
-@app.route('/alumno/<string:id_alumno>/aula')
+@app.route('/alumnos/<string:id_alumno>/aula')
 def get_aulas_alumno(id_alumno: str):
     content = conser.get_aulas_alumno(id_alumno)
     if(content==[]):
@@ -284,7 +284,7 @@ def get_aulas_alumno(id_alumno: str):
 
 # [HU15] Como administrador quiero dar de alta un alumno
 # [HU16] Como administrador quiero obtener un listado de los alumnos y su información
-@app.route('/alumno', methods=['GET', 'POST'])
+@app.route('/alumnos', methods=['GET', 'POST'])
 def dar_alta_alumno():
     """ Espera un json del tipo
     {
