@@ -91,7 +91,7 @@ Durante el diseño de la API se han tomado las siguientes decisiones:
 - Indicar el tipo en la ruta y en el argumento. Ejemplo:
 ```
 # [HU10] Como alumno quiero saber mi horario completo
-@app.route('/alumno/<string:id_alumno>/horario')
+@app.route('/alumnos/<string:id_alumno>/horario')
 def get_horario_alumno(id_alumno: str):
     content = conser.get_horario_alumno(id_alumno)
     if(content=="No existe ningún alumno con ese DNI."):
@@ -115,37 +115,37 @@ def hello_conser():
     return jsonify({'mensaje': "Bienvenido a MiConservatorio!"}), 200
 ```
 
-#### Ruta `/asignatura`
+#### Ruta `/asignaturas`
 
 | HU | Comando y ruta | Código de estado |
 |--------|--------|---------|
-| [[HU1]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12) | `POST /asignatura` | 200, 400 |
-| [[HU2]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13) | `PUT /asignatura/<id_asignatura>` | 200, 400 |
-| [[HU3]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14) | `DELETE /asignatura/<id_asignatura>` | 200, 400 |
-| [[HU17]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/78) | `GET /asignatura` | 200 |
+| [[HU1]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/12) | `POST /asignaturas` | 200, 400 |
+| [[HU2]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/13) | `PUT /asignaturas/<id_asignatura>` | 200, 400 |
+| [[HU3]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/14) | `DELETE /asignaturas/<id_asignatura>` | 200, 400 |
+| [[HU17]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/78) | `GET /asignaturas` | 200 |
 
-#### Ruta `/alumno`
+#### Ruta `/alumnos`
 
 | HU | Comando y ruta | Código de estado |
 |--------|--------|---------|
-| [[HU4]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15) | `POST /alumno/<id_alumno>/asignatura` | 200, 400, 404 |
-| [[HU5]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16) | `DELETE /alumno/<id_alumno>/asignatura/<nombre_asignatura>` | 200, 400, 404 |
-| [[HU6]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39) | `GET /alumno/<id_alumno>/asignatura` | 200, 404 |
-| [[HU7]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17) | `PUT /alumno/<id_alumno>` | 200, 400, 404 |
-| [[HU8]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18) | `GET /alumno/<id_alumno>/asignatura/<nombre_asignatura>/horario` | 200, 404 |
-| [[HU9]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19) | `GET /alumno/<id_alumno>/asignatura/<nombre_asignatura>/aula` | 200, 404 |
-| [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43) | `GET /alumno/<id_alumno>/horario` | 200, 404 |
-| [[HU11]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44) | `GET /alumno/num` y `GET /asignatura/num` | 200 |
-| [[HU15]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/57) | `POST /alumno` | 200, 400 |
-| [[HU16]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/77) | `GET /alumno` | 200 |
+| [[HU4]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/15) | `POST /alumnos/<id_alumno>/asignaturas` | 200, 400, 404 |
+| [[HU5]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/16) | `DELETE /alumnos/<id_alumno>/asignaturas/<nombre_asignatura>` | 200, 400, 404 |
+| [[HU6]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/39) | `GET /alumnos/<id_alumno>/asignaturas` | 200, 404 |
+| [[HU7]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/17) | `PUT /alumnos/<id_alumno>` | 200, 400, 404 |
+| [[HU8]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/18) | `GET /alumnos/<id_alumno>/asignaturas/<nombre_asignatura>/horario` | 200, 404 |
+| [[HU9]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/19) | `GET /alumnos/<id_alumno>/asignaturas/<nombre_asignatura>/aula` | 200, 404 |
+| [[HU10]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/43) | `GET /alumnos/<id_alumno>/horario` | 200, 404 |
+| [[HU11]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/44) | `GET /alumnos/num` y `GET /asignaturas/num` | 200 |
+| [[HU15]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/57) | `POST /alumnos` | 200, 400 |
+| [[HU16]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/77) | `GET /alumnos` | 200 |
 
 #### Ruta `/profesor`
 
 | HU | Comando y ruta | Código de estado |
 |--------|--------|---------|
-| [[HU12]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45) | `GET /profesor/<nombre_profesor>/asignatura` | 200, 404 |
+| [[HU12]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/45) | `GET /profesor/<nombre_profesor>/asignaturas` | 200, 404 |
 | [[HU13]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/46) | `GET /profesor/<nombre_profesor>/horario` | 200, 404 |
-| [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47) | `GET /profesor/<nombre_profesor>/aula` y `GET /alumno/<id_alumno>/aula` | 200, 404 |
+| [[HU14]](https://github.com/Carlossamu7/CC1-Conservatorio/issues/47) | `GET /profesor/<nombre_profesor>/aula` y `GET /alumnos/<id_alumno>/aula` | 200, 404 |
 
 [Consultar `app.py`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/app.py).
 
@@ -165,7 +165,7 @@ Se puede observar la implementación en [`app.py`](https://github.com/Carlossamu
 ```
 # [HU1] Como administrador quiero dar de alta una asignatura
 # [HU17] Como administrador quiero obtener un listado de las asignaturas y su información
-@app.route('/asignatura', methods=['GET', 'POST'])
+@app.route('/asignaturas', methods=['GET', 'POST'])
 def dar_alta_asignatura():
     """ Espera un json del tipo
     {
