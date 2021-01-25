@@ -7,7 +7,7 @@ Implementación de la API
 
 import os
 import json
-from Conservatorio import Conservatorio
+from Conservatorio import Conservatorio, crea_conservatorio
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
@@ -29,30 +29,6 @@ def lee_json(fichero):
         print("Error {:s} leyendo '{:s}'".format(fichero, fallo))
 
     return data
-
-# Función que crea el Conservatorio a partir del json
-def crea_conservatorio(data):
-    # Creando el conservatorio
-    conser = Conservatorio()
-
-    # Dando de alta a los alumnos existentes
-    for i in range(len(data["alumnos"])):
-        conser.dar_alta_alumno(data["alumnos"][i]["nombre"],
-                               data["alumnos"][i]["email"],
-                               data["alumnos"][i]["dni"],
-                               [asig for asig in data["alumnos"][i]["lista_asignaturas"]])
-
-    # Dando de alta las asignaturas existentes
-    for i in range(len(data["asignaturas"])):
-        conser.dar_alta_asignatura(data["asignaturas"][i]["id"],
-                                   data["asignaturas"][i]["nombre_asignatura"],
-                                   data["asignaturas"][i]["curso"],
-                                   data["asignaturas"][i]["concepto"],
-                                   data["asignaturas"][i]["profesor"],
-                                   data["asignaturas"][i]["horario"],
-                                   data["asignaturas"][i]["aula"])
-
-    return conser
 
 # Devuelve el json de las asignaturas
 def get_asignaturas_json(dic):
