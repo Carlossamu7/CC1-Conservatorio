@@ -9,8 +9,12 @@ import os
 import json
 from Conservatorio import Conservatorio, crea_conservatorio
 from flask import Flask, jsonify, request
+from dotenv import load_dotenv
 
 app = Flask(__name__)
+load_dotenv()
+PORT = os.getenv('PORT')
+HOST = os.getenv('HOS')
 
 # Función que lee conservatorio.json
 def lee_json(fichero):
@@ -311,4 +315,4 @@ conser = crea_conservatorio(data)
 
 if __name__ == '__main__':
     # Ejecutamos la app
-    app.run(debug=True, host="127.0.0.1", port=4000)
+    app.run(debug=True, host=HOST, port=PORT)
