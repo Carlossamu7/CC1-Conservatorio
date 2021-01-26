@@ -49,11 +49,11 @@ Y por último para ejecutar el servidor de la API:
 make execute
 ```
 
-## Microservicios ##
+## Composición de servicios ##
 
-Sobre la base de la clase hecha se va a diseñar una API consistente en una serie de rutas (API REST) y testearlo. También se va a crear la infraestructura necesaria para comenzar a ejecutarlo. Para ello, se va de usar el mismo fichero de construcción que hasta ahora, añadiendo las nuevas tareas. Esto también permite, por ejemplo, usar uno de los sistemas de integración continua creados para hacer una ejecución de prueba, en vez de ejecutar los tests.
+Cuando una aplicación no cabe en un solo contenedor por la existencia de varios tier, o simplemente nodos que sirven para almacenar datos, es necesario usar Docker compose para describir de forma repetible la forma como se van a conectar tales contenedores. Se va a diseñar, usando Docker compose y describiendo la infraestructura mediante un fichero docker-compose.yml, un servicio que incluya varios contenedores, incluyendo uno cuyo contenido exclusivo sea almacenar datos.
 
-[Documentación de microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/microservices.md)
+[Documentación de composición de servicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker_compose.md)
 
 ## Licencia
 
