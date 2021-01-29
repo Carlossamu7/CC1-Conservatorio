@@ -55,6 +55,13 @@ Cuando una aplicación no cabe en un solo contenedor por la existencia de varios
 
 [Documentación de composición de servicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker_compose.md)
 
+## Enlaces relevantes ##
+
+- [Test](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/test.md)
+- [Contenerización](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker.md)
+- [Integración continua](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/ci.md)
+- [Microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/microservices.md)
+
 ## Licencia
 
 Este proyecto está desarrollado bajo licencia [GNU General Public License v3.0](https://es.wikipedia.org/wiki/GNU_General_Public_License).
