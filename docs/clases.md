@@ -33,7 +33,7 @@
 - Clase [Conservatorio](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/src/Conservatorio.py). Tiene los siguientes atributos:
     - `nombre_conservatorio` (que es `MiConservatorio`, tiene `getter`)
     - `dic_alumnos` (`getter`)
-    - `dic_alumnos` (`getter`)
+    - `dic_asignaturas` (`getter`)
 
   Y los siguientes métodos:
     - `get_nombre_conservatorio()`
