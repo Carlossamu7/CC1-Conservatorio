@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 app = Flask(__name__)
 load_dotenv()
 PORT = os.getenv('PORT')
-HOST = os.getenv('HOS')
+HOST = os.getenv('HOST')
 
 # Función que lee conservatorio.json
 def lee_json(fichero):
