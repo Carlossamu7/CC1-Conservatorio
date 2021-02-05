@@ -23,7 +23,7 @@ class TestApp(unittest.TestCase):
         self.assertIn(b'Bienvenido a MiConservatorio!', response.data)
 
     # [HU1] Como administrador quiero dar de alta una asignatura
-    # [HU16] Como administrador quiero obtener un listado de las asignaturas y su información
+    # [HU17] Como administrador quiero obtener un listado de las asignaturas y su información
     def test_dar_alta_asignatura(self):
         # 'GET'
         response = self.app.get('/asignaturas')
@@ -273,7 +273,7 @@ class TestApp(unittest.TestCase):
         self.assertIn(b'71254236Y', response.data)
 
         # 'POST' segunda vez
-        response = self.app.post('/asignaturas', data = data, content_type='application/json')
+        response = self.app.post('/alumnos', data = data, content_type='application/json')
         self.assertEqual(response.status_code, 400)
         self.assertIn(b'Mensaje', response.data)
 
