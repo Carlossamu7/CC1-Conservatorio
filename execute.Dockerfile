@@ -28,8 +28,8 @@ RUN pip install -r /app/requirements.txt \
 # Usamos el usuario creado
 USER nonrootuser
 
-# Expongo el puerto 8000
-EXPOSE 8000
+# Expongo el puerto 80
+EXPOSE 80
 
 # Ejecutamos la API
 CMD ["make", "execute"]
