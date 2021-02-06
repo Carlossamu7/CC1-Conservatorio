@@ -91,3 +91,9 @@ print_request(requests.delete(RUTA + "/alumnos/74585246H/asignaturas/Coro"))
 # [HU6] Como alumno consultar mis asignaturas matriculadas
 print("[HU6] Como alumno consultar mis asignaturas matriculadas")
 print_request(requests.get(RUTA + "/alumnos/74585246H/asignaturas"))
+
+# [HU7] Como alumno quiero modificar la dirección de correo
+print("[HU7] Como alumno quiero modificar la dirección de correo")
+print_request(requests.put(RUTA + "/alumnos/74585246H",
+              json.dumps({"email": "otroemail@gmail.com"}),
+              headers=PARAM))
