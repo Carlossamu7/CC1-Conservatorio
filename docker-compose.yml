@@ -7,7 +7,7 @@ services:
       dockerfile: execute.Dockerfile
     restart: always
     ports:
-    - "8000:8000"
+    - "80:80"
 
   client:
     #image: client
