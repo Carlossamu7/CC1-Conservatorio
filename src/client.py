@@ -69,3 +69,7 @@ print_request(requests.get(RUTA + "/"))
 # [HU1] Como administrador quiero dar de alta una asignatura
 print("[HU1] Como administrador quiero dar de alta una asignatura")
 print_request(requests.post(RUTA + "/asignaturas", json.dumps(asignatura), headers=PARAM))
+
+# [HU2] Como administrador quiero modificar una asignatura
+print("[HU2] Como administrador quiero modificar una asignatura")
+print_request(requests.put(RUTA + "/asignaturas/001", json.dumps(asignatura2), headers=PARAM))
