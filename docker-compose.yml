@@ -14,10 +14,7 @@ services:
     build:
       context: .
       dockerfile: client.Dockerfile
-    stdin_open: true
     depends_on:
-      - server
-    links:
       - server
     ports:
     - "8001:8001"
