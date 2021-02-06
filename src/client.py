@@ -126,3 +126,9 @@ print_request(requests.get(RUTA + "/profesor/Javi/horario"))
 # [HU14] Como administrador quiero saber las aulas que usa un profesor
 print("[HU14] Como administrador quiero saber las aulas que usa un profesor")
 print_request(requests.get(RUTA + "/profesor/Javi/aula"))
+
+# [HU15] Como administrador quiero dar de alta un alumno
+print("[HU15] Como administrador quiero dar de alta un alumno")
+print_request(requests.post(RUTA + "/alumnos",
+              json.dumps(alumno),
+              headers=PARAM))
