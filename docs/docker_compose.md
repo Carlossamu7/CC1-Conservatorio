@@ -14,6 +14,10 @@ Por cuestiones de tiempo sólo se va a realizar la composición de contenedores 
 
 ### Configuración de cada uno de los contenedores de la composición ###
 
+[`execute.Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/execute.Dockerfile)
+
+[`client.Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/client.Dockerfile)
+
 ### Fichero de composición ###
 
 Para aprender cómo construir el fichero de composición `docker-compose.yml` he comenzado revisando algunas [guías](https://www.linode.com/docs/guides/how-to-use-docker-compose/) y [documentación oficial](https://docs.docker.com/compose/gettingstarted/)
@@ -22,11 +26,13 @@ Otros valores son: no (por defecto), always y on-failure.
 
 Consultando [aquí](https://docs.docker.com/compose/compose-file/compose-file-v3/#build) descubrimos parámetros disponibles para la opción `build` en la versión `3`. En concreto yo voy a indicarle el archivo `Dockerfile` y el contexto.
 
+[`docker-compose.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docker-compose.yml)
+
 ### Test ###
 
 ### Avance ###
 
-Mejoras indicadas:
+Mejoras indicadas en microservicios:
 - [La definición de rutas no debe contener ninguna lógica de negocio](https://github.com/Carlossamu7/CC1-Conservatorio/issues/84)
 - [No se pueden poner números mágicos en el código](https://github.com/Carlossamu7/CC1-Conservatorio/issues/85)
 - [Renombrar rutas a plural](https://github.com/Carlossamu7/CC1-Conservatorio/issues/86)
