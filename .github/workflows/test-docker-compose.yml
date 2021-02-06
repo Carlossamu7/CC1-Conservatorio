@@ -1,5 +1,5 @@
 ---
-name: Comprobar que docker compose funciona
+name: Comprobar docker compose
 on: [push, pull_request]
 jobs:
   test:
