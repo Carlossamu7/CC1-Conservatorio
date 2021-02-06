@@ -225,6 +225,6 @@ Mejoras indicadas en microservicios:
 Otros avances:
 - Tras crear mi primera *GitHub Actions* he sentido la necesidad de realizar más pruebas. Normalmente uso yamllint en mi local después de modificar alguno de los ficheros que tienen dicha extensión. He creado una sencilla acción para ello en [.github/workflows/yaml.yml](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/.github/workflows/yaml.yml).
 
-![YAML](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobando%20YAML/badge.svg)
+![YAML](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobar%20YAML/badge.svg)
 
 [Consultar issues relevantes](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md).

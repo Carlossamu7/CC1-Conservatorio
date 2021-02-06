@@ -6,7 +6,7 @@
 [![CircleCI](https://circleci.com/gh/Carlossamu7/CC1-Conservatorio.svg?style=svg)](https://app.circleci.com/pipelines/github/Carlossamu7/CC1-Conservatorio)
 
 ![docker-compose](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobar%20docker%20compose/badge.svg)
-![YAML](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobando%20YAML/badge.svg)
+![YAML](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobar%20YAML/badge.svg)
 
 Repositorio para el proyecto (con propósito educativo) de **Cloud Computing**: Fundamentos e Infraestructuras (2020-21) del Máster en Ingeniería Informática de la Universidad de Granada.
 
