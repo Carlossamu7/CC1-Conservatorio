@@ -187,6 +187,28 @@ Una vez realizada la composición y estando el contenedor levantado se pueden re
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/compose.png)
 
+En el [material de la asignatura](http://jj.github.io/CC/documentos/temas/Composicion_de_contenedores) encontramos un ejemplo de GitHub action que testea la composición. A partir de él voy se ha construido un test para este proyecto. Se lanzará en los push y en los PR.
+
+```
+name: Comprobar que docker compose funciona
+on: [push,pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Construye el cluster
+    run: docker-compose up -d
+    - name: Testea el cluster
+    run: wget http://localhost:80/ || exit 1
+    - name: Testea asignaturas
+    run: wget http://localhost:80/asignaturas || exit 1
+    - name: Testea alumnos
+    run: wget http://localhost:80/alumnos || exit 1
+```
+
+[Consultar `test-docker-compose.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/.github/workflows/test-docker-compose.yml)
+
 ### Avance ###
 
 Mejoras indicadas en microservicios:
