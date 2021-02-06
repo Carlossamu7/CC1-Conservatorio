@@ -62,7 +62,7 @@ EXPOSE 80
 CMD ["make", "execute"]
 ```
 
-[`execute.Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/execute.Dockerfile)
+[Consultar `execute.Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/execute.Dockerfile)
 
 Observemos un ejemplo de dicha ejecución mediante la orden `docker run --rm -p 80:80 cc1-conservatorio_server`:
 
@@ -130,19 +130,62 @@ EXPOSE 8001
 CMD ["python3", "client.py"]
 ```
 
-[`client.Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/client.Dockerfile)
+[Consultar `client.Dockerfile`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/client.Dockerfile)
 
 ### Fichero de composición ###
 
-Para aprender cómo construir el fichero de composición `docker-compose.yml` he comenzado revisando algunas [guías](https://www.linode.com/docs/guides/how-to-use-docker-compose/) y [documentación oficial](https://docs.docker.com/compose/gettingstarted/)
+Para aprender cómo construir el fichero de composición `docker-compose.yml` he comenzado revisando algunas [guías](https://www.linode.com/docs/guides/how-to-use-docker-compose/) así como [documentación oficial](https://docs.docker.com/compose/gettingstarted/). El `docker-compose.yml` de esta composición queda así:
 
-Otros valores son: no (por defecto), always y on-failure.
+```
+version: '3'
+services:
+  server:
+    build:
+      context: .
+      dockerfile: execute.Dockerfile
+    restart: always
+    ports:
+    - "80:80"
 
-Consultando [aquí](https://docs.docker.com/compose/compose-file/compose-file-v3/#build) descubrimos parámetros disponibles para la opción `build` en la versión `3`. En concreto yo voy a indicarle el archivo `Dockerfile` y el contexto.
+  client:
+    build:
+      context: .
+      dockerfile: client.Dockerfile
+    depends_on:
+      - server
+    ports:
+    - "8001:8001"
+```
 
-[`docker-compose.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docker-compose.yml)
+A continuación se comentan y explican algunos aspectos de dicho fichero:
+
+- Observamos claramente los dos servicios, cliente y servidor. En ambos se usa el parámetro `build` en vez de `image` para que se construya el contenedor. Consultando [aquí](https://docs.docker.com/compose/compose-file/compose-file-v3/#build) descubrimos parámetros disponibles para la opción `build` en la versión `3`. En concreto yo voy a indicarle dónde están los respectivos archivos `Dockerfile` y el contexto.
+
+- Por otro lado se usa [`restart`](https://docs.docker.com/compose/compose-file/compose-file-v3/#restart) cuyos posibles valores son: `"no"` (por defecto), `always`, `on-failure` y `unless-stopped`. En mi caso establezco este parámetro en `always`.
+
+- La clave `ports` indica el mapeo de puertos.
+
+- En el cliente se usa `depends_on` para indicar las dependencias y como es lógico necesitamos primero la construcción y lanzamiento del servidor para poder levantar el cliente.
+
+*Nota:* Otro parámetro relevante que se puede usar es [`container_name`](https://docs.docker.com/compose/compose-file/compose-file-v3/#container_name) para indicar el nombre que se le debe asignar al contenedor después de la construcción. En mi caso no lo he usado porque me gusta el que genera por defecto:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/images.png)
+
+[Consultar `docker-compose.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docker-compose.yml)
+
+Ejecutando `docker-compose up --build` en el directorio donde se encuentra el `docker-compose.yml` realizamos la composición. En primer lugar el servidor:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/server.png)
+
+Y a continuación la parte del cliente:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/client.png)
 
 ### Test ###
+
+Una vez realizada la composición y estando el contenedor levantado se pueden realizar peticiones desde fuera del mismo. De hecho, podríamos volver a ejecutar el cliente, con todas las historias de usuario, pero desde fuera de la composición.
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/compose.png)
 
 ### Avance ###
 
