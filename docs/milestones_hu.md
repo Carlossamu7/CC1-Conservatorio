@@ -92,3 +92,14 @@ Otros:
 - [Actualizar el gestor de tareas](https://github.com/Carlossamu7/CC1-Conservatorio/issues/79)
 - [Actualizar requirements.txt (Microservicios)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/80)
 - [Imagen Docker de despliegue](https://github.com/Carlossamu7/CC1-Conservatorio/issues/81)
+
+***Milestone*** 6 - [Composición de servicios](https://github.com/Carlossamu7/CC1-Conservatorio/milestone/9)
+
+- [Documentación para milestone 6 (Composición de servicios)](https://github.com/Carlossamu7/CC1-Conservatorio/issues/82)
+- [Fichero `docker-compose.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/83)
+- [Añadir clave test-docker-compose al `cc.yaml`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/87)
+- [`Dockerfile` para el cliente](https://github.com/Carlossamu7/CC1-Conservatorio/issues/89)
+- [Implementar un cliente para el servicio de la app](https://github.com/Carlossamu7/CC1-Conservatorio/issues/90)
+- [Fichero `requirements_client.txt` para las dependencias del cliente](https://github.com/Carlossamu7/CC1-Conservatorio/issues/91)
+- [Crear una *GitHub Actions* para testear el `docker-compose`](https://github.com/Carlossamu7/CC1-Conservatorio/issues/92)
+- [*GitHub Actions* para sintaxis YAML](https://github.com/Carlossamu7/CC1-Conservatorio/issues/93)
