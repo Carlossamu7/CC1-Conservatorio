@@ -1,5 +1,5 @@
 ---
-name: "Comprobando YAML"
+name: "Comprobar YAML"
 on:
   push:
     paths:
