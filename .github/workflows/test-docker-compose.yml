@@ -1,0 +1,15 @@
+name: Comprobar que docker compose funciona
+on: [push,pull_request]
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2
+    - name: Construye el cluster
+    run: docker-compose up -d
+    - name: Testea el cluster
+    run: wget http://localhost:80/ || exit 1
+    - name: Testea asignaturas
+    run: wget http://localhost:80/asignaturas || exit 1
+    - name: Testea alumnos
+    run: wget http://localhost:80/alumnos || exit 1
