@@ -1,0 +1,22 @@
+---
+name: "Comprobando YAML"
+on:
+  push:
+    paths:
+      - 'cc.yaml'
+      - '.github/workflows/**'
+  pull_request:
+    paths:
+      - 'cc.yaml'
+      - '.github/workflows/**'
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: "Comprobando sintaxis"
+        run:
+          yamllint cc.yaml
+          yamllint .github/workflows/test-docker-compose.yml
+          yamllint .github/workflows/yaml.yml
