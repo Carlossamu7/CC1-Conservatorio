@@ -187,7 +187,7 @@ Una vez realizada la composición y estando el contenedor levantado se pueden re
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/compose.png)
 
-En el [material de la asignatura](http://jj.github.io/CC/documentos/temas/Composicion_de_contenedores) encontramos un ejemplo de GitHub action que testea la composición. A partir de él voy se ha construido un test para este proyecto. Se lanzará en los push y en los PR.
+En el [material de la asignatura](http://jj.github.io/CC/documentos/temas/Composicion_de_contenedores) encontramos un ejemplo de *GitHub Actions* que testea la composición. A partir de él voy se ha construido un test para este proyecto. Se lanzará en los push y en los PR.
 
 ```
 name: Comprobar que docker compose funciona
@@ -209,9 +209,22 @@ jobs:
 
 [Consultar `test-docker-compose.yml`](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/.github/workflows/test-docker-compose.yml)
 
+Comprobamos el correcto funcionamiento del *workflow*:
+
+![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/testcompose.png)
+
+![docker-compose](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobar%20que%20docker%20compose%20funciona/badge.svg)
+
 ### Avance ###
 
 Mejoras indicadas en microservicios:
 - [La definición de rutas no debe contener ninguna lógica de negocio](https://github.com/Carlossamu7/CC1-Conservatorio/issues/84)
 - [No se pueden poner números mágicos en el código](https://github.com/Carlossamu7/CC1-Conservatorio/issues/85)
 - [Renombrar rutas a plural](https://github.com/Carlossamu7/CC1-Conservatorio/issues/86)
+
+Otros avances:
+- Tras crear mi primera *GitHub Actions* he sentido la necesidad de realizar más pruebas. Normalmente uso yamllint en mi local después de modificar alguno de los ficheros que tienen dicha extensión. He creado una sencilla acción para ello en [.github/workflows/yaml.yml](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/.github/workflows/yaml.yml).
+
+![YAML](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobando%YAML/badge.svg)
+
+[Consultar issues relevantes](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/milestones_hu.md).
