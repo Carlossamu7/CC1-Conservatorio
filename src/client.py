@@ -83,3 +83,7 @@ print("[HU4] Como alumno quiero matricularme de ciertas asignaturas")
 print_request(requests.post(RUTA + "/alumnos/74585246H/asignaturas",
               json.dumps({"nombre_asignatura": "Lenguaje Musical"}),
               headers=PARAM))
+
+# [HU5] Como alumno quiero desmatricularme de ciertas asignaturas
+print("[HU5] Como alumno quiero desmatricularme de ciertas asignaturas")
+print_request(requests.delete(RUTA + "/alumnos/74585246H/asignaturas/Coro"))
