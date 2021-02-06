@@ -65,3 +65,7 @@ def print_request(response):
 # Ruta inicial de bienvenida
 print("Ruta iniciial de bienvenida")
 print_request(requests.get(RUTA + "/"))
+
+# [HU1] Como administrador quiero dar de alta una asignatura
+print("[HU1] Como administrador quiero dar de alta una asignatura")
+print_request(requests.post(RUTA + "/asignaturas", json.dumps(asignatura), headers=PARAM))
