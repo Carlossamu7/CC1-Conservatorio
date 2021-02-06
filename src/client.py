@@ -118,3 +118,7 @@ print_request(requests.get(RUTA + "/asignaturas/num"))
 # [HU12] Como administrador quiero saber las asignaturas que imparte un profesor
 print("[HU12] Como administrador quiero saber las asignaturas que imparte un profesor")
 print_request(requests.get(RUTA + "/profesor/Javi/asignaturas"))
+
+# [HU13] Como administrador quiero saber el horario completo de un profesor
+print("[HU13] Como administrador quiero saber el horario completo de un profesor")
+print_request(requests.get(RUTA + "/profesor/Javi/horario"))
