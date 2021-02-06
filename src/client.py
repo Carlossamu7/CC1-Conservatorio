@@ -77,3 +77,9 @@ print_request(requests.put(RUTA + "/asignaturas/001", json.dumps(asignatura2), h
 # [HU3] Como administrador quiero borrar una asignatura
 print("[HU3] Como administrador quiero borrar una asignatura")
 print_request(requests.delete(RUTA + "/asignaturas/001"))
+
+# [HU4] Como alumno quiero matricularme de ciertas asignaturas
+print("[HU4] Como alumno quiero matricularme de ciertas asignaturas")
+print_request(requests.post(RUTA + "/alumnos/74585246H/asignaturas",
+              json.dumps({"nombre_asignatura": "Lenguaje Musical"}),
+              headers=PARAM))
