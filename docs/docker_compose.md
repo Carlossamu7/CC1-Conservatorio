@@ -213,7 +213,7 @@ Comprobamos el correcto funcionamiento del *workflow*:
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/testcompose.png)
 
-![docker-compose](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobar%%20docker%20compose/badge.svg)
+![docker-compose](https://github.com/Carlossamu7/CC1-Conservatorio/workflows/Comprobar%20docker%20compose/badge.svg)
 
 ### Avance ###
 
