@@ -87,3 +87,7 @@ print_request(requests.post(RUTA + "/alumnos/74585246H/asignaturas",
 # [HU5] Como alumno quiero desmatricularme de ciertas asignaturas
 print("[HU5] Como alumno quiero desmatricularme de ciertas asignaturas")
 print_request(requests.delete(RUTA + "/alumnos/74585246H/asignaturas/Coro"))
+
+# [HU6] Como alumno consultar mis asignaturas matriculadas
+print("[HU6] Como alumno consultar mis asignaturas matriculadas")
+print_request(requests.get(RUTA + "/alumnos/74585246H/asignaturas"))
