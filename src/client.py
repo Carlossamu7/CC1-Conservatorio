@@ -101,3 +101,7 @@ print_request(requests.put(RUTA + "/alumnos/74585246H",
 # [HU8] Como alumno quiero consultar el horario de una asignatura
 print("[HU8] Como alumno quiero consultar el horario de una asignatura")
 print_request(requests.get(RUTA + "/alumnos/75931715K/asignaturas/Coro/horario"))
+
+# [HU9] Como alumno quiero consultar el aula de una asignatura
+print("[HU9] Como alumno quiero consultar el aula de una asignatura")
+print_request(requests.get(RUTA + "/alumnos/75931715K/asignaturas/Coro/aula"))
