@@ -23,6 +23,7 @@ PARAM = {'content-type': 'application/json'}
 ###         Datos         ###
 #############################
 
+# Asignaturas
 asignatura = {
     "id": "003",
     "nombre_asignatura": "Armonía",
@@ -43,6 +44,7 @@ asignatura2 = {
     "aula": "Aula03"
 }
 
+# Alumnos
 alumno = {
     "nombre": "Pepe",
     "email": "pepe@gmail.com",
