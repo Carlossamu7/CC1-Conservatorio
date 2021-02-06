@@ -73,3 +73,7 @@ print_request(requests.post(RUTA + "/asignaturas", json.dumps(asignatura), heade
 # [HU2] Como administrador quiero modificar una asignatura
 print("[HU2] Como administrador quiero modificar una asignatura")
 print_request(requests.put(RUTA + "/asignaturas/001", json.dumps(asignatura2), headers=PARAM))
+
+# [HU3] Como administrador quiero borrar una asignatura
+print("[HU3] Como administrador quiero borrar una asignatura")
+print_request(requests.delete(RUTA + "/asignaturas/001"))
