@@ -136,3 +136,7 @@ print_request(requests.post(RUTA + "/alumnos",
 # [HU16] Como administrador quiero obtener un listado de los alumnos y su información
 print("[HU16] Como administrador quiero obtener un listado de los alumnos y su información")
 print_request(requests.get(RUTA + "/alumnos"))
+
+# [HU17] Como administrador quiero obtener un listado de las asignaturas y su información
+print("[HU17] Como administrador quiero obtener un listado de las asignaturas y su información")
+print_request(requests.get(RUTA + "/asignaturas"))
