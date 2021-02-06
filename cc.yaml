@@ -17,3 +17,5 @@ test:
   - tests/testApp.py
 
 make: make
+
+test-docker-compose: .github/workflows/test-docker-compose.yml
