@@ -187,7 +187,7 @@ Una vez realizada la composición y estando el contenedor levantado se pueden re
 
 ![](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/images/sem_13_14_15/compose.png)
 
-En el [material de la asignatura](http://jj.github.io/CC/documentos/temas/Composicion_de_contenedores) encontramos un ejemplo de *GitHub Actions* que testea la composición. A partir de él voy se ha construido un test para este proyecto. Se lanzará en los push y en los PR.
+En el [material de la asignatura](http://jj.github.io/CC/documentos/temas/Composicion_de_contenedores) encontramos un ejemplo de *GitHub Actions* que testea la composición. A partir de él se ha construido un test para este proyecto. Se lanzará en los push y en los PR.
 
 ```
 name: Comprobar que docker compose funciona
