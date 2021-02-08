@@ -52,18 +52,13 @@ Y por último para ejecutar el servidor de la API:
 make execute
 ```
 
-## Composición de servicios ##
-
-Cuando una aplicación no cabe en un solo contenedor por la existencia de varios tier, o simplemente nodos que sirven para almacenar datos, es necesario usar Docker compose para describir de forma repetible la forma como se van a conectar tales contenedores. Se va a diseñar, usando Docker compose y describiendo la infraestructura mediante un fichero docker-compose.yml, un servicio que incluya varios contenedores, incluyendo uno cuyo contenido exclusivo sea almacenar datos.
-
-[Documentación de composición de servicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker_compose.md)
-
 ## Enlaces relevantes ##
 
 - [Test](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/test.md)
 - [Contenerización](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker.md)
 - [Integración continua](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/ci.md)
 - [Microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/microservices.md)
+- [Composición de servicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker_compose.md)
 
 ## Licencia
 
