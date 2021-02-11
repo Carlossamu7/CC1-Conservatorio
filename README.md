@@ -59,6 +59,7 @@ make execute
 - [Integración continua](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/ci.md)
 - [Microservicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/microservices.md)
 - [Composición de servicios](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/docker_compose.md)
+- [Exposición del proyecto](https://github.com/Carlossamu7/CC1-Conservatorio/blob/master/docs/MiConservatorio.pdf)
 
 ## Licencia
 
